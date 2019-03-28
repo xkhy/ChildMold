@@ -1,42 +1,23 @@
-<!--index.wxml-->
-<!-- <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view> -->
-
 <view class="container">
   <swiper indicator-dots indicator-active-color="#EF8501" indicator-color="#fff" autoplay="3000" interval="5000" duration="500">
-    <block wx:for="{{imgUrls}}" wx:key="{{item}}">
+    <block wx:for="{{imgUrls}}" wx:key="{{item}}" wx:key="{{item.id}}">
       <swiper-item>
         <image src="{{item}}" class="slide-image"/>
       </swiper-item>
     </block>
   </swiper>
-  <i-tabs color="#EF8501" i-class="tabs" current="{{ current }}" bindchange="handleChange">
-    <i-tab key="tab1" title="推荐"></i-tab>
-    <i-tab key="tab2" title="人气"></i-tab>
-    <i-tab key="tab3" title="新人"></i-tab>
-</i-tabs>
 <!-- <view class="tabs">
   <view class="tab tab-active">推荐</view>
   <view class="tab">人气</view>
   <view class="tab">新人</view>
 </view> -->
 <view class="model-group">
-    <view class="model-single"  wx:for="{{modelList}}" bindtap="toModel">
+    <view class="model-single"  wx:for="{{modelList}}" wx:key="{{item.id}}" bindtap="toModel">
       <image class="model-image" src="{{item}}"></image>
       <view class="model-info">
         <text class="model-name">王晶晶</text>
         <view class="model-attention">
-            <image src="../../icon/heart.png" class="heart"></image>
+            <image src="../../assets/icon/heart.png" class="heart"></image>
             <text>263</text>  
         </view>
       </view>

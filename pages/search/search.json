@@ -1,8 +1,4 @@
 {
-  "usingComponents": {
-    "i-collapse": "../../dist/collapse/index",
-    "i-collapse-item": "../../dist/collapse-item/index",
-    "i-button": "../../dist/button/index"
-  },
+  "usingComponents": {},
   "navigationBarTitleText": "搜索"
 }

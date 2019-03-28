@@ -1,20 +1,9 @@
-@charset "UTF-8";
-/*文本格式化，超出范围，显示省略号*/
-/* 画三角形 */
-/* 画圆形 */
-/* 画爱心 */
-/* 适配背景图 */
-/* 扩大可点击区域 */
-image {
-  width: 100%;
-}
-
 .search-bar {
   height: 100rpx;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0 20rpx;
+  padding: 0 20rpx
 }
 
 .search-bar input {
@@ -23,7 +12,7 @@ image {
   background: #eee;
   border-radius: 35rpx;
   font-size: 26rpx;
-  padding-left: 2em;
+  padding-left: 2em
 }
 
 .search-bar button {
@@ -33,12 +22,12 @@ image {
   background: #EF8501;
   font-size: 28rpx;
   color: #fff;
-  border-radius: 10rpx;
+  border-radius: 10rpx
 }
 
 .search-bar text {
   font-size: 28rpx;
-  color: #444;
+  color: #444
 }
 
 .search-bar .bottom-arrow {
@@ -50,7 +39,7 @@ image {
   border-style: dashed;
   border-top-style: solid;
   border-left-color: transparent;
-  border-right-color: transparent;
+  border-right-color: transparent
 }
 
 .search-bar .top-arrow {
@@ -62,26 +51,26 @@ image {
   border-style: dashed;
   border-top-style: solid;
   border-left-color: transparent;
-  border-right-color: transparent;
+  border-right-color: transparent
 }
 
 .drawer-container {
   height: 270rpx;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-around
 }
 
 .drawer-container .filters {
   display: flex;
   align-items: center;
   color: #444;
-  font-size: 28rpx;
+  font-size: 28rpx
 }
 
 .drawer-container .filters .filter-name {
   width: 135rpx;
-  text-align: center;
+  text-align: center
 }
 
 .drawer-container .tag {
@@ -92,22 +81,22 @@ image {
   background-color: #fff;
   color: #999;
   border: 2rpx solid #ccc;
-  border-radius: 8rpx;
+  border-radius: 8rpx
 }
 
 .drawer-container .tag-sex-boy {
-  border-radius: 8rpx 0rpx 0rpx 8rpx;
+  border-radius: 8rpx 0rpx 0rpx 8rpx
 }
 
 .drawer-container .tag-sex-girl {
-  border-radius: 0rpx 8rpx 8rpx 0rpx;
+  border-radius: 0rpx 8rpx 8rpx 0rpx
 }
 
 .drawer-container .tag-height {
   width: 208rpx;
   text-align: left;
   padding-left: 2em;
-  position: relative;
+  position: relative
 }
 
 .drawer-container .tag-height::after {
@@ -115,24 +104,24 @@ image {
   display: block;
   content: "厘米";
   top: 0;
-  right: 32rpx;
+  right: 32rpx
 }
 
 .drawer-container .line {
   width: 42rpx;
   height: 3rpx;
   margin: 0 11rpx;
-  border: 2rpx solid #ccc;
+  border: 2rpx solid #ccc
 }
 
 .drawer-container .tag-address {
-  width: 480rpx;
+  width: 480rpx
 }
 
 .drawer-container .tag-active {
   background-color: #EF8501;
   color: #fff;
-  border: 0;
+  border: 0
 }
 
 .model-group {
@@ -140,17 +129,17 @@ image {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  background: #fff;
+  background: #fff
 }
 
 .model-group .model-single {
   width: 228rpx;
-  margin-bottom: 12rpx;
+  margin-bottom: 12rpx
 }
 
 .model-group .model-single .model-image {
   height: 228rpx;
-  border-radius: 8rpx;
+  border-radius: 8rpx
 }
 
 .model-group .model-single .model-info {
@@ -159,22 +148,22 @@ image {
   align-items: center;
   line-height: 70rpx;
   font-size: 24rpx;
-  color: #999;
+  color: #999
 }
 
 .model-group .model-single .model-info .model-name {
   color: #444;
-  font-size: 30rpx;
+  font-size: 30rpx
 }
 
 .model-group .model-single .model-info .model-attention {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: center
 }
 
 .model-group .model-single .model-info .heart {
   width: 24rpx;
   height: 24rpx;
-  margin-right: 14rpx;
+  margin-right: 14rpx
 }

@@ -1,30 +1,3 @@
-<!-- <i-button bind:click="toggleRight1" type="ghost">
-  右边弹出1</i-button>
-<i-drawer mode="right" visible="{{showRight1}}" bind:close="toggleRight1">
-  <view class="drawer-container">
-    <view class="filters">
-      性别：
-      <view class="tag">全部</view>
-      <view class="tag tag-active">男</view>
-      <view class="tag">女</view>
-    </view>
-    <view class="filters">
-      身高：
-      <view class="tag tag-active">全部</view>
-      <input type="digit" class="tag"></input>~
-      <input type="digit" class="tag">女</input>cm
-    </view>
-    <view class="filters">
-      地区：
-      <view class="tag tag-active">全部</view>
-      <input type="digit" class="tag"></input>~
-      <input type="digit" class="tag">女</input>cm
-    </view>
-  </view>
-</i-drawer>
-<i-drawer mode="right" visible="{{showRight2}}" mask-closable="{{true}}">
-</i-drawer> -->
-
 <view class="caption-wrap">
   <view class="search-bar">
       <input placeholder="请输入关键字"/>
@@ -40,9 +13,9 @@
     </view>
     <view class="filters">
       <view class="filter-name">身高</view>       
-      <input type="digit" class="tag tag-height"></input>
+      <input type="digit" class="tag tag-height"/>
       <view class="line"></view>
-      <input type="digit" class="tag tag-height">女</input>
+      <input type="digit" class="tag tag-height"/>女
     </view>
     <view class="filters">
         <view class="filter-name">地区</view>  
@@ -59,12 +32,12 @@
     </view>
   </view>
   <view class="model-group">
-      <view class="model-single"  wx:for="{{modelList}}" bindtap="toModel">
+      <view class="model-single"  wx:for="{{modelList}}" wx:key="item.id" bindtap="toModel">
         <image class="model-image" src="{{item}}"></image>
         <view class="model-info">
           <text class="model-name">王晶晶</text>
           <view class="model-attention">
-              <image src="../../icon/heart.png" class="heart"></image>
+              <image src="../../assets/icon/heart.png" class="heart"></image>
               <text>263</text>  
           </view>
         </view>

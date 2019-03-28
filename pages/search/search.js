@@ -2,15 +2,15 @@ Page({
   data: {
       showFilters: false,
       modelList: [
-        "/images/model1.png",
-        "/images/model2.png",
-        "/images/model3.png",
-        "/images/model1.png",
-        "/images/model2.png",
-        "/images/model3.png",
-        "/images/model1.png",
-        "/images/model2.png",
-        "/images/model3.png"
+        "/assets/images/model1.png",
+        "/assets/images/model2.png",
+        "/assets/images/model3.png",
+        "/assets/images/model1.png",
+        "/assets/images/model2.png",
+        "/assets/images/model3.png",
+        "/assets/images/model1.png",
+        "/assets/images/model2.png",
+        "/assets/images/model3.png"
       ],
       region: ['xx省', 'xx市', 'xx区'],
       customItem: '全部'

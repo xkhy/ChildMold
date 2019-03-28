@@ -1,0 +1,10 @@
+<view class="bg">
+	<view class="auth">
+		<image src="/assets/icon/find.png"></image>
+		<text>童模认证</text>
+	</view>
+	<view class="auth">
+		<image src="/assets/icon/find.png"></image>
+		<text>商家认证</text>
+	</view>
+</view>

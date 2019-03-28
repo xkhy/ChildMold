@@ -1,0 +1,36 @@
+<view class="bg">
+  <image src="https://i.loli.net/2017/08/21/599a521472424.jpg"></image>
+  <text>王晶晶</text>
+</view>
+<view class="cell-group">
+  <navigator class="cell" hover-class="none"> 
+    <image src="/assets/icon/find.png"></image>
+    <text>详细资料</text>
+    <view class="right-arrow"></view>
+  </navigator>
+  <navigator class="cell" hover-class="none">
+    <image src="/assets/icon/find.png"></image>
+    <text>我的关注</text>
+    <view class="right-arrow"></view>
+  </navigator>
+  <navigator class="cell" hover-class="none">
+    <image src="/assets/icon/find.png"></image>
+    <text>联系客服</text>
+    <view class="right-arrow"></view>
+  </navigator>
+  <navigator class="cell" hover-class="none">
+    <image src="/assets/icon/find.png"></image>
+    <text>一键认证</text>
+    <view class="right-arrow"></view>
+  </navigator>
+  <navigator class="cell"  hover-class="none" style="margin-top:36rpx;">
+    <image src="/assets/icon/find.png"></image>
+    <text>发布需求</text>
+    <view class="right-arrow"></view>
+  </navigator>
+  <navigator class="cell" hover-class="none">
+        <image src="/assets/icon/find.png"></image>
+        <text>发布公告</text>
+        <view class="right-arrow"></view>
+  </navigator>
+</view>

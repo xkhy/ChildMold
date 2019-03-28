@@ -1,11 +1,11 @@
-@import "../../scss/common.scss";
-
+@import  "../../assets/scss/common.scss";
 .search-bar {
   height: 100rpx;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 0 20rpx;
+  margin: 100rpx;
   input {
     width: 459rpx;
     height: 70rpx;

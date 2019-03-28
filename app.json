@@ -1,15 +1,10 @@
 {
 	"pages": [
 		"pages/index/index",
+    "pages/search/search",
 		"pages/find/find",
-		"pages/my/my",
-		"pages/search/search",
-		"pages/business/business",
-		"pages/model/model",
-		"pages/release/release",
-		"pages/city/city",
-		"pages/business_release/business_release",
-		"pages/auth/auth"
+		"pages/user/user",
+		"pages/user/auth/auth"
 	],
 	"window": {
 		"backgroundTextStyle": "light",
@@ -25,35 +20,27 @@
 			{
 				"pagePath": "pages/index/index",
 				"text": "首页",
-				"iconPath": "icon/home.png",
-				"selectedIconPath": "icon/home_selected.png"
+				"iconPath": "assets/icon/home.png",
+				"selectedIconPath": "assets/icon/home_selected.png"
 			},
 			{
 				"pagePath": "pages/search/search",
 				"text": "搜索",
-				"iconPath": "icon/search.png",
-				"selectedIconPath": "icon/search_selected.png"
+				"iconPath": "assets/icon/search.png",
+				"selectedIconPath": "assets/icon/search_selected.png"
 			},
 			{
 				"pagePath": "pages/find/find",
 				"text": "发现",
-				"iconPath": "icon/find.png",
-				"selectedIconPath": "icon/find_selected.png"
+				"iconPath": "assets/icon/find.png",
+				"selectedIconPath": "assets/icon/find_selected.png"
 			},
 			{
-				"pagePath": "pages/my/my",
+				"pagePath": "pages/user/user",
 				"text": "我的",
-				"iconPath": "icon/my.png",
-				"selectedIconPath": "icon/my_selected.png"
+				"iconPath": "assets/icon/my.png",
+				"selectedIconPath": "assets/icon/my_selected.png"
 			}
 		]
-	},
-	"usingComponents": {
-		"i-button": "../../dist/button/index",
-		"i-tabs": "../../dist/tabs/index",
-		"i-tab": "../../dist/tab/index",
-		"i-cell-group": "../../dist/cell-group/index",
-		"i-cell": "../../dist/cell/index",
-		"i-icon": "../../dist/icon/index"
 	}
 }

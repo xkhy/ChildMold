@@ -20,7 +20,7 @@
   <view class="release">
     <view class="card">
         <view class="card-title">
-                <image class="card-icon" src="/icon/heart.png"></image>
+                <image class="card-icon" src="/assets/icon/heart.png"></image>
                 <text>商家名称</text>
         </view>
       <view class="card-content">
