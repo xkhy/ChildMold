@@ -1,0 +1,128 @@
+/*文本格式化，超出范围，显示省略号*/
+@mixin text-overflow($width: 100%, $display: block) {
+  width: $width;
+  display: $display;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* 画三角形 */
+@mixin triangle($width: 10px, $direction: top, $color: red) {
+  width: 0;
+  height: 0;
+  border: $width solid transparent;
+  @if ($direction == top) {
+    // 上三角
+    border-bottom-color: $color;
+  }
+  @if ($direction == bottom) {
+    // 下三角
+    border-top-color: $color;
+  }
+  @if ($direction == left) {
+    // 左三角
+    border-right-color: $color;
+  }
+  @if ($direction == right) {
+    // 右三角
+    border-left-color: $color;
+  }
+}
+/* 画圆形 */
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+/* 画爱心 */
+@mixin heart($size: 100px) {
+  position: relative;
+  width: $size;
+  height: $size;
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    left: $size;
+    top: 0;
+    width: $size;
+    height: $size;
+    background: red;
+    -moz-border-radius: 50px 50px 0 0;
+    border-radius: 50px 50px 0 0;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transform-origin: 0 100%;
+    -moz-transform-origin: 0 100%;
+    -ms-transform-origin: 0 100%;
+    -o-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+  }
+  &::after {
+    left: 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: 100% 100%;
+    -moz-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    -o-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+  }
+}
+/* 适配背景图 */
+// @mixin bg-image($imgUrl) {
+//   background-image: url($imgUrl+"@2x.png");
+//   @media (-webkit-min-device-pixel-ratio: 3) {
+//     background-image: url($imgUrl+"@3x.png");
+//   }
+//   @media (min-device-pixel-ratio: 3) {
+//     background-image: url($imgUrl+"@3x.png");
+//   }
+// }
+/* 扩大可点击区域 */
+@mixin extend-click($extendPadding: 10px) {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -$extendPadding;
+    left: -$extendPadding;
+    right: -$extendPadding;
+    bottom: -$extendPadding;
+  }
+}
+
+// 颜色定义规范
+
+$color-bg: #f7f7f7;
+$color-background-d: rgba(0, 0, 0, 0.3);
+$color-highlight-background: #333;
+$color-dialog-background: #666;
+$color-theme: #EF8501;
+$color-theme-d: rgba(255, 205, 49, 0.5);
+$color-sub-theme: #d93f30;
+$color-text: #fff;
+$color-text-d: rgba(255, 255, 255, 0.3);
+$color-text-l: rgba(255, 255, 255, 0.5);
+$color-text-ll: rgba(255, 255, 255, 0.8);
+
+//字体定义规范
+$font-size-small-s: 10px;
+$font-size-small: 12px;
+$font-size-medium: 14px;
+$font-size-medium-x: 16px;
+$font-size-large: 18px;
+$font-size-large-x: 22px;
+
+image {
+  width: 100%;
+}

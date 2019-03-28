@@ -1,0 +1,31 @@
+<view class="container">
+  <!-- <i-tabs
+    color="#EF8501"
+    i-class="tabs"
+    current="{{ current }}"
+    bindchange="handleChange"
+  >
+    <i-tab i-class="tab" key="tab1" title="需求"></i-tab>
+    <i-tab i-class="tab" key="tab2" title="公告"></i-tab>
+  </i-tabs> -->
+  <view class="tabs">
+    <view class="tab tab-active">需求</view>
+    <view class="tab">公告</view>
+  </view>
+  <i-tabs color="#EF8501" current="{{ current }}" bindchange="handleChange">
+    <i-tab key="tab1" title="全部"></i-tab>
+    <i-tab key="tab2" title="关注"></i-tab>
+    <i-tab key="tab3" title="附近"></i-tab>
+  </i-tabs>
+  <view class="release">
+    <view class="card">
+        <view class="card-title">
+                <image class="card-icon" src="/icon/heart.png"></image>
+                <text>商家名称</text>
+        </view>
+      <view class="card-content">
+
+      </view>
+    </view>
+  </view>
+</view>

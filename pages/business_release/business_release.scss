@@ -1,0 +1,27 @@
+@import "../../scss//common.scss";
+.container{
+    background-color: $color-bg;
+    .tabs{
+        height: 88rpx;
+        line-height: 88rpx;
+    }
+    .release{
+        background-color: #fff;
+       .business{
+        margin:  0 20rpx;
+        display: flex;
+        align-items: center;
+        line-height: 62rpx;
+        border-bottom: 2rpx solid #ddd;
+        image{
+            width: 30rpx;
+            height: 30rpx;
+            margin: 0 10rpx;
+        }
+        text{
+            font-size: 26rpx;
+            color: #444;
+        }
+       }
+    }
+}

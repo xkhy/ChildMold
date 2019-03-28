@@ -1,0 +1,89 @@
+@import "../../scss/common.scss";
+swiper {
+  height: 750rpx;
+  image {
+    height: 100%;
+  }
+}
+.model-detail {
+  .cell-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 359rpx;
+    margin: 0 20rpx;
+    padding: 54rpx 0 36rpx 20rpx;
+    border-bottom: 2rpx solid #ddd;
+    .cell {
+      display: flex;
+      .row {
+        flex: 1;
+        font-size: 28rpx;
+        color: #444;
+      }
+    }
+  }
+  .model-introduce {
+    padding: 35rpx 40rpx 85rpx;
+    font-size: 28rpx;
+    color: #444;
+  }
+  .contact-private {
+    display: flex;
+    align-items: center;
+    image {
+      width: 48rpx;
+      height: 48rpx;
+    }
+    .phone {
+      margin-left: 12rpx;
+      font-size: 32rpx;
+      font-weight: 500;
+      color: #444;
+    }
+  }
+  .contact-public {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 88rpx;
+    background-color: $color-theme;
+    image {
+      width: 48rpx;
+      height: 48rpx;
+    }
+    .phone {
+      margin-left: 12rpx;
+      font-size: 32rpx;
+      font-weight: 500;
+      color: #fff;
+    }
+  }
+}
+
+.model-group {
+  padding: 20rpx 10rpx 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: #fff;
+  .model-single {
+    width: 228rpx;
+    margin-bottom: 12rpx;
+    .model-image {
+      height: 228rpx;
+      border-radius: 8rpx;
+    }
+  }
+  .edit {
+    margin-bottom: 22rpx;
+    width: 480rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 32rpx;
+    background-color: $color-theme;
+    border-radius: 8rpx;
+  }
+}

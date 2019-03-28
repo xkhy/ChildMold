@@ -1,0 +1,55 @@
+<view class="container">
+    <swiper indicator-dots indicator-active-color="#F27900" indicator-color="#fff" autoplay="3000" interval="5000" duration="500">
+      <block wx:for="{{imgUrls}}" wx:key="{{item}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <i-tabs  i-class="tabs" color="#EF8501"  current="{{ current }}" bindchange="handleChange">
+      <i-tab key="tab1" title="作品集"></i-tab>
+      <i-tab key="tab2" title="童模详情"></i-tab>
+    </i-tabs>
+        <!-- 童模信息开始 -->
+   <view wx:if="{{current=='tab2'}}" class="model-detail"> 
+       <view class="cell-group">
+            <view class="cell">
+                    <view class="row"> 姓名: 王晶晶 </view>
+                    <view class="row"> 性别: 女 </view>
+                </view>
+                <view class="cell">
+                    <view class="row"> 生日: 1996-12-26 </view>
+                    <view class="row"> 身高: 161cm </view>
+                </view>
+                <view class="cell">
+                    <view class="row"> 体重: 30kg </view>
+                    <view class="row"> 鞋码: 34 </view>
+                </view>
+                <view class="cell">
+                    <view class="row"> 三围: 32，31，34 </view>
+                    <view class="row"> 联系方式: 13656894523 </view>
+                </view>
+                <view class="cell">
+                    <view class="row"> 地址：浙江省湖州市吴兴区爱山广场002</view>
+                </view>
+       </view>
+       <view class="model-introduce">
+            个人介绍：
+           <view>这里是个人介绍这里是个人介绍这里是个人介绍这里是
+            个人介绍这里是个人介绍这里是个人介绍这里是个人介绍这里是个人
+            介绍这里是个人介绍这里是个人介绍这里是个人介绍
+            </view> 
+       </view>
+       <view class="contact-public">
+           <image src="/icon/find.png"></image>
+            <view class="phone">13656894523</view>
+       </view>
+    </view>
+        <view wx:if="{{current=='tab1'}}" class="model-group">
+            <view class="model-single"  wx:for="{{imgUrls}}" wx:key="{{item}}">
+            <image class="model-image " src="{{item}}"></image>
+            </view>
+            <button class="edit">编辑</button>
+        </view>
+        <!-- 童模信息结束 -->
+  </view>

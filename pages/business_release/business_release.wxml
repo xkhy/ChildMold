@@ -1,0 +1,14 @@
+
+<view class="container">
+        <i-tabs i-class="tabs" color="#EF8501" i-class="tabs" current="{{ current }}" bindchange="handleChange">
+            <i-tab key="tab1" title="全部"></i-tab>
+            <i-tab key="tab2" title="关注"></i-tab>
+            <i-tab key="tab3" title="附近"></i-tab>
+        </i-tabs>
+        <view class="release">
+            <view class="business">
+                <image src="/icon/heart.png"></image>
+                <text>商家名称</text>
+            </view>
+        </view>
+    </view>

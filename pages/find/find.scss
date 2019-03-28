@@ -1,0 +1,42 @@
+@import "../../scss/common.scss";
+.container {
+  .tabs {
+    display: flex;
+    justify-content: center;
+    .tab {
+      width: 240rpx;
+      height: 60rpx;
+      line-height: 60rpx;
+      text-align: center;
+      background-color: #fff;
+      font-size: 28rpx;
+      border: 2rpx solid #ccc;
+      color: #999;
+    }
+    .tab:first-child {
+      border-radius: 8rpx 0 0 8rpx;
+    }
+    .tab:last-child {
+      border-radius: 0 8rpx 8rpx 0;
+    }
+    .tab-active {
+      border: none;
+      color: #fff;
+      background-color: $color-theme;
+    }
+  }
+  .card {
+    width: 330rpx;
+    .card-title {
+      display: flex;
+      align-items: center;
+      height: 62rpx;
+      .card-icon{
+        width: 64rpx;
+        height: 64rpx;
+      }
+    }
+    .card-content {
+    }
+  }
+}

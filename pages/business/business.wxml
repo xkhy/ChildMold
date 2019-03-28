@@ -1,0 +1,26 @@
+<swiper indicator-dots indicator-active-color="#F27900" indicator-color="#fff" autoplay="3000" interval="5000" duration="500">
+    <block wx:for="{{imgUrls}}" wx:key="{{item}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="tabs">
+    <view class="tab tab-active">
+        资料详情
+      <!-- <text class="tab-active">资料详情</text> -->
+    </view>
+    <view class="tab">
+        <!-- <text> -->
+            作品集
+        <!-- </text> -->
+    </view>
+  </view>
+  <i-cell-group>
+    <i-cell title="商家名称" is-link></i-cell>
+    <i-cell title="商家地址" is-link url="/pages/dashboard/index"></i-cell>
+    <i-cell title="手机号码" is-link url="/pages/dashboard/index"></i-cell>
+    <i-cell title="微信二维码" is-link url="/pages/dashboard/index"></i-cell>
+    <i-cell title="关于我" is-link url="/pages/dashboard/index"></i-cell>
+    <i-cell title="营业执照" is-link url="/pages/dashboard/index"></i-cell>
+   </i-cell-group>

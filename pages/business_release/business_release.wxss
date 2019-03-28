@@ -1,0 +1,42 @@
+@charset "UTF-8";
+/*文本格式化，超出范围，显示省略号*/
+/* 画三角形 */
+/* 画圆形 */
+/* 画爱心 */
+/* 适配背景图 */
+/* 扩大可点击区域 */
+image {
+  width: 100%;
+}
+
+.container {
+  background-color: #f7f7f7;
+}
+
+.container .tabs {
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.container .release {
+  background-color: #fff;
+}
+
+.container .release .business {
+  margin: 0 20rpx;
+  display: flex;
+  align-items: center;
+  line-height: 62rpx;
+  border-bottom: 2rpx solid #ddd;
+}
+
+.container .release .business image {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 10rpx;
+}
+
+.container .release .business text {
+  font-size: 26rpx;
+  color: #444;
+}

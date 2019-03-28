@@ -1,0 +1,59 @@
+{
+	"pages": [
+		"pages/index/index",
+		"pages/find/find",
+		"pages/my/my",
+		"pages/search/search",
+		"pages/business/business",
+		"pages/model/model",
+		"pages/release/release",
+		"pages/city/city",
+		"pages/business_release/business_release",
+		"pages/auth/auth"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "童模库",
+		"navigationBarTextStyle": "black"
+	},
+	"tabBar": {
+		"color": "#999999",
+		"selectedColor": "#EF8501",
+		"backgroundColor": "#fff",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "icon/home.png",
+				"selectedIconPath": "icon/home_selected.png"
+			},
+			{
+				"pagePath": "pages/search/search",
+				"text": "搜索",
+				"iconPath": "icon/search.png",
+				"selectedIconPath": "icon/search_selected.png"
+			},
+			{
+				"pagePath": "pages/find/find",
+				"text": "发现",
+				"iconPath": "icon/find.png",
+				"selectedIconPath": "icon/find_selected.png"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"text": "我的",
+				"iconPath": "icon/my.png",
+				"selectedIconPath": "icon/my_selected.png"
+			}
+		]
+	},
+	"usingComponents": {
+		"i-button": "../../dist/button/index",
+		"i-tabs": "../../dist/tabs/index",
+		"i-tab": "../../dist/tab/index",
+		"i-cell-group": "../../dist/cell-group/index",
+		"i-cell": "../../dist/cell/index",
+		"i-icon": "../../dist/icon/index"
+	}
+}

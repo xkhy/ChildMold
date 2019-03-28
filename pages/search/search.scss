@@ -1,0 +1,150 @@
+@import "../../scss/common.scss";
+
+.search-bar {
+  height: 100rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20rpx;
+  input {
+    width: 459rpx;
+    height: 70rpx;
+    background: #eee;
+    border-radius: 35rpx;
+    font-size: 26rpx;
+    padding-left: 2em;
+  }
+  button {
+    width: 121rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    background: $color-theme;
+    font-size: 28rpx;
+    color: #fff;
+    border-radius: 10rpx;
+  }
+  text {
+    font-size: 28rpx;
+    color: #444;
+  }
+  .bottom-arrow {
+    font-size: 0;
+    line-height: 0;
+    border-width: 10rpx;
+    border-color: #000;
+    border-bottom-width: 0;
+    border-style: dashed;
+    border-top-style: solid;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+  .top-arrow {
+    font-size: 0;
+    line-height: 0;
+    border-width: 10rpx;
+    border-color: #000;
+    border-top-width: 0;
+    border-style: dashed;
+    border-top-style: solid;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+}
+
+.drawer-container {
+  height: 270rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  .filters {
+    display: flex;
+    align-items: center;
+    color: #444;
+    font-size: 28rpx;
+    .filter-name {
+      width: 135rpx;
+      text-align: center;
+    }
+  }
+  .tag {
+    width: 240rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    background-color: #fff;
+    color: #999;
+    border: 2rpx solid #ccc;
+    border-radius: 8rpx;
+  }
+  .tag-sex-boy {
+    border-radius: 8rpx 0rpx 0rpx 8rpx;
+  }
+  .tag-sex-girl {
+    border-radius: 0rpx 8rpx 8rpx 0rpx;
+  }
+  .tag-height {
+    width: 208rpx;
+    text-align: left;
+    padding-left: 2em;
+    position: relative;
+    &::after {
+      position: absolute;
+      display: block;
+      content: "厘米";
+      top: 0;
+      right: 32rpx;
+    }
+  }
+  .line {
+    width: 42rpx;
+    height: 3rpx;
+    margin: 0 11rpx;
+    border: 2rpx solid #ccc;
+  }
+  .tag-address {
+    width: 480rpx;
+  }
+  .tag-active {
+    background-color: $color-theme;
+    color: #fff;
+    border: 0;
+  }
+}
+
+.model-group {
+  padding: 20rpx 10rpx 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: #fff;
+  .model-single {
+    width: 228rpx;
+    margin-bottom: 12rpx;
+    .model-image {
+      height: 228rpx;
+      border-radius: 8rpx;
+    }
+    .model-info {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      line-height: 70rpx;
+      font-size: 24rpx;
+      color: #999;
+      .model-name {
+        color: #444;
+        font-size: 30rpx;
+      }
+      .model-attention {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .heart {
+        width: 24rpx;
+        height: 24rpx;
+        margin-right: 14rpx;
+      }
+    }
+  }
+}
