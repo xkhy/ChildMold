@@ -1,21 +1,21 @@
-<view class="caption-wrap">
+<view class="search-wrap">
   <view class="search-bar">
-      <input placeholder="请输入关键字"/>
-      <button>搜索</button>
+      <input placeholder="请输入关键字" bindinput="getKeyword"/>
+      <button bindtap="search">搜索</button>
       <text bindtap="toggleFilters">筛选</text>
       <view class="{{showFilters?'top-arrow':'bottom-arrow'}}"></view>
   </view>
   <view wx:if="{{showFilters}}" class="drawer-container">
     <view class="filters">
       <view class="filter-name">性别</view> 
-      <view class="tag tag-sex-boy  tag-active">男</view>
-      <view class="tag tag-sex-girl">女</view>
+      <view class="tag tag-sex-boy {{gender==1?'tag-active':''}}" bindtap="changeGender" data-gender="1">男</view>
+      <view class="tag tag-sex-girl {{gender==2?'tag-active':''}}" bindtap="changeGender" data-gender="2">女</view>
     </view>
     <view class="filters">
       <view class="filter-name">身高</view>       
-      <input type="digit" class="tag tag-height"/>
+      <input type="digit" class="tag tag-height" value="{{heightMin}}" bindinput="getHeightMin"/>
       <view class="line"></view>
-      <input type="digit" class="tag tag-height"/>女
+      <input type="digit" class="tag tag-height" value="{{heightMax}}" bindinput="getHeightMax"/>
     </view>
     <view class="filters">
         <view class="filter-name">地区</view>  
@@ -30,15 +30,19 @@
         </view>
       </picker>
     </view>
+    <view class="filters-btns">
+        <button class="filters-btn reset" bindtap="reset">重置</button>
+        <button class="filters-btn confirm" bindtap="confirm">确定</button>
+    </view>
   </view>
   <view class="model-group">
       <view class="model-single"  wx:for="{{modelList}}" wx:key="item.id" bindtap="toModel">
-        <image class="model-image" src="{{item}}"></image>
+        <image class="model-image" src="{{item.cover}}"></image>
         <view class="model-info">
-          <text class="model-name">王晶晶</text>
+          <text class="model-name">{{item.name}}</text>
           <view class="model-attention">
               <image src="../../assets/icon/heart.png" class="heart"></image>
-              <text>263</text>  
+              <text>{{item.fans}}</text>  
           </view>
         </view>
       </view>

@@ -1,4 +1,4 @@
-/*文本格式化，超出范围，显示省略号*/
+//文本格式化，超出范围，显示省略号
 @mixin text-overflow($width: 100%, $display: block) {
   width: $width;
   display: $display;
@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 
-/* 画三角形 */
+//画三角形
 @mixin triangle($width: 10px, $direction: top, $color: red) {
   width: 0;
   height: 0;
@@ -30,14 +30,14 @@
     border-left-color: $color;
   }
 }
-/* 画圆形 */
+// 画圆形
 @mixin circle($size) {
   width: $size;
   height: $size;
   border-radius: 50%;
 }
 
-/* 画爱心 */
+// 画爱心 
 @mixin heart($size: 100px) {
   position: relative;
   width: $size;
@@ -78,7 +78,7 @@
     transform-origin: 100% 100%;
   }
 }
-/* 适配背景图 */
+// 适配背景图 
 // @mixin bg-image($imgUrl) {
 //   background-image: url($imgUrl+"@2x.png");
 //   @media (-webkit-min-device-pixel-ratio: 3) {
@@ -88,7 +88,7 @@
 //     background-image: url($imgUrl+"@3x.png");
 //   }
 // }
-/* 扩大可点击区域 */
+// 扩大可点击区域 
 @mixin extend-click($extendPadding: 10px) {
   position: relative;
   &::before {

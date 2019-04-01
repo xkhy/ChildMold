@@ -1,8 +1,8 @@
 <view class="container">
   <swiper indicator-dots indicator-active-color="#EF8501" indicator-color="#fff" autoplay="3000" interval="5000" duration="500">
-    <block wx:for="{{imgUrls}}" wx:key="{{item}}" wx:key="{{item.id}}">
+    <block wx:for="{{imgUrls}}" wx:key="{{item.link}}" >
       <swiper-item>
-        <image src="{{item}}" class="slide-image"/>
+          <image src="{{item.image}}" class="slide-image"/>     
       </swiper-item>
     </block>
   </swiper>
@@ -12,13 +12,13 @@
   <view class="tab">新人</view>
 </view> -->
 <view class="model-group">
-    <view class="model-single"  wx:for="{{modelList}}" wx:key="{{item.id}}" bindtap="toModel">
-      <image class="model-image" src="{{item}}"></image>
+    <view class="model-single"  wx:for="{{models}}" wx:key="{{item.id}}" bindtap="toModel">
+      <image class="model-image" src="{{item.cover}}"></image>
       <view class="model-info">
-        <text class="model-name">王晶晶</text>
+        <text class="model-name">{{item.name}}</text>
         <view class="model-attention">
             <image src="../../assets/icon/heart.png" class="heart"></image>
-            <text>263</text>  
+            <text>{{item.fans}}</text>  
         </view>
       </view>
     </view>

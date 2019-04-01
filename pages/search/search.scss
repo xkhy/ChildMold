@@ -1,11 +1,14 @@
 @import  "../../assets/scss/common.scss";
+.search-wrap{
+  border-top: 4rpx solid #f7f7f7; 
+}
 .search-bar {
   height: 100rpx;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0 20rpx;
-  margin: 100rpx;
+  margin: 0 20rpx;
+  border-bottom: 3rpx solid #ddd; 
   input {
     width: 459rpx;
     height: 70rpx;
@@ -52,10 +55,11 @@
 }
 
 .drawer-container {
-  height: 270rpx;
+  height: 372rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  border-bottom: 3rpx solid #f7f7f7; 
   .filters {
     display: flex;
     align-items: center;
@@ -64,6 +68,26 @@
     .filter-name {
       width: 135rpx;
       text-align: center;
+    }
+  }
+  .filters-btns{
+    margin:  0 214rpx;
+    display: flex;
+    justify-content: space-between;
+    .filters-btn{
+      // width:100rpx;
+      height:60rpx;
+      line-height: 60rpx;
+      border-radius:10rpx;
+      font-size:28rpx;
+    }
+    .reset{
+      border:2rpx solid $color-theme;
+      color: $color-theme;
+    }
+    .confirm{
+      color: #fff;
+      background:$color-theme;
     }
   }
   .tag {

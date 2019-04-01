@@ -1,11 +1,8 @@
+const app = getApp();
 Page({
   data: {
-    imgUrls: [
-      "../../assets/images/home-banner.png",
-      "https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640",
-      "https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640",
-      "https://images.unsplash.com/photo-1551446591-142875a901a1?w=640"
-    ],
+    imgUrls: [],
+    models:[],
     modelList: [
       "/assets/images/model1.png",
       "/assets/images/model2.png",
@@ -19,16 +16,40 @@ Page({
     ],
     current: "tab1"
   },
+  onLoad() {
+    this.getBanner();
+    this.getModel();
+  },
+  getBanner() {
+    app.get("getad").then(res => {
+      console.log(res);
+      this.setData({
+        imgUrls: res.data
+      });
+    });
+  },
+  getModel() {
+    app.get("index_product", {
+      page:1,
+      order: 1
+    }).then(res => {
+      console.log(res);
+      console.log(res.data);
+      this.setData({
+        models: res.data
+      });
+    });
+  },
   handleChange({ detail }) {
     this.setData({
       current: detail.key
     });
   },
   // 跳转model页
-  toModel(){
+  toModel() {
     wx.navigateTo({
-      url: '../model/model'
-    })
+      url: "/pages/details/details"
+    });
   }
 });
 
