@@ -14,11 +14,11 @@ Page({
       "/assets/images/model2.png",
       "/assets/images/model3.png"
     ],
-    current: "tab1"
+    type: "1"
   },
   onLoad() {
-    this.getBanner();
-    this.getModel();
+    // this.getBanner();
+    // this.getModel();
   },
   getBanner() {
     app.get("getad").then(res => {
@@ -31,7 +31,7 @@ Page({
   getModel() {
     app.get("index_product", {
       page:1,
-      order: 1
+      order: this.data.type
     }).then(res => {
       console.log(res);
       console.log(res.data);
@@ -39,6 +39,12 @@ Page({
         models: res.data
       });
     });
+  },
+  changeType(e){
+    this.setData({
+      type: e.currentTarget.dataset.type
+    })
+    this.getModel();
   },
   handleChange({ detail }) {
     this.setData({

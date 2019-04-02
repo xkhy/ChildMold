@@ -1,6 +1,7 @@
 //app.js
 App({
   base_url: 'http://192.168.0.107/',
+  userType:1, // 1商家 2童模
   // onLaunch: function () {
   //   // 登录
   //   wx.login({
@@ -37,15 +38,19 @@ App({
         data: params,
         header: {
           'content-type': 'application/x-www-form-urlencoded',
-          'cookie': wx.getStorageSync('JSESSIONID')
         },
         method: method,
         success: function (res) {
-          wx.hideLoading()
+          // wx.hideLoading()
           if (res.statusCode == 200) {
             resolve(res.data);
           } else {
-            reject(res.data);
+            wx.showToast({
+              title: res.msg,
+              icon: 'loading',
+              duration: 2000
+            })
+            // reject(res.data);
           }
         },
         fail: function(res){
@@ -57,7 +62,7 @@ App({
             icon: 'loading',
             duration: 2000
           })
-          reject(res);
+          // reject(res);
         }
       })
     });

@@ -1,30 +1,43 @@
 <view class="container">
-  <!-- <i-tabs
-    color="#EF8501"
-    i-class="tabs"
-    current="{{ current }}"
-    bindchange="handleChange"
-  >
-    <i-tab i-class="tab" key="tab1" title="需求"></i-tab>
-    <i-tab i-class="tab" key="tab2" title="公告"></i-tab>
-  </i-tabs> -->
-  <view class="tabs">
-    <view class="tab tab-active">需求</view>
-    <view class="tab">公告</view>
+  <view class="tabs-find">
+    <view class="tab-find {{find==1?'tab-find-active':''}}" bindtap="changeFind" data-find="1">需求</view>
+    <view class="tab-find {{find==2?'tab-find-active':''}}" bindtap="changeFind" data-find="2">公告</view>
   </view>
+  <view class="tabs-type">
+      <view class="tab-type {{type==1?'tab-type-active':''}}" bindtap="changeType" data-type="1">推荐</view>
+      <view class="tab-type {{type==2?'tab-type-active':''}}" bindtap="changeType" data-type="2">人气</view>
+      <view class="tab-type {{type==3?'tab-type-active':''}}" bindtap="changeType" data-type="3">新人</view>
+    </view>
   <i-tabs color="#EF8501" current="{{ current }}" bindchange="handleChange">
     <i-tab key="tab1" title="全部"></i-tab>
     <i-tab key="tab2" title="关注"></i-tab>
     <i-tab key="tab3" title="附近"></i-tab>
   </i-tabs>
   <view class="release">
-    <view class="card">
+    <view class="card" wx:for="{{findList}}" wx:key="{{item.id}}">
         <view class="card-title">
-                <image class="card-icon" src="/assets/icon/heart.png"></image>
-                <text>商家名称</text>
+          <image class="card-icon" src="/assets/icon/find_vip.png"></image>
+          <text>{{item.name}}</text>
         </view>
       <view class="card-content">
-
+          <view class="card-img">
+            <image src="/assets/images/model1.png"></image>
+          </view>
+          <view class="card-info">
+            <view class="cell">
+              性别：{{item.gender}}
+              身高：{{item.height}}
+            </view>
+            <view class="cell">
+               国籍：{{item.nation}}
+             </view>
+            <view class="cell">
+                拍摄地点：{{item.province+item.city}}
+            </view>
+            <view class="cell">
+                发布日期：{{item.date}}
+            </view>
+          </view>
       </view>
     </view>
   </view>

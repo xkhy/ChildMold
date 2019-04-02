@@ -10,6 +10,38 @@ swiper .slide-image {
   height: 100%;
 }
 
+.tabs {
+  display: flex;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-top: 4rpx solid #f7f7f7;
+  border-bottom: 6rpx solid #f7f7f7;
+}
+
+.tabs .tab {
+  position: relative;
+  flex: 1;
+  line-height: 88rpx;
+  font-size: 28rpx;
+  text-align: center;
+  color: #999;
+}
+
+.tabs .tab-active {
+  color: #EF8501;
+}
+
+.tabs .tab-active::after {
+  content: "";
+  position: absolute;
+  bottom: -5rpx;
+  left: 50%;
+  margin-left: -38rpx;
+  width: 76rpx;
+  height: 6rpx;
+  background-color: #EF8501;
+}
+
 .container .tabs {
   height: 88rpx;
   line-height: 88rpx;

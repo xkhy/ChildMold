@@ -8,12 +8,22 @@ image {
 }
 
 .search-bar {
+  position: relative;
   height: 100rpx;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 0 20rpx;
-  border-bottom: 3rpx solid #ddd;
+  padding: 0 20rpx;
+  border-bottom: 3rpx solid #f7f7f7;
+}
+
+.search-bar .search-icon {
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  left: 38rpx;
+  top: 50%;
+  margin-top: -24rpx;
 }
 
 .search-bar input {
@@ -22,7 +32,7 @@ image {
   background: #eee;
   border-radius: 35rpx;
   font-size: 26rpx;
-  padding-left: 2em;
+  padding-left: 3em;
 }
 
 .search-bar button {

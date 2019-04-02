@@ -12,10 +12,7 @@ page{
   align-items: center;
   color: #fff;
   image{
-      @include circle(100rpx);
-    // width: 100rpx;
-    // height: 100rpx;
-    // border-radius: 50%;
+      @include circle(160rpx);
   }
 }
 .cell-group{
@@ -46,5 +43,4 @@ page{
       transform: rotate(45deg);
     }  
   }
-  
 }

@@ -9,19 +9,16 @@
   box-shadow: 0 2rpx 4rpx 0 #f65530;
   border-radius: 20rpx;
   color: #f5a623;
-}
-
-.auth:first-child {
-  margin-top: 180rpx;
-  margin-bottom: 45rpx;
-}
-
-.auth:last-child {
-  color: #4a90e2;
-}
-
-.auth image {
-  width: 64rpx;
-  height: 64rpx;
-  margin-right: 40rpx;
+  &:first-child {
+    margin-top: 180rpx;
+    margin-bottom: 45rpx;
+  }
+  &:last-child {
+    color: #4a90e2;
+  }
+  image {
+    width: 64rpx;
+    height: 64rpx;
+    margin-right: 40rpx;
+  }
 }

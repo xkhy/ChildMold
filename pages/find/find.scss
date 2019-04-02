@@ -1,9 +1,12 @@
 @import "../../assets/scss/common.scss";
 .container {
-  .tabs {
+  .tabs-find {
     display: flex;
     justify-content: center;
-    .tab {
+    padding-top: 38rpx;
+    padding-bottom: 12rpx;
+    border-top: 4rpx solid #f7f7f7;
+    .tab-find {
       width: 240rpx;
       height: 60rpx;
       line-height: 60rpx;
@@ -12,31 +15,81 @@
       font-size: 28rpx;
       border: 2rpx solid #ccc;
       color: #999;
-    }
-    .tab:first-child {
-      border-radius: 8rpx 0 0 8rpx;
-    }
-    .tab:last-child {
-      border-radius: 0 8rpx 8rpx 0;
-    }
-    .tab-active {
+      &:first-child{
+        border-radius: 8rpx 0 0 8rpx;
+      }
+      &:last-child {
+        border-radius: 0 8rpx 8rpx 0;
+      }
+    }    
+    .tab-find-active {
       border: none;
       color: #fff;
       background-color: $color-theme;
     }
   }
+
+  .tabs-type {
+    display: flex;
+    height: 88rpx;
+    line-height: 88rpx;
+    border-bottom: 6rpx solid #f7f7f7;
+    .tab-type {
+      position: relative;
+      flex: 1;
+      line-height: 88rpx;
+      font-size: 28rpx;
+      text-align: center;
+      color: #999;
+    }
+    .tab-type-active {
+      color: $color-theme;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -5rpx;
+        left: 50%;
+        margin-left: -38rpx;
+        width: 76rpx;
+        height: 6rpx;
+        background-color: $color-theme;
+      }
+    }
+  }
   .card {
-    width: 330rpx;
+    height: 330rpx;
     .card-title {
       display: flex;
       align-items: center;
       height: 62rpx;
+      margin: 0 20rpx;
+      padding-left: 20rpx;
+      border-bottom:2rpx solid #ddd;
+      font-size: 26rpx;
+      color: #444;
       .card-icon{
-        width: 64rpx;
-        height: 64rpx;
+        width: 40rpx;
+        height: 35rpx;
+        margin-right: 10rpx;
       }
     }
     .card-content {
+      padding-left: 31rpx;
+      display: flex;
+      .card-img{
+        width: 220rpx;
+        height: 220rpx;
+        margin-right: 43rpx;
+        image{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .card-info{
+        .cell{
+
+        }
+      }
     }
   }
 }
