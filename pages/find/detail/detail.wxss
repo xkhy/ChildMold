@@ -1,0 +1,29 @@
+image {
+  width: 100%;
+}
+
+.container .demand-img {
+  height: 750rpx;
+}
+
+.container .cell-group {
+  padding: 0 40rpx;
+}
+
+.container .cell-group .cell {
+  display: flex;
+  flex-direction: column;
+  line-height: 2.2;
+  font-size: 28rpx;
+  color: #444;
+}
+
+.container .cell-group .cell .cell-title {
+  width: 150rpx;
+  float: left;
+}
+
+.container .cell-group .cell .cell-content {
+  flex: 1;
+  float: left;
+}

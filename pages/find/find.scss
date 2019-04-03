@@ -15,13 +15,13 @@
       font-size: 28rpx;
       border: 2rpx solid #ccc;
       color: #999;
-      &:first-child{
+      &:first-child {
         border-radius: 8rpx 0 0 8rpx;
       }
       &:last-child {
         border-radius: 0 8rpx 8rpx 0;
       }
-    }    
+    }
     .tab-find-active {
       border: none;
       color: #fff;
@@ -57,37 +57,47 @@
     }
   }
   .card {
-    height: 330rpx;
     .card-title {
       display: flex;
       align-items: center;
       height: 62rpx;
       margin: 0 20rpx;
       padding-left: 20rpx;
-      border-bottom:2rpx solid #ddd;
+      border-bottom: 2rpx solid #ddd;
       font-size: 26rpx;
       color: #444;
-      .card-icon{
-        width: 40rpx;
-        height: 35rpx;
-        margin-right: 10rpx;
-      }
+    }
+    .vip-icon {
+      width: 40rpx;
+      height: 35rpx;
+      margin-right: 10rpx;
+    }
+    .shop-icon {
+      width: 38rpx;
+      height: 36rpx;
+      margin-right: 10rpx;
     }
     .card-content {
-      padding-left: 31rpx;
+      padding: 20rpx 31rpx;
       display: flex;
-      .card-img{
+      align-items: center;
+      border-bottom: 3rpx solid #f7f7f7;
+      .card-img {
         width: 220rpx;
         height: 220rpx;
         margin-right: 43rpx;
-        image{
+        image {
           width: 100%;
           height: 100%;
         }
       }
-      .card-info{
-        .cell{
-
+      .card-info {
+        font-size: 26rpx;
+        color: #444;
+        .cell {
+          line-height: 2.2;
+          display: flex;
+          align-items: center;
         }
       }
     }

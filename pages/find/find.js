@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    find:1,
+    find:2,
     type:1,
     findList:[]
   },
@@ -14,23 +14,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getModel();
+    this.getDemand();
   },
   changeFind(e){
     this.setData({
       find: e.currentTarget.dataset.find
     })
-    this.getModel();
   },
   changeType(e){
     this.setData({
       type: e.currentTarget.dataset.type
     })
-    this.getModel();
+    this.getDemand();
   },
-  getModel(){
-    app.get('my_demand',{
-      type:1,
+  getDemand(){
+    app.get('demand_index',{
+      type:this.data.type,
       page:1
     }).then(res=>{
       console.log(res)
