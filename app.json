@@ -8,7 +8,10 @@
     "pages/model/details",
     "pages/busniess/detail",
     "pages/busniess/edit/edit",
-    "pages/find/detail/detail"
+    "pages/find/demand/detail",
+    "pages/find/notice/detail",
+    "pages/user/follow/follow",
+    "pages/user/photo/photo"
   ],
   "window": {
     "backgroundTextStyle": "light",

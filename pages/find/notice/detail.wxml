@@ -1,0 +1,65 @@
+<view class="container">
+         <image src="{{noticeInfo.image}}" class="demand-img"/>
+        <view>
+            <view class="cell-group">
+            <view wx:if="{{noticeInfo.type==1}}" class="cell">
+                <view class="row">
+                        <text class="row-title">拍摄主题：</text>
+                        <text class="cell-content topic">{{noticeInfo.title}}</text>                  
+                    </view>
+                <view class="row">
+                        <text class="row-title">拍摄内容：</text>
+                        <text class="cell-content" style="margin-bottom: 20rpx;">{{noticeInfo.desc}}</text>                  
+                 </view>
+              <view class="row">
+                  <text class="row-title">模特信息：</text>
+                  <view class="cell-content">
+                        <view class="row row-half">
+                            <view class="row-title" style="font-weight:400;">性别：<text class="cell-content">{{noticeInfo.gender}}</text></view>
+                            <view class="row-title" style="font-weight:400;">身高：<text class="cell-content">{{noticeInfo.height}}</text></view>                 
+                        </view>      
+                        国籍：<text class="cell-content">{{noticeInfo.nation}}</text>
+                  </view>
+               </view>
+                <view class="row">
+                        <text class="row-title">拍摄地点：</text>
+                        <text class="cell-content">{{noticeInfo.province}}{{noticeInfo.city}}{{noticeInfo.area}}{{noticeInfo.address}}</text>
+                    </view>
+              <view class="row">
+                    <text class="row-title">拍摄时间：</text>
+                    <text>{{noticeInfo.work_date}}</text>
+                </view>
+                <view class="row">
+                        <text class="row-title">发起单位：</text>
+                        <text>{{noticeInfo.name}}</text>
+                </view>
+              </view>
+            <view wx:else class="cell">
+              <view class="row row-half">
+                  <view class="row-title">性别：<text class="cell-content">{{noticeInfo.name}}</text></view>
+                  <view class="row-title">身高：<text class="cell-content">{{noticeInfo.height}}</text></view>
+               </view>
+              <view class="row row-half">
+                  <view class="row-title">性别：<text class="cell-content">{{noticeInfo.gender}}</text></view>
+                  <view class="row-title">国籍：<text class="cell-content">{{noticeInfo.nation}}</text></view>                 
+              </view>
+              <view class="row">
+                    <text class="row-title">拍摄主题：</text>
+                    <text class="cell-content topic">{{noticeInfo.title}}</text>                  
+                </view>
+              <view class="row">
+                    <text class="row-title">拍摄内容：</text>
+                    <text class="cell-content" style="margin-bottom: 20rpx;">{{noticeInfo.desc}}</text>                  
+                </view>
+              <view class="row">
+                  <text class="row-title">拍摄地点：</text>
+                  <text class="cell-content">{{noticeInfo.province}}{{noticeInfo.city}}{{noticeInfo.area}}{{noticeInfo.address}}</text>
+              </view>
+              <view class="row">
+                    <text class="row-title">拍摄时间：</text>
+                    <text>{{noticeInfo.work_date}}</text>
+                </view>
+           </view>
+          </view>
+        </view>        
+      </view>

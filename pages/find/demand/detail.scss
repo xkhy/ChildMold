@@ -11,14 +11,18 @@
         line-height: 2.2;
         font-size: 28rpx;
         color: #444;
-        .cell-title{
-            width: 150rpx;
-            float: left;
+        .row{
+            display: flex;
+        }
+        .row-half>.row-title{
+            flex: 1
+        }
+        .row-title{
+            font-weight: 500;
         }
         .cell-content{
            flex:1; 
-           float: left;
-
+           font-weight: 400;
         }
     }
    }

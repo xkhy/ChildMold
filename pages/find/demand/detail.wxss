@@ -18,12 +18,19 @@ image {
   color: #444;
 }
 
-.container .cell-group .cell .cell-title {
-  width: 150rpx;
-  float: left;
+.container .cell-group .cell .row {
+  display: flex;
+}
+
+.container .cell-group .cell .row-half > .row-title {
+  flex: 1;
+}
+
+.container .cell-group .cell .row-title {
+  font-weight: 500;
 }
 
 .container .cell-group .cell .cell-content {
   flex: 1;
-  float: left;
+  font-weight: 400;
 }

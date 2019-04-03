@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    find:2,
-    type:1,
+    find:1, // 1需求 2通告
+    type:1, // 1全部 2关注 3附近
     findList:[]
   },
 
@@ -20,6 +20,11 @@ Page({
     this.setData({
       find: e.currentTarget.dataset.find
     })
+    if(this.data.find==1){
+      this.getDemand();
+    }else{
+      this.getNotice();
+    }
   },
   changeType(e){
     this.setData({
@@ -27,6 +32,7 @@ Page({
     })
     this.getDemand();
   },
+  // 需求列表
   getDemand(){
     app.get('demand_index',{
       type:this.data.type,
@@ -38,4 +44,28 @@ Page({
       })
     })
   },
+  // 通告列表
+  getNotice(){
+    app.get('notice_index',{
+      type:this.data.type,
+      page:1
+    }).then(res=>{
+      console.log(res)
+      this.setData({
+        findList:res.data
+      })
+    })
+  },
+  toDetail(e){
+    let id = e.currentTarget.dataset.id;
+    let url="";
+    if(this.data.find==1){
+      url=`./demand/detail?id=${id}`
+    } else{
+      url=`./notice/detail?id=${id}` 
+    }
+    wx.navigateTo({
+      url: url
+    })
+  }
 })

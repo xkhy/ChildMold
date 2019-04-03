@@ -1,0 +1,4 @@
+<button bindtap="uploadImg">上传</button>
+<image class="{{tempImg}}" src="" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+    
+</image>
