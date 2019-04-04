@@ -80,15 +80,15 @@ swiper {
   line-height: 1.6;
 }
 .model-group {
-  padding: 26rpx 20rpx;
+  padding: 26rpx 0 0 22rpx;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   .model-single {
     width: 228rpx;
     height: 228rpx;
-    margin-bottom: 20rpx;
-    margin-left: 10rpx;
+    margin-bottom: 12rpx;
+    margin-right: 12rpx;
     image {
       width: 228rpx;
       height: 228rpx;

@@ -1,4 +1,4 @@
-// pages/user/auth/auth.js
+// pages/user/auth/model_auth/model_auth.js
 Page({
 
   /**

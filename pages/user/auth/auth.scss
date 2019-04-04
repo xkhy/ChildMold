@@ -1,4 +1,12 @@
+page{
+  height: 100%;
+  background-image: url("http://powj76fay.bkt.clouddn.com/a7682396de0c37b00b46a0fe373e095d.png");
+  background-size: 100% 100%;
+  position: relative;
+}
 .auth {
+  display: blockl;
+  position: relative;
   width: 640rpx;
   height: 285rpx;
   margin: 0 auto;
@@ -8,12 +16,13 @@
   font-size: 48rpx;
   box-shadow: 0 2rpx 4rpx 0 #f65530;
   border-radius: 20rpx;
+  background: #fff;
   color: #f5a623;
   &:first-child {
-    margin-top: 180rpx;
-    margin-bottom: 45rpx;
+    top: 180rpx;
   }
   &:last-child {
+    top: 225rpx;
     color: #4a90e2;
   }
   image {

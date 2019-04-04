@@ -7,24 +7,22 @@ Page({
   data: {
     userBanners:[],
     userInfo:{},
-    imgUrls: [
-      "../../assets/images/model_banner.png",
-      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640',
-      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
-    ],
-    current: 'tab1',
-    type:1
+    userProduct: [],
+    isFollow:false,
+    type:1 //tab栏
   },
-  onLoad(){
+  onLoad(options){
+    this.setData({
+      id:options.id
+    })
     this.getBanner();
     this.getUserInfo();
+    this.getUserProduct();
   },
   getBanner(){
     app.get('user_banner',{
       type:2,
-      id:2
+      id:this.data.id
     }).then(res=>{
       console.log(res)
       this.setData({
@@ -35,11 +33,22 @@ Page({
   getUserInfo(){
     app.get('user_info',{
       type:2,
-      id:2
+      id:this.data.id
     }).then(res=>{
       console.log(res)
       this.setData({
-        userInfo: res.data
+        userInfo:res.data,
+        isFollow:res.data.is_follow
+      })
+    })
+  },
+  getUserProduct(){
+    app.get('user_product',{
+      id: this.data.id
+    }).then(res=>{
+      console.log(res)
+      this.setData({
+        userProduct: res.data.imgs
       })
     })
   },
@@ -50,7 +59,23 @@ Page({
   },
   // 关注
   follow(){
-
+    app.get('followed',{
+      type:2,
+      id: this.data.id
+    }).then(res=>{
+      console.log(res)
+      if(res.status==500){
+        wx.showToast({
+          title: res.msg,
+          icon:"none"
+        })
+        return
+      }
+      this.setData({
+        isFollow: res.data.is_followed
+      })
+      
+    })
   },
   // 跳转编辑
   eidt(){

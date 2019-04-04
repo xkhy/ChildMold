@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -106,6 +106,14 @@
 					"id": -1,
 					"name": "我的作品",
 					"pathName": "pages/user/photo/photo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "我的关注",
+					"pathName": "pages/user/follow/follow",
+					"query": "",
 					"scene": null
 				}
 			]

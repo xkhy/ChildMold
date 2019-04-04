@@ -6,18 +6,13 @@
       </swiper-item>
     </block>
   </swiper>
-  <!-- <i-tabs color="#EF8501" i-class="tabs" current="{{ current }}" bindchange="handleChange">
-    <i-tab key="tab1" title="推荐"></i-tab>
-    <i-tab key="tab2" title="人气"></i-tab>
-    <i-tab key="tab3" title="新人"></i-tab>
-</i-tabs> -->
 <view class="tabs">
   <view class="tab {{type==1?'tab-active':''}}" bindtap="changeType" data-type="1">推荐</view>
   <view class="tab {{type==2?'tab-active':''}}" bindtap="changeType" data-type="2">人气</view>
   <view class="tab {{type==3?'tab-active':''}}" bindtap="changeType" data-type="3">新人</view>
 </view>
 <view class="model-group">
-    <view class="model-single"  wx:for="{{models}}" wx:key="{{item.id}}" bindtap="toModel">
+    <view class="model-single"  wx:for="{{models}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="toModel">
       <image class="model-image" src="{{item.cover}}"></image>
       <view class="model-info">
         <text class="model-name">{{item.name}}</text>

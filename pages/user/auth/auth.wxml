@@ -1,17 +1,10 @@
 <view class="bg">
-	<view class="auth">
+	<navigator class="auth" hover-class="none" url="../../model/auth/auth">
 		<image src="/assets/icon/model_auth.png"></image>
 		<text>童模认证</text>
-	</view>
-	<view class="auth">
+	</navigator>
+	<navigator class="auth" hover-class="none" url="../../busniess/auth/auth">
 		<image src="/assets/icon/busniess_auth.png"></image>
 		<text>商家认证</text>
-	</view>
-	<button bindtap="chooseImage">
-		上传图片
-	</button>
-
-	<image wx:for="{{images}}" class="" src="{{item}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
-		
-	</image>
+	</navigator>
 </view>

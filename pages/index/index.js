@@ -3,22 +3,11 @@ Page({
   data: {
     imgUrls: [],
     models:[],
-    modelList: [
-      "/assets/images/model1.png",
-      "/assets/images/model2.png",
-      "/assets/images/model3.png",
-      "/assets/images/model1.png",
-      "/assets/images/model2.png",
-      "/assets/images/model3.png",
-      "/assets/images/model1.png",
-      "/assets/images/model2.png",
-      "/assets/images/model3.png"
-    ],
     type: "1"
   },
   onLoad() {
-    // this.getBanner();
-    // this.getModel();
+    this.getBanner();
+    this.getModel();
   },
   getBanner() {
     app.get("getad").then(res => {
@@ -52,9 +41,9 @@ Page({
     });
   },
   // 跳转model页
-  toModel() {
+  toModel(e) {
     wx.navigateTo({
-      url: "/pages/details/details"
+      url: `/pages/model/details?id=${e.currentTarget.dataset.id}`
     });
   }
 });

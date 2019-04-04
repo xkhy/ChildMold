@@ -8,7 +8,8 @@ page {
 
 .bg {
   height: 360rpx;
-  background-image: url("http://img.51miz.com/Element/00/64/92/84/82968dc1_E649284_c8873ce0.jpg!/quality/90/unsharp/true/compress/true/format/jpg/fh/630");
+  background-image: url("http://powj76fay.bkt.clouddn.com/4b2ae209446d24c07db516c138b5b21c.png");
+  background-size: 100% 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

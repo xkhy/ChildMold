@@ -1,1 +1,72 @@
-/* pages/user/photo/photo.wxss */
+image {
+  width: 100%;
+}
+
+page {
+  background-color: #f7f7f7;
+}
+
+.imgs-container {
+  padding-left: 33rpx;
+  margin-top: 7rpx;
+  background-color: #fff;
+}
+
+.imgs-container .title {
+  padding: 33rpx 0 40rpx 7rpx;
+  font-size: 30rpx;
+}
+
+.imgs-container .imgs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.imgs-container .uploads {
+  position: relative;
+  width: 220rpx;
+  height: 220rpx;
+  margin-right: 12rpx;
+  margin-bottom: 10rpx;
+}
+
+.imgs-container .uploads .delete {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  top: 13rpx;
+  right: 15rpx;
+}
+
+.imgs-container .upload {
+  width: 220rpx;
+  height: 220rpx;
+  margin-right: 12rpx;
+  margin-bottom: 10rpx;
+}
+
+.imgs-container .tip {
+  padding-top: 33rpx;
+  padding-bottom: 107rpx;
+  line-height: 42rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.imgs-container .tip .asterisk {
+  color: #f67373;
+}
+
+.save {
+  position: fixed;
+  left: 75rpx;
+  bottom: 50rpx;
+  width: 600rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #fff;
+  background: #EF8501;
+  border-radius: 10rpx;
+}

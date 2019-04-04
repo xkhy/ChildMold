@@ -20,7 +20,7 @@
         <view class="cell">
           <view class="model-row">
               <text>姓名：{{userInfo.name}}</text>
-              <button wx:if="{{!userInfo.is_follow}}" class="follow" bindtap="follow">关注</button>
+              <button wx:if="{{!isFollow}}" class="follow" bindtap="follow">关注</button>
               <button wx:else class="follow" bindtap="follow">已关注</button>
          </view>
           <view class="model-row">
@@ -42,7 +42,7 @@
               <text>三围：{{userInfo.bwh}}</text>
           </view>
           <view class="model-row row-address">
-              <text>地址：{{userInfo.province+userInfo.city+userInfo.area+userInfo.address}}</text>
+              <text>地址：{{userInfo.province}}{{userInfo.city}}{{userInfo.area}}{{userInfo.address}}</text>
           </view>
        </view>
        <view class="cell cell-introduce">
@@ -54,8 +54,8 @@
       </view>
     </view>
     <view wx:if="{{type==2}}" class="model-group">
-            <view class="model-single"  wx:for="{{imgUrls}}" wx:key="{{item}}">
-            <image src="{{item}}"></image>
+            <view class="model-single"  wx:for="{{userProduct}}" wx:key="{{item.id}}">
+            <image src="{{item.image}}"></image>
             </view>
     </view>
         <!-- 童模信息结束 -->
