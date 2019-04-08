@@ -32,7 +32,7 @@ Page({
   },
   getUserInfo(){
     app.get('user_info',{
-      type:2,
+      type:2, //童模
       id:this.data.id
     }).then(res=>{
       console.log(res)
@@ -71,10 +71,13 @@ Page({
         })
         return
       }
+      wx.showToast({
+        title: res.msg,
+        icon:"none"
+      })
       this.setData({
         isFollow: res.data.is_followed
       })
-      
     })
   },
   // 跳转编辑

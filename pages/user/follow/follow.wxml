@@ -3,8 +3,8 @@
         <view class="tab {{type==2?'tab-active':''}}" bindtap="changeType" data-type="2">关注的童模</view>
         <view class="tab {{type==1?'tab-active':''}}" bindtap="changeType" data-type="1">关注的商家</view>
       </view>
-      <view class="model-group">
-          <view class="model-single"  wx:for="{{models}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="toModel">
+      <view wx:if="{{type==2}}" class="model-group">
+          <view class="model-single"  wx:for="{{followList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="toModel">
             <image class="model-image" src="{{item.cover}}"></image>
             <view class="model-info">
               <text class="model-name">{{item.name}}</text>
@@ -15,4 +15,21 @@
             </view>
           </view>
       </view>
+
+      <view wx:if="{{type==1}}" class="card" wx:for="{{followList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="toDetail">
+        <view class="card-content">
+            <view class="card-img">
+              <image src="{{item.image}}"></image>
+            </view>
+            <view class="card-info">
+              <view class="cell">
+                  <view>
+                    <image wx:if="{{item.is_approve}}" class="vip-icon" src="/assets/icon/find_vip.png"></image>
+                    <image wx:else class="shop-icon" src="/assets/icon/find_shop.png"></image>
+                  </view>
+                  <text>{{item.name}}</text>
+              </view>
+            </view>
+        </view>
+        </view>
       </view>

@@ -32,7 +32,7 @@ Page({
   },
   getUserInfo(){
     app.get('user_info',{
-      type:1,
+      type:1, //商家
       id:1
     }).then(res=>{
       console.log(res)

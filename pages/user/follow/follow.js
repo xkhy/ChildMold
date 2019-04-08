@@ -1,9 +1,8 @@
 const app = getApp();
 Page({
   data: {
-    imgUrls: [],
-    models:[],
-    type:2
+    followList:[],
+    type:2 // 1商家 2童模
   },
   onLoad() {
     this.getMyFollow();
@@ -16,7 +15,7 @@ Page({
       console.log(res);
       console.log(res.data);
       this.setData({
-        models: res.data
+        followList: res.data
       });
     });
   },

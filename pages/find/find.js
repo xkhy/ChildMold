@@ -30,13 +30,17 @@ Page({
     this.setData({
       type: e.currentTarget.dataset.type
     })
-    this.getDemand();
+    if(this.data.find==1){
+      this.getDemand();
+    }else{
+      this.getNotice();
+    }
   },
   // 需求列表
   getDemand(){
     app.get('demand_index',{
       type:this.data.type,
-      page:1
+      page:1 // TODO 分页
     }).then(res=>{
       console.log(res)
       this.setData({
@@ -48,7 +52,7 @@ Page({
   getNotice(){
     app.get('notice_index',{
       type:this.data.type,
-      page:1
+      page:1 // TODO 分页
     }).then(res=>{
       console.log(res)
       this.setData({

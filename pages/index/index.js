@@ -18,7 +18,7 @@ Page({
     });
   },
   getModel() {
-    app.get("index_product", {
+    app.get("index_product", {  // TODO 分页
       page:1,
       order: this.data.type
     }).then(res => {

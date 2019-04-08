@@ -1,0 +1,30 @@
+<view class="container">
+  <view
+    class="card {{ item.isTouchMove ? 'touch-move-active' : '' }}"
+    wx:for="{{ demandList }}"
+    data-index="{{ index }}"
+    bindtouchstart="touchstart"
+    bindtouchmove="touchmove"
+    wx:key="{{ item.id }}"
+    data-id="{{ item.id }}"
+    bindtap="toDetail"
+  >
+    <view class="card-content">
+      <view class="card-img">
+        <image src="{{ item.image }}"></image>
+      </view>
+      <view class="card-info">
+        <view class="cell">
+          性别：{{ item.gender }}
+          <text style="margin-left:80rpx;">身高：{{ item.height }}</text>
+        </view>
+        <view class="cell"> 国籍：{{ item.nation }} </view>
+        <view class="cell"> 拍摄地点：{{ item.province }}{{ item.city }} </view>
+        <view class="cell"> 发布日期：{{ item.date }} </view>
+      </view>
+    </view>
+    <view class="del" catchtap="del" data-id="{{ item.id }}" data-index="{{ index }}">删除</view>
+  </view>
+  <view class="no-data" wx:if="{{demandList.length==0}}">当前没有任何需求，点击下方按钮新增发布</view>
+  <button class="add">新增发布</button>
+</view>

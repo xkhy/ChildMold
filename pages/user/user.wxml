@@ -8,27 +8,27 @@
     <text>我的资料</text>
     <view class="right-arrow"></view>
   </navigator>
-  <navigator wx:if="{{ userType == 1 }}" class="cell" hover-class="none">
+  <navigator wx:if="{{ userType == 1 }}" class="cell" hover-class="none" url="./photo/photo">
     <image src="/assets/icon/photo.png"></image>
     <text>我的图库</text>
     <view class="right-arrow"></view>
   </navigator>
-  <navigator wx:if="{{ userType == 2 }}" class="cell" hover-class="none">
+  <navigator wx:if="{{ userType == 2 }}" class="cell" hover-class="none" url="./photo/photo">
     <image src="/assets/icon/photo.png"></image>
     <text>我的作品</text>
     <view class="right-arrow"></view>
   </navigator>
-  <navigator class="cell" hover-class="none">
+  <navigator class="cell" hover-class="none" url="./follow/follow">
     <image src="/assets/icon/follow.png"></image>
     <text>我的关注</text>
     <view class="right-arrow"></view>
   </navigator>
-  <navigator wx:if="{{ userType == 1 }}" class="cell" hover-class="none">
+  <navigator wx:if="{{ userType == 1 }}" class="cell" hover-class="none" url="../find/demand/list/list">
     <image src="/assets/icon/demand.png"></image>
     <text>需求管理</text>
     <view class="right-arrow"></view>
   </navigator>
-  <navigator class="cell" hover-class="none">
+  <navigator class="cell" hover-class="none" url="../find/notice/list/list">
     <image src="/assets/icon/notice.png"></image>
     <text>通告管理</text>
     <view class="right-arrow"></view>
