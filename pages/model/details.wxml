@@ -13,7 +13,7 @@
     <view class="tabs">
             <view class="tab {{type==1?'tab-active':''}}" bindtap="changeType" data-type="1">童模详情</view>
             <view class="tab {{type==2?'tab-active':''}}" bindtap="changeType" data-type="2">作品集</view>
-          </view>
+    </view>
         <!-- 童模信息开始 -->
     <view wx:if="{{type==1}}">
         <view class="cell-group">
