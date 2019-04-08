@@ -1,0 +1,39 @@
+<view class="container">
+        <swiper indicator-dots indicator-active-color="#F27900" indicator-color="#fff" autoplay="3000" interval="5000" duration="500">
+          <block wx:for="{{userBanners}}" wx:key="{{item}}">
+            <swiper-item>
+              <image src="{{item}}" class="slide-image"/>
+            </swiper-item>
+          </block>
+        </swiper>
+        <!-- <i-tabs  i-class="tabs" current="{{ current }}" bindchange="handleChange">
+          <i-tab key="tab1" title="作品集"></i-tab>
+          <i-tab key="tab2" title="童模详情"></i-tab>
+        </i-tabs> -->
+        <view class="tab">商家详情</view>
+        <view>
+            <view class="cell-group">
+            <view class="cell">
+              <view class="model-row">
+                  <text>商家名称：{{userInfo.name}}</text>
+                  <image class="vip" src="/assets/icon/vip.png"></image>
+                  <button wx:if="{{!userInfo.is_follow}}" class="follow" bindtap="follow">关注</button>
+                  <button wx:else class="follow" bindtap="follow">已关注</button>
+             </view>
+              <view class="model-row">
+                  <text>商家地址：{{userInfo.province+userInfo.city+userInfo.area+userInfo.address}}</text>
+              </view>
+           </view>
+           <view class="cell cell-introduce">
+               <text>
+                关于我们：
+                {{userInfo.profile}}
+                </text>  
+           </view>
+          </view>
+        </view>
+        <view class="edit">
+           <button class="edit-btn" bindtap="edit">编辑</button>
+        </view>
+        
+      </view>

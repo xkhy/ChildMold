@@ -1,0 +1,48 @@
+<view class="container">
+  <view class="tabs-find">
+    <view class="tab-find {{find==1?'tab-find-active':''}}" bindtap="changeFind" data-find="1">需求</view>
+    <view class="tab-find {{find==2?'tab-find-active':''}}" bindtap="changeFind" data-find="2">通告</view>
+  </view>
+  <view class="tabs-type">
+      <view class="tab-type {{type==1?'tab-type-active':''}}" bindtap="changeType" data-type="1">全部</view>
+      <view class="tab-type {{type==2?'tab-type-active':''}}" bindtap="changeType" data-type="2">关注</view>
+      <view class="tab-type {{type==3?'tab-type-active':''}}" bindtap="changeType" data-type="3">附近</view>
+    </view>
+  <view class="release">
+    <view class="card" wx:for="{{findList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="toDetail">
+        <view wx:if="{{find==1}}" class="card-title">
+          <image wx:if="{{item.is_approve}}" class="vip-icon" src="/assets/icon/find_vip.png"></image>
+          <image wx:else class="shop-icon" src="/assets/icon/find_shop.png"></image>
+          <text>{{item.name}}</text>
+        </view>
+      <view class="card-content">
+          <view class="card-img">
+            <image src="{{item.image}}"></image>
+          </view>
+          <view class="card-info">
+            <view class="cell" wx:if="{{find==2}}">
+                <image wx:if="{{item.type==2}}" class="shop-icon" src="/assets/icon/chirdmodel.png"></image>
+                <view wx:else>
+                  <image wx:if="{{item.is_approve}}" class="vip-icon" src="/assets/icon/find_vip.png"></image>
+                  <image wx:else class="shop-icon" src="/assets/icon/find_shop.png"></image>
+                </view>
+                <text>{{item.name}}</text>
+            </view>
+            <view class="cell">
+              性别：{{item.gender}}
+              <text style="margin-left:80rpx;">身高：{{item.height}}</text>
+            </view>
+            <view  wx:if="{{find==1}}" class="cell">
+               国籍：{{item.nation}}
+             </view>
+            <view class="cell">
+                拍摄地点：{{item.province+item.city}}
+            </view>
+            <view class="cell">
+                发布日期：{{item.date}}
+            </view>
+          </view>
+      </view>
+      </view>
+    </view>
+   </view>

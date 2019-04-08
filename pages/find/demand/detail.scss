@@ -1,0 +1,30 @@
+@import "../../../assets/scss/common.scss";
+.container {
+   .demand-img{
+       height: 750rpx;
+   }
+   .cell-group{
+       padding: 0 40rpx;
+    .cell{
+        display: flex;
+        flex-direction: column;
+        line-height: 2.2;
+        font-size: 28rpx;
+        color: #444;
+        .row{
+            display: flex;
+        }
+        .row-half>.row-title{
+            flex: 1
+        }
+        .row-title{
+            font-weight: 500;
+        }
+        .cell-content{
+           flex:1; 
+           font-weight: 400;
+        }
+    }
+   }
+   
+}

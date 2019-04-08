@@ -1,0 +1,26 @@
+<view class="container">
+  <swiper indicator-dots indicator-active-color="#EF8501" indicator-color="#fff" autoplay="3000" interval="5000" duration="500">
+    <block wx:for="{{imgUrls}}" wx:key="{{item.link}}" >
+      <swiper-item>
+          <image src="{{item.image}}" class="slide-image"/>     
+      </swiper-item>
+    </block>
+  </swiper>
+<view class="tabs">
+  <view class="tab {{type==1?'tab-active':''}}" bindtap="changeType" data-type="1">推荐</view>
+  <view class="tab {{type==2?'tab-active':''}}" bindtap="changeType" data-type="2">人气</view>
+  <view class="tab {{type==3?'tab-active':''}}" bindtap="changeType" data-type="3">新人</view>
+</view>
+<view class="model-group">
+    <view class="model-single"  wx:for="{{models}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="toModel">
+      <image class="model-image" src="{{item.cover}}"></image>
+      <view class="model-info">
+        <text class="model-name">{{item.name}}</text>
+        <view class="model-attention">
+            <image src="../../assets/icon/heart.png" class="heart"></image>
+            <text>{{item.fans}}</text>  
+        </view>
+      </view>
+    </view>
+</view>
+</view>

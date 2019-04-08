@@ -1,0 +1,10 @@
+<view class="bg">
+	<navigator class="auth" hover-class="none" url="../../model/auth/auth">
+		<image src="/assets/icon/model_auth.png"></image>
+		<text>童模认证</text>
+	</navigator>
+	<navigator class="auth" hover-class="none" url="../../busniess/auth/auth">
+		<image src="/assets/icon/busniess_auth.png"></image>
+		<text>商家认证</text>
+	</navigator>
+</view>

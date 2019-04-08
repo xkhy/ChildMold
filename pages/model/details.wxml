@@ -1,0 +1,66 @@
+<view class="container">
+    <swiper indicator-dots indicator-active-color="#F27900" indicator-color="#fff" autoplay="3000" interval="5000" duration="500">
+      <block wx:for="{{userBanners}}" wx:key="{{item}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- <i-tabs  i-class="tabs" current="{{ current }}" bindchange="handleChange">
+      <i-tab key="tab1" title="作品集"></i-tab>
+      <i-tab key="tab2" title="童模详情"></i-tab>
+    </i-tabs> -->
+    <view class="tabs">
+            <view class="tab {{type==1?'tab-active':''}}" bindtap="changeType" data-type="1">童模详情</view>
+            <view class="tab {{type==2?'tab-active':''}}" bindtap="changeType" data-type="2">作品集</view>
+          </view>
+        <!-- 童模信息开始 -->
+    <view wx:if="{{type==1}}">
+        <view class="cell-group">
+        <view class="cell">
+          <view class="model-row">
+              <text>姓名：{{userInfo.name}}</text>
+              <button wx:if="{{!isFollow}}" class="follow" bindtap="follow">关注</button>
+              <button wx:else class="follow" bindtap="follow">已关注</button>
+         </view>
+          <view class="model-row">
+              <text>性别：{{userInfo.gender}}</text>
+          </view>
+          <view class="model-row">
+              <text>生日：{{userInfo.birthday}}</text>
+          </view>
+          <view class="model-row">
+                <text>身高：{{userInfo.height}}</text>
+            </view>
+          <view class="model-row">
+              <text>体重：{{userInfo.weight}}</text>
+          </view>
+          <view class="model-row">
+                <text>鞋码：{{userInfo.shoe_size}}</text>
+            </view>
+          <view class="model-row row-address">
+              <text>三围：{{userInfo.bwh}}</text>
+          </view>
+          <view class="model-row row-address">
+              <text>地址：{{userInfo.province}}{{userInfo.city}}{{userInfo.area}}{{userInfo.address}}</text>
+          </view>
+       </view>
+       <view class="cell cell-introduce">
+           <text>
+            个人介绍：
+            {{userInfo.profile}}
+           </text>  
+       </view>
+      </view>
+    </view>
+    <view wx:if="{{type==2}}" class="model-group">
+            <view class="model-single"  wx:for="{{userProduct}}" wx:key="{{item.id}}">
+            <image src="{{item.image}}"></image>
+            </view>
+    </view>
+        <!-- 童模信息结束 -->
+    <view wx:if="{{userInfo.can_edit}}" class="edit">
+       <button class="edit-btn" bindtap="edit">编辑</button>
+    </view>
+    
+  </view>

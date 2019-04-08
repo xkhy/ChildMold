@@ -1,0 +1,36 @@
+image {
+  width: 100%;
+}
+
+.container .demand-img {
+  height: 750rpx;
+}
+
+.container .cell-group {
+  padding: 0 40rpx;
+}
+
+.container .cell-group .cell {
+  display: flex;
+  flex-direction: column;
+  line-height: 2.2;
+  font-size: 28rpx;
+  color: #444;
+}
+
+.container .cell-group .cell .row {
+  display: flex;
+}
+
+.container .cell-group .cell .row-half > .row-title {
+  flex: 1;
+}
+
+.container .cell-group .cell .row-title {
+  font-weight: 500;
+}
+
+.container .cell-group .cell .cell-content {
+  flex: 1;
+  font-weight: 400;
+}

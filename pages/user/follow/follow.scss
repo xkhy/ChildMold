@@ -1,0 +1,70 @@
+@import "../../../assets/scss/common.scss";
+.tabs {
+  display: flex;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-top: 4rpx solid #f7f7f7;
+  border-bottom: 6rpx solid #f7f7f7;
+  .tab {
+    position: relative;
+    flex: 1;
+    line-height: 88rpx;
+    font-size: 28rpx;
+    text-align: center;
+    color: #999;
+  }
+  .tab-active {
+    color: $color-theme;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5rpx;
+      left: 50%;
+      margin-left: -38rpx;
+      width: 76rpx;
+      height: 6rpx;
+      background-color: $color-theme;
+    }
+  }
+}
+.container .tabs {
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.model-group {
+  padding: 27rpx 0 0 22rpx;
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  .model-single {
+    width: 228rpx;
+    margin-bottom: 12rpx;
+    margin-right: 12rpx;
+    .model-image {
+      height: 228rpx;
+      border-radius: 8rpx;
+    }
+    .model-info {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      line-height: 70rpx;
+      font-size: 24rpx;
+      color: #999;
+      .model-name {
+        color: #444;
+        font-size: 30rpx;
+      }
+      .model-attention {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .heart {
+        width: 24rpx;
+        height: 24rpx;
+        margin-right: 14rpx;
+      }
+    }
+  }
+}
