@@ -1,0 +1,15 @@
+  <view class="model-group">
+      <view class="model-single"  
+        wx:for="{{modelList}}" 
+        wx:key="{{index}}" 
+        bindtap="toModel">
+        <image class="model-image" src="{{item}}"></image>
+        <view class="model-info">
+          <text class="model-name">王晶晶</text>
+          <view class="model-attention">
+              <image src="../../assets/icon/heart.png" class="heart"></image>
+              <text>263</text>  
+          </view>
+        </view>
+      </view>
+  </view>

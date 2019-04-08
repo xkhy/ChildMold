@@ -1,0 +1,28 @@
+@import '../../assets/scss/common.scss';
+.active{
+  color:$color-theme;
+  height:74rpx;
+  border-bottom:4rpx solid $color-theme;
+}
+.tab{
+  width:100%;
+  display:flex;
+  align-item:flex-end;
+  justify-content:space-around;
+  background-color:#fff;
+  height:80rpx;
+  font-size:26rpx;
+  z-index:999;
+  text-align:center;
+  line-height:80rpx;
+  box-shadow:4px 4px 10px #f2f2f2;
+}
+.tab-content{
+  overflow:scroll;
+}
+.tab-contents{
+  display:none;
+}
+.on{
+   display:block;
+}

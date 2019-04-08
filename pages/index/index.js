@@ -17,7 +17,8 @@ Page({
       "/assets/images/model2.png",
       "/assets/images/model3.png"
     ],
-    current: "tab1"
+    current: "tab1",
+    tabTitle: ['推荐', '人气', '新人']
   },
   handleChange({ detail }) {
     this.setData({

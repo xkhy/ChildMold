@@ -1,46 +1,49 @@
 {
-	"pages": [
-		"pages/index/index",
+  "pages": [
+    "pages/index/index",
     "pages/search/search",
-		"pages/find/find",
-		"pages/user/user",
-		"pages/user/auth/auth"
-	],
-	"window": {
-		"backgroundTextStyle": "light",
-		"navigationBarBackgroundColor": "#fff",
-		"navigationBarTitleText": "童模库",
-		"navigationBarTextStyle": "black"
-	},
-	"tabBar": {
-		"color": "#999999",
-		"selectedColor": "#EF8501",
-		"backgroundColor": "#fff",
-		"list": [
-			{
-				"pagePath": "pages/index/index",
-				"text": "首页",
-				"iconPath": "assets/icon/home.png",
-				"selectedIconPath": "assets/icon/home_selected.png"
-			},
-			{
-				"pagePath": "pages/search/search",
-				"text": "搜索",
-				"iconPath": "assets/icon/search.png",
-				"selectedIconPath": "assets/icon/search_selected.png"
-			},
-			{
-				"pagePath": "pages/find/find",
-				"text": "发现",
-				"iconPath": "assets/icon/find.png",
-				"selectedIconPath": "assets/icon/find_selected.png"
-			},
-			{
-				"pagePath": "pages/user/user",
-				"text": "我的",
-				"iconPath": "assets/icon/my.png",
-				"selectedIconPath": "assets/icon/my_selected.png"
-			}
-		]
-	}
+    "pages/find/find",
+    "pages/user/user",
+    "pages/user/auth/auth",
+    "components/tabs/tabs",
+    "components/card/card",
+    "components/card/card.scss"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "童模库",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#EF8501",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/icon/home.png",
+        "selectedIconPath": "assets/icon/home_selected.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "assets/icon/search.png",
+        "selectedIconPath": "assets/icon/search_selected.png"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "assets/icon/find.png",
+        "selectedIconPath": "assets/icon/find_selected.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "assets/icon/my.png",
+        "selectedIconPath": "assets/icon/my_selected.png"
+      }
+    ]
+  }
 }
