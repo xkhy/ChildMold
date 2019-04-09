@@ -3,7 +3,7 @@
   <form  bindsubmit="formSubmit" bindreset="formReset">
     <view class="item">
       <label for="username">姓名：</label>
-      <input type="text" placeholder="请输入您的姓名" name="username" placeholder-class="xxx"/>
+      <input type="text" placeholder="请输入您的姓名" name="username" placeholder-class="xxx" value="{{username}}"/>
     </view>
     <view class="item">      
       <picker bindchange="bindGenderChange" value="{{genderIndex}}" range="{{gender}}">
@@ -32,7 +32,7 @@
     </view>
     <view class="item">
       <label for="mechanism">所属机构：</label>
-      <input type="text" placeholder="请输入机构名称" name="mechanism" placeholder-class="xxx"/>
+      <input type="text" placeholder="请输入机构名称" name="mechanism" placeholder-class="xxx" value="{{mechanism}}"/>
     </view>
     <view class="item">
       <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">

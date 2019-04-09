@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 12,
 			"list": [
 				{
 					"id": -1,
@@ -121,6 +121,12 @@
 					"name": "发布",
 					"pathName": "pages/find/find_release/find_release",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "童模认证",
+					"pathName": "pages/model/auth/auth",
 					"scene": null
 				}
 			]

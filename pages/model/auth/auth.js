@@ -1,8 +1,12 @@
+import WxValidate from '../../../utils/WxValidate'
 Page({
   data: {
+    username: '',
     gender: ['请选择您的性别', '男', '女'],
     nationality:['请选择您的国籍','中籍', '外籍', '混血'],
     birthday: '2012-09-01',
+    telephone: '',
+    mechanism: '',
     region: ['浙江省', '湖州市', '吴兴区'],
     address: '',
     height: '',
@@ -19,6 +23,55 @@ Page({
     ],
     isAgree:true
 
+  },
+  onLoad() {
+    this.initValidate()//验证规则函数
+
+  },
+  //报错 
+  showModal(error) {
+    wx.showModal({
+      content: error.msg,
+      showCancel: false,
+    })
+  },
+  //验证函数
+  initValidate() {
+    const rules = {
+      name: {
+        required: true,
+        minlength:2
+      },
+      phone:{
+        required:true,
+        tel:true
+      }
+  }
+    const messages = {
+      name: {
+        required: '请填写姓名',
+        minlength:'请输入正确的名称'
+      },
+      phone:{
+        required:'请填写手机号',
+        tel:'请填写正确的手机号'
+      }
+    }
+    this.WxValidate = new WxValidate(rules, messages)
+  },
+  //调用验证函数
+  formSubmit: function(e) {
+    console.log('form发生了submit事件，携带的数据为：', e.detail.value)
+    const params = e.detail.value
+    //校验表单
+    if (!this.WxValidate.checkForm(params)) {
+      const error = this.WxValidate.errorList[0]
+      this.showModal(error)
+      return false
+    }
+    this.showModal({
+      msg: '提交成功'
+    })
   },
 
   bindGenderChange(e) {
