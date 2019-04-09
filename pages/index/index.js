@@ -43,7 +43,7 @@ Page({
   // 跳转model页
   toModel(e) {
     wx.navigateTo({
-      url: `/pages/model/details?id=${e.currentTarget.dataset.id}`
+      url: `/pages/model/detail?id=${e.currentTarget.dataset.id}`
     });
   }
 });

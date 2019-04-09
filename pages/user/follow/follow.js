@@ -26,9 +26,10 @@ Page({
     this.getMyFollow();
   },
   // 跳转model页
-  toModel(e) {
+  toDetail(e) {
+   let type = this.data.type==1?"busniess":"model";
     wx.navigateTo({
-      url: `/pages/model/details?id=${e.currentTarget.dataset.id}`
+      url: `/pages/${type}/detail?id=${e.currentTarget.dataset.id}`
     });
   }
 });

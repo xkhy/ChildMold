@@ -5,7 +5,7 @@
     "pages/find/find",
     "pages/find/demand/list/list",
     "pages/find/notice/list/list",
-    "pages/model/details",
+    "pages/model/detail",
     "pages/model/auth/auth",
     "pages/busniess/detail",
     "pages/busniess/edit/edit",
