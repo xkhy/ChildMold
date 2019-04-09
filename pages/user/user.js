@@ -1,7 +1,7 @@
 const app = getApp()
 Page({
   data: {
-    userType:2
+    userType:1
   },
   contact(){
     wx.showModal({

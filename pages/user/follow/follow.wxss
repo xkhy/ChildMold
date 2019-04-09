@@ -82,3 +82,77 @@ image {
   height: 24rpx;
   margin-right: 14rpx;
 }
+
+.card {
+  height: 220rpx;
+}
+
+.card .vip-icon {
+  width: 40rpx;
+  height: 35rpx;
+  margin-right: 10rpx;
+}
+
+.card .shop-icon {
+  width: 38rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}
+
+.card .card-content {
+  height: 220rpx;
+  padding: 20rpx 31rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 3rpx solid #f7f7f7;
+}
+
+.card .card-content .card-img {
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 50rpx;
+}
+
+.card .card-content .card-img image {
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.card .card-content .card-info {
+  height: 100%;
+  font-size: 26rpx;
+  color: #444;
+}
+
+.card .card-content .card-info .card-title {
+  display: flex;
+  line-height: 60rpx;
+}
+
+.card .card-content .card-info .card-title text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.card .card-content .card-info .cell {
+  line-height: 2.2;
+  align-items: center;
+  width: 400rpx;
+  height: 100rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.card .card-content .card-info .follow {
+  height: 50rpx;
+  line-height: 50rpx;
+  background: #EF8501;
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 28rpx;
+  margin: 0;
+}

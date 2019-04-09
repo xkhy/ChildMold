@@ -68,3 +68,62 @@
     }
   }
 }
+
+.card {
+  height: 220rpx;
+  .vip-icon {
+    width: 40rpx;
+    height: 35rpx;
+    margin-right: 10rpx;
+  }
+  .shop-icon {
+    width: 38rpx;
+    height: 36rpx;
+    margin-right: 10rpx;
+  }
+  .card-content {
+    height: 220rpx;
+    padding: 20rpx 31rpx;
+    display: flex;
+    align-items: center;
+    border-bottom: 3rpx solid #f7f7f7;
+    .card-img {
+      width: 180rpx;
+      height: 180rpx;
+      margin-right: 50rpx;
+      image {
+        width: 180rpx;
+        height: 180rpx;
+      }
+    }
+    .card-info {
+      height: 100%;
+      font-size: 26rpx;
+      color: #444;
+      .card-title {
+        display: flex;
+        line-height: 60rpx;
+        text {
+        @include textoverflow(1);
+        }
+      }
+      .cell {
+        line-height: 2.2;
+        // display: flex;
+        align-items: center;
+        width: 400rpx;
+        height: 100rpx;
+        @include textoverflow(2);
+      }
+      .follow {
+        height: 50rpx;
+        line-height: 50rpx;
+        background: $color-theme;
+        border-radius: 10rpx;
+        color: #fff;
+        font-size: 28rpx;
+        margin: 0;
+      }
+    }
+  }
+}

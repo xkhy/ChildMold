@@ -18,7 +18,7 @@ Page({
     });
   },
   getModel() {
-    app.get("index_product", {
+    app.get("index_product", {  // TODO 分页
       page:1,
       order: this.data.type
     }).then(res => {
@@ -43,7 +43,7 @@ Page({
   // 跳转model页
   toModel(e) {
     wx.navigateTo({
-      url: `/pages/model/details?id=${e.currentTarget.dataset.id}`
+      url: `/pages/model/detail?id=${e.currentTarget.dataset.id}`
     });
   }
 });

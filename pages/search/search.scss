@@ -145,14 +145,14 @@
 }
 
 .model-group {
-  padding: 20rpx 10rpx 0;
+  padding: 20rpx 0 0 22rpx;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
   background: #fff;
   .model-single {
     width: 228rpx;
     margin-bottom: 12rpx;
+    margin-right: 12rpx;
     .model-image {
       height: 228rpx;
       border-radius: 8rpx;

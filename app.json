@@ -3,17 +3,20 @@
     "pages/index/index",
     "pages/search/search",
     "pages/find/find",
-    "pages/user/user",
-    "pages/user/auth/auth",
-    "pages/model/details",
+    "pages/find/demand/list/list",
+    "pages/find/notice/list/list",
+    "pages/model/detail",
     "pages/model/auth/auth",
     "pages/busniess/detail",
     "pages/busniess/edit/edit",
     "pages/busniess/auth/auth",
     "pages/find/demand/detail",
     "pages/find/notice/detail",
+    "pages/user/user",
+    "pages/user/auth/auth",
     "pages/user/follow/follow",
     "pages/user/photo/photo"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
