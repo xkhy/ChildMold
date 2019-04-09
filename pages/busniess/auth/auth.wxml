@@ -1,2 +1,43 @@
-<!--pages/user/auth/model_auth/model_auth.wxml-->
-<text>pages/user/auth/model_auth/model_auth.wxml</text>
+<view class="auth">*为必填项，其他为选填</view>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view>
+    <label for="username">姓名：</label>
+    <input type="text" placeholder="请输入您的姓名" name="username" />
+  </view>
+  <picker bindchange="bindGenderChange" value="{{genderIndex}}" range="{{gender}}">
+    <view class="picker">性别：{{gender[genderIndex]}}</view>
+  </picker>
+  <picker bindchange="bindNatChange" value="{{natIndex}}" range="{{nationality}}">
+    <view class="picker">国籍：{{nationality[natIndex]}}</view>
+  </picker>
+  <picker mode="date" value="{{birthday}}" start="2000-01-01" end="2019-01-01" bindchange="bindBirthdayChange">
+    <view class="picker">生日: {{birthday}}</view>
+  </picker>
+
+  <view>
+    <label>联系方式:</label>
+    <input type="number" name="telephone" value="{{telephone}}" confirm-type="next" maxlength="11"/>
+  </view>
+  <view>
+    <label for="mechanism">所属机构：</label>
+    <input type="text" placeholder="请输入机构名称" name="mechanism" />
+  </view>
+  <picker
+    mode="region"
+    bindchange="bindRegionChange"
+    value="{{region}}"
+    custom-item="{{customItem}}"
+  >
+    <view>
+      地址：{{region[0]}}，{{region[1]}}，{{region[2]}}
+    </view>
+  </picker>
+  <view>
+    <label>详细地址:</label>
+    <input type="text" name="address" value="{{address}}"/>
+  </view>
+  <view class="btn-area">
+    <button formType="submit">提交</button>
+    <button formType="reset">重置</button>
+  </view>
+</form>

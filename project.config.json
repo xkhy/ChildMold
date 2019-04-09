@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 12,
 			"list": [
 				{
 					"id": -1,
@@ -114,6 +114,19 @@
 					"name": "我的关注",
 					"pathName": "pages/user/follow/follow",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家认证",
+					"pathName": "pages/busniess/auth/auth",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "童模认证",
+					"pathName": "pages/model/auth/auth",
 					"scene": null
 				}
 			]

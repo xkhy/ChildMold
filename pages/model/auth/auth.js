@@ -1,66 +1,85 @@
-// pages/user/auth/model_auth/model_auth.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    gender: ['请选择您的性别', '男', '女'],
+    nationality:['请选择您的国籍','中籍', '外籍', '混血'],
+    birthday: '2012-09-01',
+    region: ['浙江省', '湖州市', '吴兴区'],
+    address: '',
+    height: '',
+    weight: '',
+    shoeSize: '',
+    bust: '',
+    waist: '',
+    hipline: '',
+    intro: '',
+    genderIndex: 0,
+    natIndex: 0,
+    agreeItems: [
+      {name: true, value: '同意', checked: false}
+    ],
+    isAgree:true
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  bindGenderChange(e) {
+    console.log('性别发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      genderIndex: e.detail.value
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  bindNatChange(e) {
+    console.log('国籍发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      natIndex: e.detail.value
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  bindBirthdayChange(e) {
+    console.log('生日发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      birthday: e.detail.value
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  bindRegionChange(e) {
+    console.log('地区发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  toggleAgree:function(e){
+    let items = this.data.agreeItems;
+    items[0].checked = !(items[0].checked);
+    items[0].name = !(items[0].name);
+    this.setData({
+      agreeItems: items,
+      isAgree: items[0].name
+    });
   },
+  agreeChange(e) {
+    // console.log('radio发生change事件，携带value值为：', e.detail.value)
+    this.data.isAgree = e.detail.value;
+    console.log(this.data.isAgree);
+    if(this.data.isAgree) {
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+    }
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  formSubmit: function (e) {
+    // console.log('form发生了submit事件，提交数据：', e.detail.value)
+    // wx.request({
+    //   url: '',
+    //   data: {
+    //     'nickname': e.detail.value.nickname,
+    //     'password': e.detail.value.password,
+    //   },
+    //   method:'POST',
+    //   header: {
+    //     'Content-Type': 'application/x-www-form-urlencoded'
+    //   },
+    //   success: function (res) {
+    //     console.log(res.data)
+    //   }
+    // })
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  formReset: function () {
+    console.log('form发生了reset事件')
   }
 })

@@ -1,2 +1,114 @@
-<!--pages/user/auth/model_auth/model_auth.wxml-->
-<text>pages/user/auth/model_auth/model_auth.wxml</text>
+<view class="auth">
+  <view class="tip">*为必填项，其他为选填</view>
+  <form  bindsubmit="formSubmit" bindreset="formReset">
+    <view class="item">
+      <label for="username">姓名：</label>
+      <input type="text" placeholder="请输入您的姓名" name="username" placeholder-class="xxx"/>
+    </view>
+    <view class="item">      
+      <picker bindchange="bindGenderChange" value="{{genderIndex}}" range="{{gender}}">
+        <view>
+         <label for="gender">性别：</label> <text name="gender">{{gender[genderIndex]}}</text>
+       </view>
+      </picker>
+    </view>
+    <view class="item">
+      <picker bindchange="bindNatChange" value="{{natIndex}}" range="{{nationality}}">
+        <view>
+          <label for="nationality">国籍：</label><text name="nationality">{{nationality[natIndex]}}</text>
+        </view>
+      </picker>
+    </view>
+    <view class="item">
+      <picker mode="date" value="{{birthday}}" start="2000-01-01" end="2019-01-01" bindchange="bindBirthdayChange">
+        <view>
+          <label for="birthday">生日:</label> <text name="birthday">{{birthday}}</text>
+        </view>
+      </picker>
+    </view>
+    <view class="item">
+      <label>联系方式:</label>
+      <input type="number" name="telephone" value="{{telephone}}" confirm-type="next" maxlength="11" placeholder="请输入您的手机号码" placeholder-class="xxx"/>
+    </view>
+    <view class="item">
+      <label for="mechanism">所属机构：</label>
+      <input type="text" placeholder="请输入机构名称" name="mechanism" placeholder-class="xxx"/>
+    </view>
+    <view class="item">
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view>
+          <label for="region">地址：</label>
+          <text name="region">{{region[0]}}，{{region[1]}}，{{region[2]}}</text>
+        </view>
+      </picker>
+    </view>
+    <view class="item address">
+      <label>详细地址:</label>
+      <textarea type="text" name="address" auto-height value="{{address}}" placeholder="请输入您的详细地址" 
+      placeholder-class="xxx"/>
+    </view>
+    <view class="item height">
+      <label>身高:</label>
+      <input type="number" name="height" value="{{height}}" placeholder="请输入您的身高" placeholder-class="xxx"/>
+    </view>
+    <view class="item">
+      <label>体重:</label>
+      <input type="number" name="weight" value="{{weight}}" placeholder="请输入您的体重" placeholder-class="xxx"/>
+    </view>
+    <view class="item">
+      <label>鞋码:</label>
+      <input placeholder-class="xxx"  type="number" name="shoeSize" value="{{shoeSize}}" placeholder="如220mm，请输入34" />
+    </view>
+    <view class="item circles no-require">
+        胸围:<input type="number" name="bust" value="{{bust}}" placeholder="cm" />
+        腰围:<input type="number" name="waist" value="{{waist}}" placeholder="cm" />
+        臀围:<input type="number" name="hipline" value="{{hipline}}" placeholder="cm" />
+    </view>
+    <view class="item intro no-require">
+      <label>自我介绍:</label>
+      <textarea type="text" name="intro" auto-height value="{{intro}}" placeholder="请输入您的自我介绍" placeholder-class="xxx"/>
+    </view>
+    <view class="images">
+      <label for="">父母身份证照片</label>
+      <view class="photo">
+        <view class="add">
+          +
+        </view>
+        <text>身份证正面照</text>
+      </view> 
+     <view class="photo">
+        <view class="add">
+          +
+        </view>
+        <text>身份证反面照</text>
+      </view>      
+    </view>
+    <view class="images">
+      <label for="">户口本（父母和童模）</label>
+      <view class="photo">
+        <view class="add">
+          +
+        </view>
+        <text>父母户口本页</text>
+      </view> 
+     <view class="photo">
+        <view class="add">
+          +
+        </view>
+        <text>童模户口本页</text>
+      </view>      
+    </view>
+  </form>
+</view>
+
+<view class="agree">
+  <radio-group bindchange="agreeChange" >
+    <label wx:for="{{agreeItems}}" wx:key="{{index}}">
+      <radio value="{{item.name}}" checked="{{item.checked}}" bindtap = "toggleAgree" color="4A90E2"/>
+      已阅读并{{item.value}}xxx协议
+    </label>
+  </radio-group>
+</view>
+<view class="submit">
+  <button formType="submit" disabled="{{isAgree}}">提交申请</button>
+</view>

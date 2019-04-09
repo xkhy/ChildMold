@@ -1,0 +1,155 @@
+page {
+  background-color: #f7f7f7;
+}
+.auth {
+  .tip {
+    background-color: #FAF8AC;
+    color: #F66A6A;
+    font-size: 24rpx;
+    padding: 0 40rpx;
+    margin-bottom: 20rpx;
+  }
+}
+form {
+  font-size: 30rpx;
+  color: #999;
+  // 每行需要输入的样式
+  view.item {
+   line-height: 96rpx;
+   display: flex;
+   align-items: center;
+   padding: 0 40rpx;
+   background-color: #fff;
+   &::before {
+     padding-right: 8rpx;
+     content: '*';
+     color: #F66A6A;
+   }
+   label {
+    color: #444;
+    flex: 2;
+   }
+  // picker 样式
+   picker {
+     width: 100%;
+     view {
+     display: flex;
+     label {
+      color: #444;
+      flex: 2;
+     }
+     text {
+      color: #999;
+      flex: 5;
+     }
+    }
+   }
+   input[placeholder] {    
+    flex: 5;
+   }
+   .xxx {
+    color: #999;
+   }
+ }
+ // 不是必填项
+ view.no-require {
+   &::before {
+     content: '';
+   }
+ }
+// textarea 详细地址 自我介绍
+view.address, view.intro {
+  display: block;
+  background-color: #fff;  
+  margin-bottom: 30rpx;
+  textarea {
+    line-height: 1.5;
+  }
+}
+ //三围样式
+ .circles {
+   display: flex;
+   align-items: center;
+   color: #444;
+   &>input[placeholder] {
+    text-align: center;
+   }
+ }
+ // 父母身份证 户口本
+.images {
+  padding: 20rpx 40rpx;
+  background-color: #fff;
+  margin-bottom: 4rpx;
+  &::before {
+    padding-right: 8rpx;
+    content: '*';
+    color: #F66A6A;
+  }
+  .photo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2rpx dashed #999;
+    height: 360rpx;
+    width: 660rpx;
+    background-color: #eee;
+    margin: 20rpx auto;
+    .add {
+      // border: 1px solid red;
+      font-size: 140rpx;
+      color: #aaa;
+      font-weight: 200;
+    }
+  }
+}
+}
+
+// 是否同意协议样式
+.agree {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #4A90E2;
+  padding: 40rpx;
+  label {
+    font-size: 24rpx;
+    border: none;
+  }
+  radio {
+    transform:scale(.8);
+  }
+  /* 选中后的 背景样式 */
+  radio .wx-radio-input.wx-radio-input-checked{
+    border: 2rpx solid #4A90E2;
+    background: #4A90E2;
+  }
+    /* 选中后的 对勾样式 */
+  radio .wx-radio-input.wx-radio-input-checked::before{
+    border-radius: 50%;
+    width: 40rpx; 
+    height: 40rpx; 
+    line-height: 40rpx;
+    text-align: center;
+    font-size:30rpx; 
+    color:#fff; 
+    background: #4A90E2;
+    border: none;
+    transform:translate(-50%, -50%) scale(1);
+    -webkit-transform:translate(-50%, -50%) scale(1);
+  }
+}
+// 提交按钮
+.submit {
+  margin-bottom: 80rpx;
+  button {
+    background-color: #4A90E2;
+    border-radius: 10rpx;
+    height: 80rpx;
+    width: 80%;
+    color: #fff;
+    &[disabled] {
+      background-color: #ccc;
+    }
+  }
+}
