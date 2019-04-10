@@ -63,21 +63,11 @@ form {
 view.address, view.intro {
   display: block;
   background-color: #fff;  
-  margin-bottom: 30rpx;
   textarea {
     line-height: 1.5;
   }
 }
- //三围样式
- .circles {
-   display: flex;
-   align-items: center;
-   color: #444;
-   &>input[placeholder] {
-    text-align: center;
-   }
- }
- // 父母身份证 户口本
+ // 营业执照
 .images {
   padding: 20rpx 40rpx;
   background-color: #fff;

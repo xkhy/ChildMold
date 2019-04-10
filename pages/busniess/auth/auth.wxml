@@ -1,43 +1,54 @@
-<view class="auth">*为必填项，其他为选填</view>
-<form bindsubmit="formSubmit" bindreset="formReset">
-  <view>
-    <label for="username">姓名：</label>
-    <input type="text" placeholder="请输入您的姓名" name="username" />
-  </view>
-  <picker bindchange="bindGenderChange" value="{{genderIndex}}" range="{{gender}}">
-    <view class="picker">性别：{{gender[genderIndex]}}</view>
-  </picker>
-  <picker bindchange="bindNatChange" value="{{natIndex}}" range="{{nationality}}">
-    <view class="picker">国籍：{{nationality[natIndex]}}</view>
-  </picker>
-  <picker mode="date" value="{{birthday}}" start="2000-01-01" end="2019-01-01" bindchange="bindBirthdayChange">
-    <view class="picker">生日: {{birthday}}</view>
-  </picker>
-
-  <view>
-    <label>联系方式:</label>
-    <input type="number" name="telephone" value="{{telephone}}" confirm-type="next" maxlength="11"/>
-  </view>
-  <view>
-    <label for="mechanism">所属机构：</label>
-    <input type="text" placeholder="请输入机构名称" name="mechanism" />
-  </view>
-  <picker
-    mode="region"
-    bindchange="bindRegionChange"
-    value="{{region}}"
-    custom-item="{{customItem}}"
-  >
-    <view>
-      地址：{{region[0]}}，{{region[1]}}，{{region[2]}}
+<view class="auth">
+  <view class="tip">*为必填项，其他为选填</view>
+  <form  bindsubmit="formSubmit" bindreset="formReset">
+    <view class="item">
+      <label for="name">商家名称</label>
+      <input type="text" placeholder="请输入商家名称" name="name" placeholder-class="xxx" value="{{name}}"/>
     </view>
-  </picker>
-  <view>
-    <label>详细地址:</label>
-    <input type="text" name="address" value="{{address}}"/>
-  </view>
-  <view class="btn-area">
-    <button formType="submit">提交</button>
-    <button formType="reset">重置</button>
-  </view>
-</form>
+    <view class="item">
+      <label>联系电话</label>
+      <input type="number" name="phone" value="{{phone}}" maxlength="11" placeholder="请输入商家联系电话" placeholder-class="xxx"/>
+    </view>
+    <view class="item">
+      <picker mode="region" name="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view>
+          <label for="region">地址</label>
+          <text>{{region[0]}}{{region[1]}}{{region[2]}}</text>
+        </view>
+      </picker>
+    </view>
+    <view class="item address">
+      <label>详细地址</label>
+      <textarea type="text" name="address" auto-height value="{{address}}" placeholder="请输入商家的详细地址" 
+      placeholder-class="xxx"/>
+    </view>
+    <view class="item intro no-require">
+      <label>关于我们</label>
+      <textarea type="text" name="profile" auto-height value="{{profile}}" placeholder="请输入商家介绍" placeholder-class="xxx"/>
+    </view>
+    <view class="images">
+      <label for="">营业执照</label>
+      <view class="photo" bindtap="uploadIdcardFront">
+          <image wx:if="{{bizlicense_url}}" class='upload-image'src='{{bizlicense_url}}'></image>
+          <view wx:else class="add-btn">
+              <view class="add">
+                +
+              </view>
+              <text>营业执照正面</text>
+          </view>        
+      </view>     
+    </view>
+    <view class="agree">
+      <radio-group>
+        <view wx:for="{{agreeItems}}" wx:key="{{index}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}" bindtap = "toggleAgree" color="4A90E2"/>
+          已阅读并{{item.value}}xxx协议
+        </view>
+      </radio-group>
+    </view>
+    <view class="submit">
+      <button form-type="submit" disabled="{{isAgree}}">提交申请</button>
+    </view>
+  </form>
+</view>
+
