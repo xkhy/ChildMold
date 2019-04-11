@@ -1,0 +1,123 @@
+@import "../../../../assets/scss/common.scss";
+page {
+  background-color: #f7f7f7;
+}
+.auth {
+  .tip {
+    background-color: #faf8ac;
+    color: #f66a6a;
+    font-size: 24rpx;
+    padding: 0 40rpx;
+    margin-bottom: 20rpx;
+  }
+}
+form {
+  font-size: 30rpx;
+  color: #999;
+  // 每行需要输入的样式
+  view.item {
+    line-height: 96rpx;
+    display: flex;
+    align-items: center;
+    padding: 0 40rpx;
+    background-color: #fff;
+    margin-bottom: 2rpx;
+    label {
+      color: #444;
+      flex: 2;
+    }
+    // picker 样式
+    picker {
+      width: 100%;
+      view {
+        display: flex;
+        label {
+          color: #444;
+          flex: 2;
+        }
+        text {
+          color: #999;
+          flex: 5;
+        }
+      }
+    }
+    input[placeholder] {
+      flex: 5;
+    }
+    .xxx {
+      color: #999;
+    }
+  }
+  // 不是必填项
+  view.no-require {
+    &::before {
+      content: "";
+    }
+  }
+  // textarea 详细地址 自我介绍
+  view.address,
+  view.intro {
+    display: block;
+    background-color: #fff;
+    //   margin-bottom: 30rpx;
+    textarea {
+      line-height: 1.5;
+    }
+  }
+  //三围样式
+  .circles {
+    display: flex;
+    align-items: center;
+    color: #444;
+    & > input[placeholder] {
+      text-align: center;
+    }
+  }
+  // 上传图片
+  .images {
+    padding: 20rpx 40rpx;
+    background-color: #fff;
+    margin-bottom: 4rpx;
+    label {
+      color: #444;
+    }
+    .photo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 360rpx;
+      width: 660rpx;
+      background-color: #eee;
+      margin: 20rpx auto;
+      .add-btn {
+        text-align: center;
+      }
+      .add {
+        // border: 1px solid red;
+        font-size: 140rpx;
+        color: #aaa;
+        font-weight: 200;
+      }
+      .upload-image {
+        width: 90%;
+        height: 90%;
+      }
+    }
+  }
+}
+
+// 提交按钮
+.submit {
+  margin-top: 22rpx;
+  margin-bottom: 31rpx;
+  button {
+    background-color: $color-theme;
+    border-radius: 10rpx;
+    line-height: 80rpx;
+    width: 80%;
+    font-size: 32rpx;
+    font-weight: 500;
+    color: #fff;
+  }
+}

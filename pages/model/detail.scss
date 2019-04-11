@@ -61,7 +61,7 @@ swiper {
   }
   .model-row {
     display: flex;
-    flex: 1 1 50%;
+    // flex: 1 1 50%;
     margin-bottom: 8rpx;
     line-height: 1.8;
     font-size: 28rpx;
@@ -69,8 +69,14 @@ swiper {
       font-size: 28rpx;
     }
   }
+  .model-row:nth-child(2n-1){
+    flex: 1 1 60%;
+  }
+  .model-row:nth-child(2n){
+    flex: 1 1 40%;
+  }
   .row-address {
-    flex: 1 1 100%;
+    flex: 1 1 100%!important;
   }
 }
 

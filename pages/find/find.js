@@ -16,31 +16,57 @@ Page({
   onLoad: function (options) {
     this.getDemand();
   },
+  getLocation(){
+    wx.getLocation({
+      type: 'gcj02', // 返回可以用于wx.openLocation的经纬度
+      success:(res=> {
+        let latitude = res.latitude
+        let longitude = res.longitude
+        console.log(latitude)
+        console.log(longitude)
+        if(this.data.find==1){
+          this.getDemand(longitude,latitude);
+        }else{
+          this.getNotice(longitude,latitude);
+        }
+      })
+    })
+  },  
   changeFind(e){
     this.setData({
       find: e.currentTarget.dataset.find
     })
-    if(this.data.find==1){
-      this.getDemand();
+    if(this.data.type==3){
+      this.getLocation();
     }else{
-      this.getNotice();
+      if(this.data.find==1){
+        this.getDemand();
+      }else{
+        this.getNotice();
+      }
     }
   },
   changeType(e){
     this.setData({
       type: e.currentTarget.dataset.type
     })
-    if(this.data.find==1){
-      this.getDemand();
+    if(this.data.type==3){
+      this.getLocation();
     }else{
-      this.getNotice();
+      if(this.data.find==1){
+        this.getDemand();
+      }else{
+        this.getNotice();
+      }
     }
   },
   // 需求列表
-  getDemand(){
+  getDemand(lng,lat){
     app.get('demand_index',{
       type:this.data.type,
-      page:1 // TODO 分页
+      page:1, // TODO 分页
+      lng:this.data.type==3?lng:'',
+      lat:this.data.type==3?lat:'',
     }).then(res=>{
       console.log(res)
       this.setData({
@@ -49,10 +75,12 @@ Page({
     })
   },
   // 通告列表
-  getNotice(){
+  getNotice(lng,lat){
     app.get('notice_index',{
       type:this.data.type,
-      page:1 // TODO 分页
+      page:1, // TODO 分页
+      lng:this.data.type==3?lng:'',
+      lat:this.data.type==3?lat:'',
     }).then(res=>{
       console.log(res)
       this.setData({

@@ -36,18 +36,11 @@ Page({
   onLoad() {
     this.getAuth();
   },
-  //报错 
-  showModal(error) {
-    wx.showModal({
-      content: error,
-      showCancel: false,
-    })
-  },
   getAuth(){
     let organizeList=[]
     app.get('get_auth',{
       type:2,
-      token:"c8"
+      token:"c1"
     }).then(res=>{
       console.log(res)
       let user=res.data.user
@@ -84,77 +77,74 @@ Page({
 
   //调用验证函数
   formSubmit(e) {
-    let params=e.detail.value
-    console.log(params);
-    // console.log(e.detail.value)
-    // const params = e.detail.value
+    let params=e.detail.value;
     if (!params.name) {
-      this.showModal("请输入姓名")
+      app.showToast("请输入姓名")
       return false;
     }
     let nameReg = /^[\u4E00-\u9FA5A-Za-z\s]+(·[\u4E00-\u9FA5A-Za-z]+)*$/;
     if (!nameReg.test(params.name)) {
-      this.showModal("请输入正确的姓名")
+      app.showToast("请输入正确的姓名")
       return false;
     }
     if (params.gender==0) {
-      this.showModal("请选择性别")
+      app.showToast("请选择性别")
       return false;
     }
     if (params.nation==0) {
-      this.showModal("请选择国籍")
+      app.showToast("请选择国籍")
       return false;
     }
     if (!params.phone) {
-      this.showModal("请输入手机号")
+      app.showToast("请输入手机号")
       return false;
     }
     let phoneReg = /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/;
     if (!phoneReg.test(params.phone)) {
-      this.showModal("请输入正确的手机号")
+      app.showToast("请输入正确的手机号")
       return false;
     }
     if (params.organize==0) {
-      this.showModal("请选择机构")
+      app.showToast("请选择机构")
       return false;
     }
     if (!params.address) {
-      this.showModal("请输入详细地址")
+      app.showToast("请输入详细地址")
       return false;
     }
     if (!params.height) {
-      this.showModal("请输入身高")
+      app.showToast("请输入身高")
       return false;
     }
     let heightReg = /^([1-9][0-9]{1,2})$/;
     if (!heightReg.test(params.height)) {
-      this.showModal("请输入正确的身高")
+      app.showToast("请输入正确的身高")
       return false;
     }
     if (!params.weight) {
-      this.showModal("请输入体重")
+      app.showToast("请输入体重")
       return false;
     }
     let weightReg = /^(0(\.\d{1}){0,1}|[1-8]\d{1,3}(\.\d{1}){0,1}|9\d{1,2}(\.\d{1}){0,1}|999(\.0){0,1}|.{0})$/;
     if (!weightReg.test(params.weight)) {
-      this.showModal("请输入正确的体重")
+      app.showToast("请输入正确的体重")
       return false;
     }    
     if (!params.shoeSize) {
-      this.showModal("请输入鞋码")
+      app.showToast("请输入鞋码")
       return false;
     }
     let shoeSizeReg = /^([1-5][0-9])$/;
     if (!shoeSizeReg.test(params.shoeSize)) {
-      this.showModal("请输入正确的鞋码")
+      app.showToast("请输入正确的鞋码")
       return false;
     }
     if (!this.data.idcard_front||!this.data.idcard_back) {
-      this.showModal("请上传身份证图片")
+      app.showToast("请上传身份证图片")
       return false;
     }
     if (!this.data.house_parent||!this.data.house_self) {
-      this.showModal("请上传户口本图片")
+      app.showToast("请上传户口本图片")
       return false;
     }
     this.saveAuth(params);
@@ -185,10 +175,7 @@ Page({
       house_self:this.data.house_self,
     }).then(res=>{
       console.log(res)
-      wx.showToast({
-        title: res.msg,
-        icon: 'none'
-      })
+      app.showToast(res.msg)
     })
   },
 

@@ -4,20 +4,26 @@
     "pages/search/search",
     "pages/find/find",
     "pages/find/demand/list/list",
+    "pages/find/demand/detail",
+    "pages/find/demand/release/release",
+    "pages/find/notice/detail",
+    "pages/find/notice/release/release",
     "pages/find/notice/list/list",
     "pages/model/detail",
     "pages/model/auth/auth",
     "pages/busniess/detail",
     "pages/busniess/edit/edit",
     "pages/busniess/auth/auth",
-    "pages/find/demand/detail",
-    "pages/find/notice/detail",
     "pages/user/user",
     "pages/user/auth/auth",
     "pages/user/follow/follow",
     "pages/user/photo/photo"
-
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

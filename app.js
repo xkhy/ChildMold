@@ -1,7 +1,7 @@
 //app.js
 App({
   base_url: 'http://192.168.0.107/',
-  userType:1, // 1商家 2童模
+  type:1, // 1商家 2童模
   // onLaunch: function () {
   //   // 登录
   //   wx.login({
@@ -74,6 +74,20 @@ App({
   //POST请求
   post: function (api, params) {
     return this.request(api, params, 'POST');
+  },
+  // 提示框
+  showToast(msg,icon="none"){
+    wx.showToast({
+      title: msg,
+      icon: icon
+    })
+  },
+  // 确认框
+  showModal(error) {
+    wx.showModal({
+      content: error,
+      showCancel: false,
+    })
   },
   globalData: {
     userInfo: null

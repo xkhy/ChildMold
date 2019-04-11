@@ -28,7 +28,7 @@
     </view>
     <view class="images">
       <label for="">营业执照</label>
-      <view class="photo" bindtap="uploadIdcardFront">
+      <view class="photo" bindtap="uploadBizlicense">
           <image wx:if="{{bizlicense_url}}" class='upload-image'src='{{bizlicense_url}}'></image>
           <view wx:else class="add-btn">
               <view class="add">

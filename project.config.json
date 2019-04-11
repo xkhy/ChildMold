@@ -117,16 +117,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "发布",
-					"pathName": "pages/find/find_release/find_release",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "童模认证",
-					"pathName": "pages/model/auth/auth",
+					"id": 11,
+					"name": "通告发布",
+					"pathName": "pages/find/notice/release/release",
 					"query": "",
 					"scene": null
 				},
@@ -141,6 +134,13 @@
 					"id": -1,
 					"name": "商家认证",
 					"pathName": "pages/busniess/auth/auth",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "需求发布",
+					"pathName": "pages/find/demand/release/release",
 					"scene": null
 				}
 			]

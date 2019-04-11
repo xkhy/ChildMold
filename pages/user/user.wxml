@@ -3,17 +3,17 @@
   <text>王晶晶</text>
 </view>
 <view class="cell-group">
-  <navigator class="cell" hover-class="none">
+  <view class="cell" hover-class="none" bindtap="toDetail">
     <image src="/assets/icon/data.png"></image>
     <text>我的资料</text>
     <view class="right-arrow"></view>
-  </navigator>
-  <navigator wx:if="{{ userType == 1 }}" class="cell" hover-class="none" url="./photo/photo">
+  </view>
+  <navigator wx:if="{{ type == 1 }}" class="cell" hover-class="none" url="./photo/photo">
     <image src="/assets/icon/photo.png"></image>
     <text>我的图库</text>
     <view class="right-arrow"></view>
   </navigator>
-  <navigator wx:if="{{ userType == 2 }}" class="cell" hover-class="none" url="./photo/photo">
+  <navigator wx:if="{{ type == 2 }}" class="cell" hover-class="none" url="./photo/photo">
     <image src="/assets/icon/photo.png"></image>
     <text>我的作品</text>
     <view class="right-arrow"></view>
@@ -23,7 +23,7 @@
     <text>我的关注</text>
     <view class="right-arrow"></view>
   </navigator>
-  <navigator wx:if="{{ userType == 1 }}" class="cell" hover-class="none" url="../find/demand/list/list">
+  <navigator wx:if="{{ type == 1 }}" class="cell" hover-class="none" url="../find/demand/list/list">
     <image src="/assets/icon/demand.png"></image>
     <text>需求管理</text>
     <view class="right-arrow"></view>
@@ -38,7 +38,7 @@
     <text>联系客服</text>
     <view class="right-arrow"></view>
   </view>
-  <navigator class="cell" hover-class="none" url="./auth/auth">
+  <navigator wx:if="{{!is_auth}}" class="cell" hover-class="none" url="./auth/auth">
     <image src="/assets/icon/auth.png"></image>
     <text>一键认证</text>
     <view class="right-arrow"></view>

@@ -1,0 +1,75 @@
+<view class="auth">
+    <form  bindsubmit="formSubmit" bindreset="formReset">
+      <view class="item address">
+        <label>需求说明</label>
+        <textarea type="text" name="desc" auto-height value="{{desc}}" placeholder="请输入商家的需求详细说明" 
+        placeholder-class="xxx"/>
+      </view>
+      <view class="item">      
+        <picker bindchange="bindGenderChange" disabled="{{type==2}}" name="gender"  value="{{genderIndex}}" range="{{gender}}">
+          <view>
+           <label for="gender">性别</label> <text>{{gender[genderIndex]}}</text>
+         </view>
+        </picker>
+      </view>
+      <view class="item">
+        <picker bindchange="bindNatChange" disabled="{{type==2}}" name="nation" value="{{natIndex}}" range="{{nation}}">
+          <view>
+            <label for="nation">国籍</label><text>{{nation[natIndex]}}</text>
+          </view>
+        </picker>
+      </view>
+      <view class="item" style="margin-bottom:30rpx;">
+         <label>身高</label>
+         <input type="number" disabled="{{type==2}}" name="height" value="{{height}}" placeholder="请输入所需模特身高" placeholder-class="xxx"/>
+      </view>
+      <view class="item">
+        <label for="name">需求单位</label>
+        <input type="text" disabled placeholder="请输入名称" name="name" placeholder-class="xxx" value="{{name}}"/>
+      </view>
+      <view class="item">
+         <picker mode="date" value="{{startDate}}"  name="startDate" start="2000-01-01" end="2099-01-01" bindchange="bindStartDateChange">
+           <view>
+             <label for="startDate">拍摄时间</label> <text>{{startDate}}</text>
+           </view>
+         </picker>
+      </view>
+      <view class="item">
+         <picker mode="date" value="{{endDate}}"  name="endDate" start="2000-01-01" end="2099-01-01" bindchange="bindEndDateChange">
+           <view>
+             <label for="endDate"></label><text>{{endDate}}</text>
+           </view>
+         </picker>
+      </view>
+      <view class="item">
+        <picker mode="region" name="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view>
+            <label for="region">拍摄地点</label>
+            <text >{{region[0]}}{{region[1]}}{{region[2]}}</text>
+          </view>
+        </picker>
+      </view>
+      <view class="item address">
+        <label>详细地址</label>
+        <textarea type="text" name="address" auto-height value="{{address}}" placeholder="请输入拍摄的详细地址" 
+        placeholder-class="xxx"/>
+      </view>
+      <view class="images">
+        <label for="">上传照片</label>
+        <view class="photo" bindtap="uploadImage">
+            <image wx:if="{{image_url}}" class='upload-image'src='{{image_url}}'></image>
+            <view wx:else class="add-btn">
+                <view class="add">
+                  +
+                </view>
+            </view>        
+        </view>
+        此图将展示于公告详情页
+      </view>
+      <view class="agree">
+      </view>
+      <view class="submit">
+        <button form-type="submit">发布</button>
+      </view>
+    </form>
+  </view>

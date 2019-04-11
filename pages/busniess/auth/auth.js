@@ -15,13 +15,6 @@ Page({
   onLoad() {
     this.getAuth();
   },
-  //报错 
-  showModal(error) {
-    wx.showModal({
-      content: error,
-      showCancel: false,
-    })
-  },
   getAuth(){
     app.get('get_auth',{
       type:1,
@@ -47,29 +40,29 @@ Page({
     // console.log(e.detail.value)
     // const params = e.detail.value
     if (!params.name) {
-      this.showModal("请输入姓名")
+      app.showToast("请输入姓名")
       return false;
     }
     let nameReg = /^[\u4E00-\u9FA5A-Za-z\s]+(·[\u4E00-\u9FA5A-Za-z]+)*$/;
     if (!nameReg.test(params.name)) {
-      this.showModal("请输入正确的姓名")
+      app.showToast("请输入正确的姓名")
       return false;
     }
     if (!params.phone) {
-      this.showModal("请输入手机号")
+      app.showToast("请输入手机号")
       return false;
     }
     let phoneReg = /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/;
     if (!phoneReg.test(params.phone)) {
-      this.showModal("请输入正确的手机号")
+      app.showToast("请输入正确的手机号")
       return false;
     }
     if (!params.address) {
-      this.showModal("请输入详细地址")
+      app.showToast("请输入详细地址")
       return false;
     }
     if (!this.data.bizlicense) {
-      this.showModal("请上传营业执照图片")
+      app.showToast("请上传营业执照图片")
       return false;
     }
     this.saveAuth(params);
@@ -88,10 +81,7 @@ Page({
       bizlicense:this.data.bizlicense
     }).then(res=>{
       console.log(res)
-      wx.showToast({
-        title: res.msg,
-        icon: 'none'
-      })
+      app.showToast(res.msg)
     })
   },
 
@@ -130,7 +120,7 @@ Page({
     });
   },
     /*上传图片开始 */
-    uploadIdcardFront(){
+    uploadBizlicense(){
       let that=this
       wx.chooseImage({
         count: 1,
@@ -150,92 +140,8 @@ Page({
                 let data = JSON.parse(res.data)
                 console.log(data.data)
                 that.setData({
-                  idcard_front: data.data.name,
-                  idcard_front_url: data.data.url
-                })
-              }
-            })
-        }
-      })
-    },
-    uploadIdcardBack(){
-      let that=this
-      wx.chooseImage({
-        count: 1,
-        sizeType: ['original', 'compressed'],
-        sourceType: ['album', 'camera'],
-        success(res) {
-          const tempFilePaths = res.tempFilePaths[0]
-          console.log(tempFilePaths)
-            wx.uploadFile({
-              url: app.base_url+'upload_img',
-              filePath: tempFilePaths,
-              name: 'image',
-              header: {
-                "Content-Type": "multipart/form-data"
-              },
-              success(res) {
-                let data = JSON.parse(res.data)
-                console.log(data.data)
-                that.setData({
-                  idcard_back: data.data.name,
-                  idcard_back_url: data.data.url
-                })
-              }
-            })
-        }
-      })
-    },
-    uploadHouseParent(){
-      let that=this
-      wx.chooseImage({
-        count: 1,
-        sizeType: ['original', 'compressed'],
-        sourceType: ['album', 'camera'],
-        success(res) {
-          const tempFilePaths = res.tempFilePaths[0]
-          console.log(tempFilePaths)
-            wx.uploadFile({
-              url: app.base_url+'upload_img',
-              filePath: tempFilePaths,
-              name: 'image',
-              header: {
-                "Content-Type": "multipart/form-data"
-              },
-              success(res) {
-                let data = JSON.parse(res.data)
-                console.log(data.data)
-                that.setData({
-                  house_parent : data.data.name,
-                  house_parent_url: data.data.url
-                })
-              }
-            })
-        }
-      })
-    },
-    uploadHouseSelf(){
-      let that=this
-      wx.chooseImage({
-        count: 1,
-        sizeType: ['original', 'compressed'],
-        sourceType: ['album', 'camera'],
-        success(res) {
-          const tempFilePaths = res.tempFilePaths[0]
-          console.log(tempFilePaths)
-            wx.uploadFile({
-              url: app.base_url+'upload_img',
-              filePath: tempFilePaths,
-              name: 'image',
-              header: {
-                "Content-Type": "multipart/form-data"
-              },
-              success(res) {
-                let data = JSON.parse(res.data)
-                console.log(data.data)
-                that.setData({
-                  house_self : data.data.name,
-                  house_self_url: data.data.url
+                  bizlicense: data.data.name,
+                  bizlicense_url: data.data.url
                 })
               }
             })

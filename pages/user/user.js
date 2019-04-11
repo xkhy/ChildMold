@@ -1,7 +1,15 @@
 const app = getApp()
 Page({
   data: {
-    userType:1
+    type:2,
+    is_auth:true,
+    id:1
+  },
+  toDetail(){
+    let type = this.data.type==1?"busniess":"model"
+    wx.navigateTo({
+      url: `/pages/${type}/detail?id=${this.data.id}`,
+    })
   },
   contact(){
     wx.showModal({

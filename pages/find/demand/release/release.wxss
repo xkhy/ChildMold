@@ -1,0 +1,136 @@
+image {
+  width: 100%;
+}
+
+page {
+  background-color: #f7f7f7;
+}
+
+.auth .tip {
+  background-color: #faf8ac;
+  color: #f66a6a;
+  font-size: 24rpx;
+  padding: 0 40rpx;
+  margin-bottom: 20rpx;
+}
+
+form {
+  font-size: 30rpx;
+  color: #999;
+}
+
+form view.item {
+  line-height: 96rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 40rpx;
+  background-color: #fff;
+  margin-bottom: 2rpx;
+}
+
+form view.item label {
+  color: #444;
+  flex: 2;
+}
+
+form view.item picker {
+  width: 100%;
+}
+
+form view.item picker view {
+  display: flex;
+}
+
+form view.item picker view label {
+  color: #444;
+  flex: 2;
+}
+
+form view.item picker view text {
+  color: #999;
+  flex: 5;
+}
+
+form view.item input[placeholder] {
+  flex: 5;
+}
+
+form view.item .xxx {
+  color: #999;
+}
+
+form view.no-require::before {
+  content: "";
+}
+
+form view.address,
+form view.intro {
+  display: block;
+  background-color: #fff;
+}
+
+form view.address textarea,
+form view.intro textarea {
+  line-height: 1.5;
+}
+
+form .circles {
+  display: flex;
+  align-items: center;
+  color: #444;
+}
+
+form .circles > input[placeholder] {
+  text-align: center;
+}
+
+form .images {
+  padding: 20rpx 40rpx;
+  background-color: #fff;
+  margin-bottom: 4rpx;
+}
+
+form .images label {
+  color: #444;
+}
+
+form .images .photo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 360rpx;
+  width: 660rpx;
+  background-color: #eee;
+  margin: 20rpx auto;
+}
+
+form .images .photo .add-btn {
+  text-align: center;
+}
+
+form .images .photo .add {
+  font-size: 140rpx;
+  color: #aaa;
+  font-weight: 200;
+}
+
+form .images .photo .upload-image {
+  width: 90%;
+  height: 90%;
+}
+
+.submit {
+  margin-top: 22rpx;
+  margin-bottom: 31rpx;
+}
+
+.submit button {
+  background-color: #EF8501;
+  border-radius: 10rpx;
+  line-height: 80rpx;
+  width: 80%;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #fff;
+}
