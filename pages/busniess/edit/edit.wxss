@@ -1,1 +1,92 @@
-/* pages/busniess/edit/edit.wxss */
+image {
+  width: 100%;
+}
+
+page {
+  background-color: #f7f7f7;
+}
+
+form {
+  font-size: 30rpx;
+  color: #999;
+}
+
+form view.item {
+  line-height: 96rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 40rpx;
+  background-color: #fff;
+  margin-bottom: 2rpx;
+}
+
+form view.item label {
+  color: #444;
+  flex: 2;
+}
+
+form view.item picker {
+  width: 100%;
+}
+
+form view.item picker view {
+  display: flex;
+}
+
+form view.item picker view label {
+  color: #444;
+  flex: 2;
+}
+
+form view.item picker view text {
+  color: #999;
+  flex: 5;
+}
+
+form view.item input[placeholder] {
+  flex: 5;
+}
+
+form view.item .xxx {
+  color: #999;
+}
+
+form view.address,
+form view.intro {
+  display: block;
+  background-color: #fff;
+}
+
+form view.address textarea,
+form view.intro textarea {
+  line-height: 1.5;
+}
+
+form .circles {
+  display: flex;
+  align-items: center;
+  color: #444;
+}
+
+form .circles > input[placeholder] {
+  text-align: center;
+}
+
+.submit {
+  position: fixed;
+  width: 600rpx;
+  left: 75rpx;
+  bottom: 31rpx;
+  margin-top: 22rpx;
+  margin-bottom: 31rpx;
+}
+
+.submit button {
+  background-color: #EF8501;
+  border-radius: 10rpx;
+  line-height: 80rpx;
+  width: 100%;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #fff;
+}

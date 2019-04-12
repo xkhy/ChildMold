@@ -11,6 +11,7 @@
     "pages/find/notice/list/list",
     "pages/model/detail",
     "pages/model/auth/auth",
+    "pages/model/edit/edit",
     "pages/busniess/detail",
     "pages/busniess/edit/edit",
     "pages/busniess/auth/auth",

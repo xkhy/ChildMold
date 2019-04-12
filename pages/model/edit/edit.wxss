@@ -1,111 +1,92 @@
-@charset "UTF-8";
-/*文本格式化，超出范围，显示省略号*/
-/* 画三角形 */
-/* 画圆形 */
-/* 画爱心 */
-/* 适配背景图 */
-/* 扩大可点击区域 */
 image {
   width: 100%;
 }
 
-swiper {
-  height: 750rpx;
+page {
+  background-color: #f7f7f7;
 }
 
-swiper image {
-  height: 100%;
+form {
+  font-size: 30rpx;
+  color: #999;
 }
 
-.model-detail .cell-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 359rpx;
-  margin: 0 20rpx;
-  padding: 54rpx 0 36rpx 20rpx;
-  border-bottom: 2rpx solid #ddd;
-}
-
-.model-detail .cell-group .cell {
-  display: flex;
-}
-
-.model-detail .cell-group .cell .row {
-  flex: 1;
-  font-size: 28rpx;
-  color: #444;
-}
-
-.model-detail .model-introduce {
-  padding: 35rpx 40rpx 85rpx;
-  font-size: 28rpx;
-  color: #444;
-}
-
-.model-detail .contact-private {
+form view.item {
+  line-height: 96rpx;
   display: flex;
   align-items: center;
+  padding: 0 40rpx;
+  background-color: #fff;
+  margin-bottom: 2rpx;
 }
 
-.model-detail .contact-private image {
-  width: 48rpx;
-  height: 48rpx;
+form view.item label {
+  color: #444;
+  flex: 2;
 }
 
-.model-detail .contact-private .phone {
-  margin-left: 12rpx;
-  font-size: 32rpx;
-  font-weight: 500;
+form view.item picker {
+  width: 100%;
+}
+
+form view.item picker view {
+  display: flex;
+}
+
+form view.item picker view label {
+  color: #444;
+  flex: 2;
+}
+
+form view.item picker view text {
+  color: #999;
+  flex: 5;
+}
+
+form view.item input[placeholder] {
+  flex: 5;
+}
+
+form view.item .xxx {
+  color: #999;
+}
+
+form view.address,
+form view.intro {
+  display: block;
+  background-color: #fff;
+}
+
+form view.address textarea,
+form view.intro textarea {
+  line-height: 1.5;
+}
+
+form .circles {
+  display: flex;
+  align-items: center;
   color: #444;
 }
 
-.model-detail .contact-public {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 88rpx;
-  background-color: #EF8501;
-}
-
-.model-detail .contact-public image {
-  width: 48rpx;
-  height: 48rpx;
-}
-
-.model-detail .contact-public .phone {
-  margin-left: 12rpx;
-  font-size: 32rpx;
-  font-weight: 500;
-  color: #fff;
-}
-
-.model-group {
-  padding: 20rpx 10rpx 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  background: #fff;
-}
-
-.model-group .model-single {
-  width: 228rpx;
-  margin-bottom: 12rpx;
-}
-
-.model-group .model-single .model-image {
-  height: 228rpx;
-  border-radius: 8rpx;
-}
-
-.model-group .edit {
-  margin-bottom: 22rpx;
-  width: 480rpx;
-  height: 80rpx;
-  line-height: 80rpx;
+form .circles > input[placeholder] {
   text-align: center;
-  color: #fff;
-  font-size: 32rpx;
+}
+
+.submit {
+  position: fixed;
+  width: 600rpx;
+  left: 75rpx;
+  bottom: 31rpx;
+  margin-top: 22rpx;
+  margin-bottom: 31rpx;
+}
+
+.submit button {
   background-color: #EF8501;
-  border-radius: 8rpx;
+  border-radius: 10rpx;
+  line-height: 80rpx;
+  width: 100%;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #fff;
 }

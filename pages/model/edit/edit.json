@@ -1,7 +1,4 @@
 {
-  "usingComponents": {
-    "i-tabs": "../../dist/tabs/index",
-    "i-tab": "../../dist/tab/index"
-  },
-  "navigationBarTitleText": "童模详情"
+  "usingComponents": {},
+  "navigationBarTitleText": "编辑资料"
 }

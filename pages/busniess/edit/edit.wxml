@@ -1,2 +1,30 @@
-<!--pages/busniess/edit/edit.wxml-->
-<text>pages/busniess/edit/edit.wxml</text>
+<view class="auth">
+    <form  bindsubmit="formSubmit" bindreset="formReset">
+      <view class="item">
+        <label>联系电话</label>
+        <input type="number" name="phone" value="{{phone}}" maxlength="11" placeholder="请输入商家联系电话" placeholder-class="xxx"/>
+      </view>
+      <view class="item">
+        <picker mode="region" name="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view>
+            <label for="region">地址</label>
+            <text>{{region[0]}}{{region[1]}}{{region[2]}}</text>
+          </view>
+        </picker>
+      </view>
+      <view class="item address">
+        <label>详细地址</label>
+        <textarea type="text" name="address" auto-height value="{{address}}" placeholder="请输入商家的详细地址" 
+        placeholder-class="xxx"/>
+      </view>
+      <view class="item intro">
+        <label>关于我们</label>
+        <textarea type="text" name="profile" auto-height value="{{profile}}" placeholder="请输入商家介绍" placeholder-class="xxx"/>
+      </view>
+      <view class="submit">
+        <button form-type="submit">确定</button>
+      </view>
+    </form>
+  </view>
+  
+  

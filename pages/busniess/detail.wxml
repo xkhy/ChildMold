@@ -21,7 +21,7 @@
                   <button wx:else class="follow" bindtap="follow">已关注</button>
              </view>
               <view class="model-row">
-                  <text>商家地址：{{userInfo.province+userInfo.city}}{{userInfo.area}}{{userInfo.address}}</text>
+                  <text>商家地址：{{userInfo.province}}{{userInfo.city}}{{userInfo.area}}{{userInfo.address}}</text>
               </view>
            </view>
            <view class="cell cell-introduce">

@@ -3,7 +3,7 @@
   <text>王晶晶</text>
 </view>
 <view class="cell-group">
-  <view class="cell" hover-class="none" bindtap="toDetail">
+  <view class="cell" bindtap="toDetail">
     <image src="/assets/icon/data.png"></image>
     <text>我的资料</text>
     <view class="right-arrow"></view>

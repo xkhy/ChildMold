@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 14,
+			"current": 15,
 			"list": [
 				{
 					"id": -1,
@@ -141,6 +141,14 @@
 					"id": -1,
 					"name": "需求发布",
 					"pathName": "pages/find/demand/release/release",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "编辑资料",
+					"pathName": "pages/model/edit/edit",
+					"query": "",
 					"scene": null
 				}
 			]
