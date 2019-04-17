@@ -67,6 +67,7 @@ Page({
       page:1, // TODO 分页
       lng:this.data.type==3?lng:'',
       lat:this.data.type==3?lat:'',
+      token:app.token
     }).then(res=>{
       console.log(res)
       this.setData({
@@ -81,6 +82,7 @@ Page({
       page:1, // TODO 分页
       lng:this.data.type==3?lng:'',
       lat:this.data.type==3?lat:'',
+      token:app.token
     }).then(res=>{
       console.log(res)
       this.setData({

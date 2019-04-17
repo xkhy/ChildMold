@@ -22,7 +22,8 @@ Page({
   getBanner(){
     app.get('user_banner',{
       type:1,
-      id:1
+      id:1,
+      token:app.token
     }).then(res=>{
       console.log(res)
       this.setData({
@@ -33,7 +34,8 @@ Page({
   getUserInfo(){
     app.get('user_info',{
       type:1, //商家
-      id:1
+      id:1,
+      token:app.token
     }).then(res=>{
       console.log(res)
       this.setData({

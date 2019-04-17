@@ -40,7 +40,7 @@ Page({
     let organizeList=[]
     app.get('get_auth',{
       type:2,
-      token:"c1"
+      token:app.token
     }).then(res=>{
       console.log(res)
       let user=res.data.user

@@ -1,0 +1,28 @@
+.img {
+  width: 100px;
+  height: auto;
+}
+
+.article {
+  padding: 0 40rpx;
+  color: #444;
+}
+
+.article .title {
+  font-size: 32rpx;
+  text-align: center;
+  font-weight: 500;
+}
+
+.article .desc {
+  display: flex;
+  justify-content: space-between;
+  margin: 30rpx 0;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.article .content {
+  font-size: 28rpx;
+  text-indent: 2em;
+}

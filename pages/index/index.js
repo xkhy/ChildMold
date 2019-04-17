@@ -10,7 +10,9 @@ Page({
     this.getModel();
   },
   getBanner() {
-    app.get("getad").then(res => {
+    app.get("getad",{
+      token:app.token
+    }).then(res => {
       console.log(res);
       this.setData({
         imgUrls: res.data
@@ -20,7 +22,8 @@ Page({
   getModel() {
     app.get("index_product", {  // TODO 分页
       page:1,
-      order: this.data.type
+      order: this.data.type,
+      token:app.token
     }).then(res => {
       console.log(res);
       console.log(res.data);
@@ -44,6 +47,11 @@ Page({
   toModel(e) {
     wx.navigateTo({
       url: `/pages/model/detail?id=${e.currentTarget.dataset.id}`
+    });
+  },
+  toVote(e){
+    wx.navigateTo({
+      url: `/pages/vote/vote?id=${e.currentTarget.dataset.id}`
     });
   }
 });

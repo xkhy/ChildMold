@@ -53,6 +53,7 @@ swiper image {
 
 .cell .model-row text {
   font-size: 28rpx;
+  flex: 1;
 }
 
 .cell .model-row .vip {

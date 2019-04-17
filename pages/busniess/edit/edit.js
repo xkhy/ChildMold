@@ -11,7 +11,7 @@ Page({
   },
   getUser(){
     app.get('user_edit',{
-      token:"b1"
+      token:app.token
     }).then(res=>{
       console.log(res)
       let user=res.data
@@ -45,7 +45,7 @@ Page({
   updateUser(params){
     console.log(params)
     app.post('user_update',{
-      token:'b1',
+      token:app.token,
       phone	:params.phone,
       province:params.region[0],
       city:params.region[1],

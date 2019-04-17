@@ -12,7 +12,8 @@ Page({
   },
   getNoticeInfo(id){
     app.get("notice_info",{
-      id:id
+      id:id,
+      token:app.token
     }).then(res=>{
       console.log(res)
       this.setData({

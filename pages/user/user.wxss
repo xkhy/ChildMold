@@ -6,6 +6,10 @@ page {
   background-color: #f7f7f7;
 }
 
+.margin {
+  margin-top: 36rpx;
+}
+
 .bg {
   height: 360rpx;
   background-image: url("http://powj76fay.bkt.clouddn.com/4b2ae209446d24c07db516c138b5b21c.png");

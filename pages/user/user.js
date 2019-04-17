@@ -2,23 +2,27 @@ const app = getApp()
 Page({
   data: {
     type:2,
-    is_auth:true,
-    id:1
+    user:{}
+  },
+  onLoad(){
+    this.setData({
+      user:app.user
+    })
   },
   toDetail(){
     let type = this.data.type==1?"busniess":"model"
     wx.navigateTo({
-      url: `/pages/${type}/detail?id=${this.data.id}`,
+      url: `/pages/${type}/detail?id=${this.data.user.uid}`,
     })
   },
   contact(){
     wx.showModal({
       title: '拨打客服电话:',
-      content: '17857094953',
-      success(res) {
+      content: this.data.user.csh,
+      success:(res)=> {
         if (res.confirm) {
           wx.makePhoneCall({
-            phoneNumber: '17857094953',
+            phoneNumber: this.data.user.csh,
             success: function(res) {
               console.log('拨打成功')
             }

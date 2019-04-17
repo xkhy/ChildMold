@@ -10,7 +10,8 @@ Page({
   getMyFollow() {
     app.get("my_follow", {
       type: this.data.type,
-      page:1
+      page:1,
+      token:app.token
     }).then(res => {
       console.log(res);
       console.log(res.data);

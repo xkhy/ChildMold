@@ -22,7 +22,8 @@ Page({
   getBanner(){
     app.get('user_banner',{
       type:2,
-      id:this.data.id
+      id:this.data.id,
+      token:app.token
     }).then(res=>{
       console.log(res)
       this.setData({
@@ -33,7 +34,8 @@ Page({
   getUserInfo(){
     app.get('user_info',{
       type:2, //童模
-      id:this.data.id
+      id:this.data.id,
+      token:app.token
     }).then(res=>{
       console.log(res)
       this.setData({
@@ -44,7 +46,8 @@ Page({
   },
   getUserProduct(){
     app.get('user_product',{
-      id: this.data.id
+      id: this.data.id,
+      token:app.token
     }).then(res=>{
       console.log(res)
       this.setData({
@@ -61,7 +64,8 @@ Page({
   follow(){
     app.get('followed',{
       type:2,
-      id: this.data.id
+      id: this.data.id,
+      token:app.token
     }).then(res=>{
       console.log(res)
       if(res.status==500){

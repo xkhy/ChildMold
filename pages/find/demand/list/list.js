@@ -11,7 +11,7 @@ Page({
   getMyDemand() {
     app.get("my_demand", {
         page: 1, // TODO 分页
-        token: "b1"
+        token: app.token
       }).then(res => {
         console.log(res);
         let demandList = res.data;
@@ -26,7 +26,7 @@ Page({
   deleteDemand(id) {
     app.post("demand_del", {
       id:id,
-      token: "b1"
+      token: app.token
       }).then(res => {
         console.log(res);
         let demandList = res.data;

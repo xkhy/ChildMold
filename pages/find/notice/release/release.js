@@ -22,7 +22,7 @@ Page({
   getNotice(){
     app.get('notice_edit',{
       id:2,
-      token:"b1"
+      token:app.token
     }).then(res=>{
       console.log(res)
       let data=res.data
@@ -95,7 +95,7 @@ Page({
   saveNotice(params){
     console.log(params)
     app.post('notice_save',{
-      token:"b1",
+      token:app.token,
       id:this.data.id?this.data.id:0,
       title:params.title,
       desc:params.desc,

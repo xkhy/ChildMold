@@ -1,7 +1,7 @@
 <view class="container">
   <swiper indicator-dots indicator-active-color="#EF8501" indicator-color="#fff" autoplay="3000" interval="5000" duration="500">
-    <block wx:for="{{imgUrls}}" wx:key="{{item.link}}" >
-      <swiper-item>
+    <block wx:for="{{imgUrls}}" wx:key="{{item.link}}">
+      <swiper-item bindtap="toVote" data-id="{{index}}">
           <image src="{{item.image}}" class="slide-image"/>     
       </swiper-item>
     </block>

@@ -18,7 +18,7 @@ Page({
   getAuth(){
     app.get('get_auth',{
       type:1,
-      token:"b1"
+      token:app.token
     }).then(res=>{
       console.log(res)
       let user=res.data.user

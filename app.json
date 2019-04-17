@@ -18,7 +18,10 @@
     "pages/user/user",
     "pages/user/auth/auth",
     "pages/user/follow/follow",
-    "pages/user/photo/photo"
+    "pages/user/photo/photo",
+    "pages/vote/vote",
+    "pages/index/article/article",
+    "pages/login/login"
   ],
   "permission": {
     "scope.userLocation": {

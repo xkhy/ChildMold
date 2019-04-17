@@ -1,44 +1,48 @@
 <view class="bg">
-  <image src="https://i.loli.net/2017/08/21/599a521472424.jpg"></image>
-  <text>王晶晶</text>
+  <!-- <image src="https://i.loli.net/2017/08/21/599a521472424.jpg"></image> -->
+  <image src="{{user.avatar}}"></image>
+  <text>{{user.name}}</text>
 </view>
 <view class="cell-group">
-  <view class="cell" bindtap="toDetail">
-    <image src="/assets/icon/data.png"></image>
-    <text>我的资料</text>
-    <view class="right-arrow"></view>
+  <view wx:if="{{user.type!=0}}">
+      <view class="cell" bindtap="toDetail">
+          <image src="/assets/icon/data.png"></image>
+          <text>我的资料</text>
+          <view class="right-arrow"></view>
+        </view>
+        <navigator wx:if="{{ user.type == 1 }}" class="cell" hover-class="none" url="./photo/photo">
+          <image src="/assets/icon/photo.png"></image>
+          <text>我的图库</text>
+          <view class="right-arrow"></view>
+        </navigator>
+        <navigator wx:if="{{ user.type == 2 }}" class="cell" hover-class="none" url="./photo/photo">
+          <image src="/assets/icon/photo.png"></image>
+          <text>我的作品</text>
+          <view class="right-arrow"></view>
+        </navigator>
+        <navigator class="cell" hover-class="none" url="./follow/follow">
+          <image src="/assets/icon/follow.png"></image>
+          <text>我的关注</text>
+          <view class="right-arrow"></view>
+        </navigator>
+        <navigator wx:if="{{ user.type == 1 }}" class="cell" hover-class="none" url="../find/demand/list/list">
+          <image src="/assets/icon/demand.png"></image>
+          <text>需求管理</text>
+          <view class="right-arrow"></view>
+        </navigator>
+        <navigator class="cell" hover-class="none" url="../find/notice/list/list">
+          <image src="/assets/icon/notice.png"></image>
+          <text>通告管理</text>
+          <view class="right-arrow"></view>
+        </navigator>
   </view>
-  <navigator wx:if="{{ type == 1 }}" class="cell" hover-class="none" url="./photo/photo">
-    <image src="/assets/icon/photo.png"></image>
-    <text>我的图库</text>
-    <view class="right-arrow"></view>
-  </navigator>
-  <navigator wx:if="{{ type == 2 }}" class="cell" hover-class="none" url="./photo/photo">
-    <image src="/assets/icon/photo.png"></image>
-    <text>我的作品</text>
-    <view class="right-arrow"></view>
-  </navigator>
-  <navigator class="cell" hover-class="none" url="./follow/follow">
-    <image src="/assets/icon/follow.png"></image>
-    <text>我的关注</text>
-    <view class="right-arrow"></view>
-  </navigator>
-  <navigator wx:if="{{ type == 1 }}" class="cell" hover-class="none" url="../find/demand/list/list">
-    <image src="/assets/icon/demand.png"></image>
-    <text>需求管理</text>
-    <view class="right-arrow"></view>
-  </navigator>
-  <navigator class="cell" hover-class="none" url="../find/notice/list/list">
-    <image src="/assets/icon/notice.png"></image>
-    <text>通告管理</text>
-    <view class="right-arrow"></view>
-  </navigator>
-  <view class="cell" bindtap="contact" hover-class="none" style="margin-top:36rpx;">
+ 
+  <view class="cell {{user.type!=0?'margin':''}}" bindtap="contact" hover-class="none">
     <image src="/assets/icon/customer_service.png"></image>
     <text>联系客服</text>
     <view class="right-arrow"></view>
   </view>
-  <navigator wx:if="{{!is_auth}}" class="cell" hover-class="none" url="./auth/auth">
+  <navigator wx:if="{{!verify}}" class="cell" hover-class="none" url="./auth/auth">
     <image src="/assets/icon/auth.png"></image>
     <text>一键认证</text>
     <view class="right-arrow"></view>

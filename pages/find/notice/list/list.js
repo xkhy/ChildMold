@@ -11,7 +11,7 @@ Page({
   getMyNotice() {
     app.get("my_notice", {
         page: 1, // TODO 分页
-        token: "b1"
+        token: app.token
       }).then(res => {
         console.log(res);
         let noticeList = res.data;
@@ -26,7 +26,7 @@ Page({
   deleteNotice(id) {
     app.post("notice_del", {
       id:id,
-      token: "b1"
+      token: app.token
       }).then(res => {
         console.log(res);
         let noticeList = res.data;

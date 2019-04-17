@@ -37,7 +37,8 @@ Page({
         keyword: this.data.keyword,
         gender: this.data.gender,
         height: heightMin+","+heightMax,
-        city: this.data.region[1] != "xx市" ? this.data.region[1] : ""
+        city: this.data.region[1] != "xx市" ? this.data.region[1] : "",
+        token:app.token
       }).then(res => {
         console.log(res);
         this.setData({

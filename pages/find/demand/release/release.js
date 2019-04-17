@@ -21,7 +21,7 @@ Page({
   getDemand(){
     app.get('demand_edit',{
       id:1,
-      token:"b1"
+      token:app.token
     }).then(res=>{
       console.log(res)
       let data=res.data
@@ -79,7 +79,7 @@ Page({
   saveNotice(params){
     console.log(params)
     app.post('demand_save',{
-      token:"b1",
+      token:app.token,
       id:this.data.id?this.data.id:0,
       desc:params.desc,
       province:params.region[0],

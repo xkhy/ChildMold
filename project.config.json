@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 15,
+			"current": 17,
 			"list": [
 				{
 					"id": -1,
@@ -148,6 +148,20 @@
 					"id": 15,
 					"name": "编辑资料",
 					"pathName": "pages/model/edit/edit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "文章",
+					"pathName": "pages/index/article/article",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login/login",
 					"query": "",
 					"scene": null
 				}
