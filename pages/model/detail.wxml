@@ -6,10 +6,6 @@
         </swiper-item>
       </block>
     </swiper>
-    <!-- <i-tabs  i-class="tabs" current="{{ current }}" bindchange="handleChange">
-      <i-tab key="tab1" title="作品集"></i-tab>
-      <i-tab key="tab2" title="童模详情"></i-tab>
-    </i-tabs> -->
     <view class="tabs">
             <view class="tab {{type==1?'tab-active':''}}" bindtap="changeType" data-type="1">童模详情</view>
             <view class="tab {{type==2?'tab-active':''}}" bindtap="changeType" data-type="2">作品集</view>
@@ -20,8 +16,10 @@
         <view class="cell">
           <view class="model-row">
               <text>姓名：{{userInfo.name}}</text>
-              <button wx:if="{{!isFollow}}" class="follow" bindtap="follow">关注</button>
-              <button wx:else class="follow" bindtap="follow">已关注</button>
+              <view wx:if="{{!userInfo.can_edit}}" style="margin-left:40rpx">
+                <button wx:if="{{!isFollow}}" class="follow" bindtap="follow">关注</button>
+                <button wx:else class="follow" bindtap="follow">已关注</button>
+              </view>
          </view>
           <view class="model-row">
               <text>性别：{{userInfo.gender}}</text>
@@ -60,7 +58,7 @@
     </view>
         <!-- 童模信息结束 -->
     <view wx:if="{{userInfo.can_edit}}" class="edit">
-       <button class="edit-btn" bindtap="edit">编辑</button>
+       <button class="edit-btn" bindtap="toEdit">编辑</button>
     </view>
     
   </view>

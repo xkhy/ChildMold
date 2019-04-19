@@ -20,5 +20,11 @@ Page({
         noticeInfo:res.data
       })
     })
+  },
+  toUserDetail(){
+    let type=this.data.noticeInfo.type==1?"busniess":"model"
+    wx.navigateTo({
+      url: `/pages/${type}/detail?type=${this.data.noticeInfo.type}&id=${this.data.noticeInfo.user_id}`
+    })
   }
 })

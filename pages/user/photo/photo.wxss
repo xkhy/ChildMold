@@ -45,6 +45,10 @@ page {
   margin-bottom: 10rpx;
 }
 
+.imgs-container .set-show {
+  border: 2rpx solid #EF8501;
+}
+
 .imgs-container .tip {
   padding-top: 33rpx;
   padding-bottom: 107rpx;

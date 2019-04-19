@@ -1,15 +1,17 @@
-<view class="container">
-    <image src="{{demandInfo.image}}" class="img"/>
-   <view>
+<view wx:if="{{banner.type==2}}" class="container">
+    <image src="{{banner.image}}" class="img"/>
+    <view>
        <view class="article">
-         <view class="title">标题</view>
+         <view class="title">{{banner.title}}</view>
          <view class="desc">
-            <text class="author">作者/来源：叮当</text>
-            <text class="time">时间：2019-04-12 12：22</text>
+            <!-- <text class="author">作者/来源：</text> -->
+            <text class="time">时间：{{banner.time}}</text>
          </view>
          <view class="content">
-          萨克第六届奥斯卡来得及卢卡斯建档立卡时间到了奥斯卡来得及克拉斯建档立卡就是大佬阿萨德科技埃里克圣诞节啦教室里的空间阿来得及as点开链接埃里克森到家了卡    
+          {{banner.desc}}   
         </view>
       </view>
     </view>    
  </view>
+
+ <web-view wx:if="{{banner.type==3}}" src="{{banner.link}}"></web-view>

@@ -1,7 +1,7 @@
 const app = getApp();
 Page({
   data: {
-    imgUrls: [],
+    bannner: [],
     models:[],
     type: "1"
   },
@@ -15,9 +15,20 @@ Page({
     }).then(res => {
       console.log(res);
       this.setData({
-        imgUrls: res.data
+        bannner: res.data
       });
     });
+  },
+  toBannerDetail(e){
+    let index=e.currentTarget.dataset.index;
+    let bannerObj=this.data.bannner[index]
+    console.log(bannerObj) 
+    if(bannerObj.type!=1){
+      bannerObj=JSON.stringify(bannerObj)
+      wx.navigateTo({
+        url: `./article/article?bannerObj=${bannerObj}`
+      });
+    }
   },
   getModel() {
     app.get("index_product", {  // TODO 分页
@@ -27,9 +38,13 @@ Page({
     }).then(res => {
       console.log(res);
       console.log(res.data);
-      this.setData({
-        models: res.data
-      });
+      if(res.status==200){
+        this.setData({
+          models: res.data
+        });
+      }else{
+        app.showToast(res.msg)
+      }     
     });
   },
   changeType(e){
@@ -49,11 +64,11 @@ Page({
       url: `/pages/model/detail?id=${e.currentTarget.dataset.id}`
     });
   },
-  toVote(e){
-    wx.navigateTo({
-      url: `/pages/vote/vote?id=${e.currentTarget.dataset.id}`
-    });
-  }
+  // toVote(e){
+  //   wx.navigateTo({
+  //     url: `/pages/vote/vote?id=${e.currentTarget.dataset.id}`
+  //   });
+  // }
 });
 
 // //index.js

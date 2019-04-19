@@ -2,7 +2,6 @@
 App({
   // base_url: 'http://192.168.0.107/',
   base_url: 'http://model.tongzgc.com/',
-  type:1, // 1商家 2童模
   token:'',
   user:{},
   onLaunch() {
@@ -74,6 +73,7 @@ App({
               console.log(res)
               if (res.status==200) {
                 this.token = res.data.token;
+
                 this.setuUerInfo(encryptedData,iv);
                 this.getMe();
               }else{
@@ -106,14 +106,29 @@ App({
         success: function (res) {
           // wx.hideLoading()
           if (res.statusCode == 200) {
-            resolve(res.data);
-          } else {
+            switch (res.data.status) {
+              case 200:
+                resolve(res.data);
+                break;
+              case 300:
+                wx.navigateTo({
+                  url: '/pages/login/login',
+                })
+                resolve(res.data);
+              case 500:
+                resolve(res.data);
+                // _this.showToast(res.msg)
+                break;
+            }
+            // resolve(res.data);
+          } 
+          else {
             wx.showToast({
               title: res.msg,
               icon: 'loading',
               duration: 2000
             })
-            // reject(res.data);
+            reject(res.data);
           }
         },
         fail: function(res){

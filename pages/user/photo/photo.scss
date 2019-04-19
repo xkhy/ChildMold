@@ -34,7 +34,9 @@ page {
     margin-right: 12rpx;
     margin-bottom: 10rpx;
   }
-
+  .set-show{
+    border: 2rpx solid $color-theme;
+  }
   .tip {
     padding-top: 33rpx;
     padding-bottom: 107rpx;

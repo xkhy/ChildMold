@@ -1,34 +1,57 @@
+const utils=require("../../../../utils/util.js");
 const app=getApp();
 Page({
   data: {
+    type:'',
+    id:0,
+    name: '',
     title:'',
     desc:'',
-    name: '',
     gender: ['请选择所需模特性别', '男', '女'],
     nation:['请选择所需模特国籍','中籍', '外籍', '混血'],
     region: ['浙江省', '湖州市', '吴兴区'],
     address: '',
     height: '',
-    startDate: '2019-09-01',
-    endDate: '2019-09-02',
+    startDate: utils.getDateStr(null,0),
+    endDate: utils.getDateStr(null,1),
     genderIndex: 0,
     natIndex: 0,
     image:'',
     image_url:''
   },
-  onLoad() {
-    this.getNotice();
+  onLoad(options) {
+    if(options.id){
+      this.getNotice(options.id);
+    }else{
+      this.addNotice();
+    }
   },
-  getNotice(){
+  // 获取发布者的信息渲染到表单上，无需填写
+  addNotice(){
+   app.get('notice_add',{
+     token:app.token
+   }).then(res=>{
+     console.log(res)
+     let data=res.data
+     this.setData({
+       type:data.type,
+       name:data.name,
+       genderIndex:data.gender?data.gender:0,
+       natIndex:data.nation?data.nation:0,
+       height:data.height?data.height:''
+     })
+   })
+  }, 
+  getNotice(id){
     app.get('notice_edit',{
-      id:2,
+      id:id,
       token:app.token
     }).then(res=>{
       console.log(res)
       let data=res.data
       this.setData({
         type:data.type,
-        id:data.id?data.id:0,
+        id:data.id,
         title:data.title,
         desc:data.desc,
         name:data.child_name?data.child_name:data.bus_name,
@@ -56,32 +79,25 @@ Page({
       app.showToast("请输入拍摄主题")
       return false;
     }
-    if (!params.name) {
-      app.showToast("请输入姓名")
-      return false;
-    }
-    let nameReg = /^[\u4E00-\u9FA5A-Za-z\s]+(·[\u4E00-\u9FA5A-Za-z]+)*$/;
-    if (!nameReg.test(params.name)) {
-      app.showToast("请输入正确的姓名")
-      return false;
-    }
-    if (params.gender==0) {
-      app.showToast("请选择性别")
-      return false;
-    }
-    if (params.nation==0) {
-      app.showToast("请选择国籍")
-      return false;
-    }
-    if (!params.height) {
-      app.showToast("请输入身高")
-      return false;
-    }
-    let heightReg = /^([1-9][0-9]{1,2})$/;
-    if (!heightReg.test(params.height)) {
-      app.showToast("请输入正确的身高")
-      return false;
-    }
+    if(this.data.type==1){
+        if (params.gender==0) {
+          app.showToast("请选择性别")
+          return false;
+        }
+        if (params.nation==0) {
+          app.showToast("请选择国籍")
+          return false;
+        }
+        if (!params.height) {
+          app.showToast("请输入身高")
+          return false;
+        }
+        let heightReg = /^([1-9][0-9]{1,2})$/;
+        if (!heightReg.test(params.height)) {
+          app.showToast("请输入正确的身高")
+          return false;
+        }
+    }    
     if (!params.address) {
       app.showToast("请输入详细地址")
       return false;
@@ -96,7 +112,7 @@ Page({
     console.log(params)
     app.post('notice_save',{
       token:app.token,
-      id:this.data.id?this.data.id:0,
+      id:this.data.id,
       title:params.title,
       desc:params.desc,
       province:params.region[0],
@@ -111,6 +127,11 @@ Page({
     }).then(res=>{
       console.log(res)
       app.showToast(res.msg)
+      setTimeout(() => {
+       wx.navigateBack({
+         delta: 1
+       })
+      }, 1000);
     })
   },
 

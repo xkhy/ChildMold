@@ -34,7 +34,8 @@ Page({
   },  
   changeFind(e){
     this.setData({
-      find: e.currentTarget.dataset.find
+      find: e.currentTarget.dataset.find,
+      findList:[]
     })
     if(this.data.type==3){
       this.getLocation();

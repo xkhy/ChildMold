@@ -117,3 +117,10 @@ image {
   display: flex;
   align-items: center;
 }
+
+.container .card .card-content .card-info .cell-name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}

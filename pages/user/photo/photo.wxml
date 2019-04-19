@@ -2,27 +2,28 @@
   <view class="title">上传照片</view>
   <view class="imgs">
       <image
-      wx:if="{{tempImgs.length!=9}}"
+      wx:if="{{imgs.length<9}}"
       src="/assets/images/upload.png"
       class="upload"
       bindtap="uploadImg"
     ></image>
-    <view class="uploads" wx:for="{{ imgs }}">
+    <view class="uploads" wx:for="{{ imgs }}" wx:key="{{index}}">
         <image
         src="{{ item.url }}"
-        class="upload"
-        data-id="{{ index }}"
+        data-src="{{item.url}}"
+        class="upload {{item.is_show?'set-show':''}}"
+        data-id="{{ item.id }}"
+        data-index="{{index}}"
         bindtap="previewImage"
         bindlongpress="showActionSheet"
       ></image>
-      <image class="delete" src="/assets/icon/delete.jpg" bindtap="deleteImage"></image>
+      <image class="delete" src="/assets/icon/delete.jpg" data-index="{{index}}" bindtap="deleteImage"></image>
     </view>
   </view>
   <view class="tip"
   ><text class="asterisk">*</text>
-  <text wx:if="{{type==1}}">最多可上传9张，任选3张为模卡展示图，默认第一张为童模头像及展示图</text>
+  <text wx:if="{{type==2}}">最多可上传9张，任选3张为模卡展示图，默认第一张为童模头像及展示图</text>
   <text wx:else>最多可上传3张，作为详情轮播图展示</text>
- 
 </view>
 </view>
-<button class="save" bindtap="">保存</button>
+<button class="save" bindtap="save">保存</button>

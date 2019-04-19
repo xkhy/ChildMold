@@ -5,7 +5,7 @@ Page({
     startX: 0, //开始坐标
     startY: 0
   },
-  onLoad: function(options) {
+  onShow: function() {
     this.getMyNotice();
   },
   getMyNotice() {
@@ -29,18 +29,22 @@ Page({
       token: app.token
       }).then(res => {
         console.log(res);
-        let noticeList = res.data;
-        noticeList.forEach(e => {
-          e.isTouchMove = false; // 默认隐藏删除
-        });
-        this.setData({
-          noticeList: noticeList
-        });
+        app.showToast(res.msg)
       });
   },
-  toDetail(e){
+  toEdit(e){
     wx.navigateTo({
-      url: `../detail?id=${e.currentTarget.dataset.id}`
+      url: `../release/release?id=${e.currentTarget.dataset.id}`
+    })
+  },
+  // toDetail(e){
+  //   wx.navigateTo({
+  //     url: `../detail?id=${e.currentTarget.dataset.id}`
+  //   })  
+  // },
+  toRelease(){
+    wx.navigateTo({
+      url: `../release/release`
     })  
   },
   //手指触摸动作开始 记录起点X坐标
@@ -111,11 +115,8 @@ Page({
   del(e){
     this.deleteNotice(e.currentTarget.dataset.id);
     this.data.noticeList.splice(e.currentTarget.dataset.index, 1);
+    this.setData({
+      noticeList: this.data.noticeList
+    });
   }
-  // del(e) {
-  //   this.data.noticeList.splice(e.currentTarget.dataset.index, 1);
-  //   this.setData({
-  //     noticeList: this.data.noticeList
-  //   });
-  // }
 });

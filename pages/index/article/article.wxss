@@ -16,7 +16,7 @@
 
 .article .desc {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: 30rpx 0;
   font-size: 24rpx;
   color: #999;

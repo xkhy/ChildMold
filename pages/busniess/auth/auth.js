@@ -78,7 +78,8 @@ Page({
       area:params.region[2],
       address:params.address,
       profile:params.profile,
-      bizlicense:this.data.bizlicense
+      bizlicense:this.data.bizlicense,
+      token:app.token
     }).then(res=>{
       console.log(res)
       app.showToast(res.msg)

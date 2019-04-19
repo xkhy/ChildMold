@@ -1,0 +1,17 @@
+<view class="container">
+      <view class="tabs">
+        <view class="tab" data-type="2">关注的童模</view>
+      </view>
+      <view class="model-group">
+          <view class="model-single"  wx:for="{{followList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="toDetail">
+            <image class="model-image" src="{{item.cover}}"></image>
+            <view class="model-info">
+              <text class="model-name">{{item.name}}</text>
+              <view class="model-attention">
+                  <image src="../../../assets/icon/heart.png" class="heart"></image>
+                  <text>{{item.fans}}</text>  
+              </view>
+            </view>
+          </view>
+      </view>
+      </view>

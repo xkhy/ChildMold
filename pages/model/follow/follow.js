@@ -4,7 +4,7 @@ Page({
     followList:[],
     type:2 // 1商家 2童模
   },
-  onLoad() {
+  onShow() {
     this.getMyFollow();
   },
   getMyFollow() {
@@ -22,6 +22,7 @@ Page({
   },
   changeType(e){
     this.setData({
+      followList:[],
       type: e.currentTarget.dataset.type
     })
     this.getMyFollow();

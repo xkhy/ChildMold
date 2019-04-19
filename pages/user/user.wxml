@@ -20,11 +20,11 @@
           <text>我的作品</text>
           <view class="right-arrow"></view>
         </navigator>
-        <navigator class="cell" hover-class="none" url="./follow/follow">
+        <view class="cell" bindtap="toFollow">
           <image src="/assets/icon/follow.png"></image>
           <text>我的关注</text>
           <view class="right-arrow"></view>
-        </navigator>
+        </view>
         <navigator wx:if="{{ user.type == 1 }}" class="cell" hover-class="none" url="../find/demand/list/list">
           <image src="/assets/icon/demand.png"></image>
           <text>需求管理</text>
@@ -42,7 +42,7 @@
     <text>联系客服</text>
     <view class="right-arrow"></view>
   </view>
-  <navigator wx:if="{{!verify}}" class="cell" hover-class="none" url="./auth/auth">
+  <navigator wx:if="{{!user.verify}}" class="cell" hover-class="none" url="./auth/auth">
     <image src="/assets/icon/auth.png"></image>
     <text>一键认证</text>
     <view class="right-arrow"></view>

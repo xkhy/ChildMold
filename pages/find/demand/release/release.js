@@ -1,3 +1,4 @@
+let utils=require("../../../../utils/util.js");
 const app=getApp();
 Page({
   data: {
@@ -8,25 +9,25 @@ Page({
     region: ['浙江省', '湖州市', '吴兴区'],
     address: '',
     height: '',
-    startDate: '2019-09-01',
-    endDate: '2019-09-02',
+    startDate: utils.getDateStr(null,0),
+    endDate: utils.getDateStr(null,1),
     genderIndex: 0,
     natIndex: 0,
     image:'',
     image_url:''
   },
-  onLoad() {
-    this.getDemand();
+  onLoad(options) {
+    this.getDemand(options.id);
   },
-  getDemand(){
+  getDemand(id){
     app.get('demand_edit',{
-      id:1,
+      id:id,
       token:app.token
     }).then(res=>{
       console.log(res)
       let data=res.data
       this.setData({
-        id:data.id?data.id:0,
+        id:data.id,
         desc:data.desc,
         name:data.bus_name,
         genderIndex:data.gender,

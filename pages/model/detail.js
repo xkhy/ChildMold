@@ -15,6 +15,8 @@ Page({
     this.setData({
       id:options.id
     })
+  },
+  onShow(){
     this.getBanner();
     this.getUserInfo();
     this.getUserProduct();
@@ -51,7 +53,7 @@ Page({
     }).then(res=>{
       console.log(res)
       this.setData({
-        userProduct: res.data.imgs
+        userProduct: res.data.imgs?res.data.imgs:[]
       })
     })
   },
@@ -68,13 +70,10 @@ Page({
       token:app.token
     }).then(res=>{
       console.log(res)
-      if(res.status==500){
-        wx.showToast({
-          title: res.msg,
-          icon:"none"
-        })
-        return
-      }
+      // if(res.status==500){
+      //   app.showToast(res.msg)
+      //   return
+      // }
       wx.showToast({
         title: res.msg,
         icon:"none"
@@ -85,7 +84,10 @@ Page({
     })
   },
   // 跳转编辑
-  eidt(){
-
+  toEdit(){
+    let url=  this.data.type==1?'./edit/edit':'../user/photo/photo';
+    wx.navigateTo({
+      url: url
+    })
   }
 })

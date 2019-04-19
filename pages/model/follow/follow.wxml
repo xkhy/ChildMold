@@ -20,8 +20,7 @@
       <view wx:if="{{type==1}}" class="card" wx:for="{{followList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="toDetail">
         <view class="card-content">
             <view class="card-img">
-              <!-- <image src="{{item.avatar}}"></image> -->
-              <image src="/assets/images/model1.png"></image>
+              <image src="{{item.avatar}}"></image>
             </view>
             <view class="card-info">
               <view class="card-title">

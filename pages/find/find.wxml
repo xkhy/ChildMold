@@ -26,7 +26,7 @@
                   <image wx:if="{{item.is_approve}}" class="vip-icon" src="/assets/icon/find_vip.png"></image>
                   <image wx:else class="shop-icon" src="/assets/icon/find_shop.png"></image>
                 </view>
-                <text>{{item.name}}</text>
+                <text class="cell-name">{{item.name}}</text>
             </view>
             <view class="cell">
               性别：{{item.gender}}

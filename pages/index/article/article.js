@@ -5,20 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    demandInfo:{}
+    banner:{}
   },
   onLoad: function (options) {
-    this.getDemandInfo(options.id)
-  },
-  getDemandInfo(id){
-    app.get("demand_info",{
-      id:id,
-      token:app.token
-    }).then(res=>{
-      console.log(res)
-      this.setData({
-        demandInfo:res.data
-      })
+    let bannerObj =JSON.parse(options.bannerObj);
+    console.log(bannerObj) 
+    this.setData({
+      banner:bannerObj
     })
   }
 })

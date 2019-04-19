@@ -1,0 +1,158 @@
+image {
+  width: 100%;
+}
+
+.tabs {
+  display: flex;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-top: 4rpx solid #f7f7f7;
+  border-bottom: 6rpx solid #f7f7f7;
+}
+
+.tabs .tab {
+  position: relative;
+  flex: 1;
+  line-height: 88rpx;
+  font-size: 28rpx;
+  text-align: center;
+  color: #999;
+}
+
+.tabs .tab-active {
+  color: #EF8501;
+}
+
+.tabs .tab-active::after {
+  content: "";
+  position: absolute;
+  bottom: -5rpx;
+  left: 50%;
+  margin-left: -38rpx;
+  width: 76rpx;
+  height: 6rpx;
+  background-color: #EF8501;
+}
+
+.container .tabs {
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.model-group {
+  padding: 27rpx 0 0 22rpx;
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+}
+
+.model-group .model-single {
+  width: 228rpx;
+  margin-bottom: 12rpx;
+  margin-right: 12rpx;
+}
+
+.model-group .model-single .model-image {
+  height: 228rpx;
+  border-radius: 8rpx;
+}
+
+.model-group .model-single .model-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  line-height: 70rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.model-group .model-single .model-info .model-name {
+  color: #444;
+  font-size: 30rpx;
+}
+
+.model-group .model-single .model-info .model-attention {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.model-group .model-single .model-info .heart {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 14rpx;
+}
+
+.card {
+  height: 220rpx;
+}
+
+.card .vip-icon {
+  width: 40rpx;
+  height: 35rpx;
+  margin-right: 10rpx;
+}
+
+.card .shop-icon {
+  width: 38rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}
+
+.card .card-content {
+  height: 220rpx;
+  padding: 20rpx 31rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 3rpx solid #f7f7f7;
+}
+
+.card .card-content .card-img {
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 50rpx;
+}
+
+.card .card-content .card-img image {
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.card .card-content .card-info {
+  height: 100%;
+  font-size: 26rpx;
+  color: #444;
+}
+
+.card .card-content .card-info .card-title {
+  display: flex;
+  line-height: 60rpx;
+}
+
+.card .card-content .card-info .card-title text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.card .card-content .card-info .cell {
+  line-height: 2.2;
+  align-items: center;
+  width: 400rpx;
+  height: 100rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.card .card-content .card-info .follow {
+  height: 50rpx;
+  line-height: 50rpx;
+  background: #EF8501;
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 28rpx;
+  margin: 0;
+}

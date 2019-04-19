@@ -1,7 +1,6 @@
 const app = getApp()
 Page({
   data: {
-    type:2,
     user:{}
   },
   onLoad(){
@@ -10,9 +9,15 @@ Page({
     })
   },
   toDetail(){
-    let type = this.data.type==1?"busniess":"model"
+    let type = this.data.user.type==1?"busniess":"model"
     wx.navigateTo({
       url: `/pages/${type}/detail?id=${this.data.user.uid}`,
+    })
+  },
+  toFollow(){
+    let type = this.data.user.type==1?"busniess":"model"
+    wx.navigateTo({
+      url: `/pages/${type}/follow/follow`,
     })
   },
   contact(){

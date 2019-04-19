@@ -53,6 +53,33 @@ Page({
       app.showToast("请输入详细地址")
       return false;
     }
+    if (!params.height) {
+      app.showToast("请输入身高")
+      return false;
+    }
+    let heightReg = /^([1-9][0-9]{1,2})$/;
+    if (!heightReg.test(params.height)) {
+      app.showToast("请输入正确的身高")
+      return false;
+    }
+    if (!params.weight) {
+      app.showToast("请输入体重")
+      return false;
+    }
+    let weightReg = /^(0(\.\d{1}){0,1}|[1-8]\d{1,3}(\.\d{1}){0,1}|9\d{1,2}(\.\d{1}){0,1}|999(\.0){0,1}|.{0})$/;
+    if (!weightReg.test(params.weight)) {
+      app.showToast("请输入正确的体重")
+      return false;
+    }    
+    if (!params.shoeSize) {
+      app.showToast("请输入鞋码")
+      return false;
+    }
+    let shoeSizeReg = /^([1-5][0-9])$/;
+    if (!shoeSizeReg.test(params.shoeSize)) {
+      app.showToast("请输入正确的鞋码")
+      return false;
+    }
     this.updateUser(params);
   },
   updateUser(params){
@@ -72,42 +99,19 @@ Page({
     }).then(res=>{
       console.log(res)
       app.showToast(res.msg)
-    })
-  },
-
-  bindGenderChange(e) {
-    this.setData({
-      genderIndex: e.detail.value
-    })
-  },
-  bindNatChange(e) {
-    this.setData({
-      natIndex: e.detail.value
-    })
-  },
-  bindBirthdayChange(e) {
-    this.setData({
-      birthday: e.detail.value
-    })
-  },
-  bindOrgChange(e){
-    this.setData({
-      orgIndex: e.detail.value
+      if(res.status==200){
+        setTimeout(()=>{
+          wx.navigateBack({
+            delta: 1
+          }) 
+        },1000) 
+      }
     })
   },
   bindRegionChange(e) {
     this.setData({
       region: e.detail.value
     })
-  },
-  toggleAgree:function(e){
-    let items = this.data.agreeItems;
-    items[0].checked = !(items[0].checked);
-    items[0].name = !(items[0].name);
-    this.setData({
-      agreeItems: items,
-      isAgree: items[0].name
-    });
   },
     /*上传图片开始 */
     uploadBizlicense(){

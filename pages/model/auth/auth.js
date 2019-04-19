@@ -173,12 +173,17 @@ Page({
       idcard_back:this.data.idcard_back,
       house_parent:this.data.house_parent,
       house_self:this.data.house_self,
+      token:app.token
     }).then(res=>{
       console.log(res)
       app.showToast(res.msg)
+      setTimeout(()=>{
+        wx.navigateBack({
+          delta: 1
+        })
+      },1000)
     })
-  },
-
+  }, 
   bindGenderChange(e) {
     this.setData({
       genderIndex: e.detail.value
