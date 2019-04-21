@@ -138,19 +138,20 @@ Page({
           let showImgs=this.data.imgs.filter((item)=>{
             return item.is_show==true
           })
-          // todo 最多设置3张有bug
+          // 当已经设置3张时，可以取消设置封面，但是继续设置就会警告
           if(showImgs.length==3){
-            app.showToast("最多可设置3张模卡展示图")
+            let has_show = imgs[index].is_show? 1:0
+            if(has_show){
+              imgs[index].is_show=false
+            }else{
+              app.showToast("最多可设置3张展示图")
+            }
           }else{
-            imgs.forEach((e,i)=>{
-              if(index==i){
-                e.is_show= !e.is_show
-              }
-            })
-            this.setData({
-              imgs:imgs
-            })
+              imgs[index].is_show = !imgs[index].is_show
           }
+          this.setData({
+            imgs: imgs
+          })
         }
       }
     })
@@ -172,7 +173,6 @@ Page({
           delta: 1
         })
       },1000)
-
     })
   }
 })

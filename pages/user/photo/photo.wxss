@@ -46,7 +46,7 @@ page {
 }
 
 .imgs-container .set-show {
-  border: 2rpx solid #EF8501;
+  border: 20rpx solid #EF8501;
 }
 
 .imgs-container .tip {
