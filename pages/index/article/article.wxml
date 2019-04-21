@@ -1,5 +1,5 @@
 <view wx:if="{{banner.type==2}}" class="container">
-    <image src="{{banner.image}}" class="img"/>
+    <image src="{{banner.image}}" class="img"/>     
     <view>
        <view class="article">
          <view class="title">{{banner.title}}</view>

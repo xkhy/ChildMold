@@ -62,6 +62,7 @@
       wx:for="{{ modelList }}"
       wx:key="item.id"
       bindtap="toModel"
+      data-id="{{item.id}}"
     >
       <image class="model-image" src="{{ item.cover }}"></image>
       <view class="model-info">

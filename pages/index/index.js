@@ -30,17 +30,20 @@ Page({
       });
     }
   },
-  getModel() {
+  getModel(pageNo=1) {
     app.get("index_product", {  // TODO 分页
-      page:1,
+      page:pageNo,
       order: this.data.type,
       token:app.token
     }).then(res => {
       console.log(res);
       console.log(res.data);
       if(res.status==200){
-        this.setData({
-          models: res.data
+          this.setData({
+          models: res.data,
+          page: pageNo, // 当前的页号
+          totalPage: res.totalPage,
+          models: res.data.length == 0 ? res.data : this.data.models.concat(res.data),
         });
       }else{
         app.showToast(res.msg)
@@ -63,6 +66,13 @@ Page({
     wx.navigateTo({
       url: `/pages/model/detail?id=${e.currentTarget.dataset.id}`
     });
+  },
+  onReachBottom: function () {
+    if (this.data.page < this.data.totalPage) {
+      this.getModel(this.data.page + 1)
+    } else {
+      app.showToast('已经到底了')
+    }
   },
   // toVote(e){
   //   wx.navigateTo({

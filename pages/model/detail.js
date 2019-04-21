@@ -70,14 +70,7 @@ Page({
       token:app.token
     }).then(res=>{
       console.log(res)
-      // if(res.status==500){
-      //   app.showToast(res.msg)
-      //   return
-      // }
-      wx.showToast({
-        title: res.msg,
-        icon:"none"
-      })
+      app.showToast(res.msg)
       this.setData({
         isFollow: res.data.is_followed
       })

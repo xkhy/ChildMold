@@ -79,5 +79,10 @@ Page({
     this.setData({
       region: e.detail.value
     });
-  }
+  },
+  toModel(e) {
+    wx.navigateTo({
+      url: `/pages/model/detail?id=${e.currentTarget.dataset.id}`
+    });
+  },
 });

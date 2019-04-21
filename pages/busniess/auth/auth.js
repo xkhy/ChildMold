@@ -13,6 +13,7 @@ Page({
     isAgree:true
   },
   onLoad() {
+    this.getLocation();
     this.getAuth();
   },
   getAuth(){
@@ -79,13 +80,25 @@ Page({
       address:params.address,
       profile:params.profile,
       bizlicense:this.data.bizlicense,
+      lng: this.data.longitude,
+      lat: this.data.latitude,
       token:app.token
     }).then(res=>{
       console.log(res)
       app.showToast(res.msg)
     })
   },
-
+  getLocation() {
+    wx.getLocation({
+      type: 'gcj02', // 返回可以用于wx.openLocation的经纬度
+      success: (res => {
+        this.setData({
+          longitude:res.longitude,
+          latitude:res.latitude
+        })
+      })
+    })
+  },
   bindGenderChange(e) {
     this.setData({
       genderIndex: e.detail.value

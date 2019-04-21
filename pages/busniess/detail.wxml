@@ -17,7 +17,7 @@
               <view class="model-row">
                   <text>商家名称：{{userInfo.name}}</text>
                   <image class="vip" src="/assets/icon/vip.png"></image>
-                  <button wx:if="{{!userInfo.is_follow}}" class="follow" bindtap="follow">关注</button>
+                  <button wx:if="{{!isFollow}}" class="follow" bindtap="follow">关注</button>
                   <button wx:else class="follow" bindtap="follow">已关注</button>
              </view>
               <view class="model-row">

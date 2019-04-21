@@ -7,22 +7,17 @@ Page({
   data: {
     userBanners:[],
     userInfo:{},
-    imgUrls: [
-      "../../assets/images/model_banner.png",
-      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640',
-      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
-    ],
+    isFollow: false,
   },
-  onLoad(){
+  onLoad(options){
+    this.setData({id:options.id})
     this.getBanner();
     this.getUserInfo();
   },
   getBanner(){
     app.get('user_banner',{
       type:1,
-      id:1,
+      id: this.data.id,
       token:app.token
     }).then(res=>{
       console.log(res)
@@ -34,7 +29,7 @@ Page({
   getUserInfo(){
     app.get('user_info',{
       type:1, //商家
-      id:1,
+      id:this.data.id,
       token:app.token
     }).then(res=>{
       console.log(res)
@@ -44,8 +39,18 @@ Page({
     })
   },
   // 关注
-  follow(){
-
+  follow() {
+    app.get('followed', {
+      type: 1,
+      id: this.data.id,
+      token: app.token
+    }).then(res => {
+      console.log(res)
+      app.showToast(res.msg)
+      this.setData({
+        isFollow: res.data.is_followed
+      })
+    })
   },
   // 跳转编辑
   eidt(){
