@@ -7,7 +7,8 @@ Page({
   data: {
     find:1, // 1需求 2通告
     type:1, // 1全部 2关注 3附近
-    findList:[]
+    findList:[],
+    hasMore:true
   },
 
   /**
@@ -35,7 +36,9 @@ Page({
   changeFind(e){
     this.setData({
       find: e.currentTarget.dataset.find,
-      findList:[]
+      findList:[],
+      page:1,
+      hasMore:true
     })
     if(this.data.type==3){
       this.getLocation();
@@ -49,7 +52,10 @@ Page({
   },
   changeType(e){
     this.setData({
-      type: e.currentTarget.dataset.type
+      type: e.currentTarget.dataset.type,
+      findList:[],
+      page:1,
+      hasMore:true
     })
     if(this.data.type==3){
       this.getLocation();
@@ -62,33 +68,55 @@ Page({
     }
   },
   // 需求列表
-  getDemand(lng,lat){
+  getDemand(lng,lat,pageNo=1){
     app.get('demand_index',{
       type:this.data.type,
-      page:1, // TODO 分页
+      page:pageNo,
       lng:this.data.type==3?lng:'',
       lat:this.data.type==3?lat:'',
       token:app.token
     }).then(res=>{
       console.log(res)
-      this.setData({
-        findList:res.data
-      })
+      if(res.status==200){
+        if(res.data.length!=0){
+          this.setData({
+            page:pageNo,
+            findList: this.data.findList.concat(res.data)
+          })
+        }else{
+          this.setData({
+            hasMore:false
+          })
+        }
+      }else{
+        app.showToast(res.msg)
+      } 
     })
   },
   // 通告列表
-  getNotice(lng,lat){
+  getNotice(lng,lat,pageNo=1){
     app.get('notice_index',{
       type:this.data.type,
-      page:1, // TODO 分页
+      page:pageNo, 
       lng:this.data.type==3?lng:'',
       lat:this.data.type==3?lat:'',
       token:app.token
     }).then(res=>{
       console.log(res)
-      this.setData({
-        findList:res.data
-      })
+      if(res.status==200){
+        if(res.data.length!=0){
+          this.setData({
+            page:pageNo,
+            findList: this.data.findList.concat(res.data)
+          })
+        }else{
+          this.setData({
+            hasMore:false
+          })
+        }
+      }else{
+        app.showToast(res.msg)
+      }
     })
   },
   toDetail(e){
@@ -102,5 +130,12 @@ Page({
     wx.navigateTo({
       url: url
     })
+  },
+  onReachBottom() {
+    if(this.data.find==1){
+      this.data.hasMore&&this.getDemand(this.data.page+1);
+    }else{
+      this.data.hasMore&&this.getNotice(this.data.page+1);   
+    }
   }
 })

@@ -76,7 +76,7 @@ Page({
       return false;
     }
     if (!params.desc) {
-      app.showToast("请输入拍摄主题")
+      app.showToast("请输入拍摄内容")
       return false;
     }
     if(this.data.type==1){
@@ -127,10 +127,19 @@ Page({
     }).then(res=>{
       console.log(res)
       app.showToast(res.msg)
-      setTimeout(() => {
+      res.status==200&&setTimeout(() => {
        wx.navigateBack({
          delta: 1
        })
+      // let pages = getCurrentPages();//获取页面栈
+      // console.log(pages)
+      //   if (pages.length > 1) {
+      //   //上一个页面实例对象
+      //   let prePage = pages[pages.length - 2];
+      // console.log(prePage)
+      //   //调用上一个页面的onShow方法
+      //   prePage.changeData()
+      //   } 
       }, 1000);
     })
   },

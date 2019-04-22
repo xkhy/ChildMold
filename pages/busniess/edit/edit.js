@@ -55,6 +55,13 @@ Page({
     }).then(res=>{
       console.log(res)
       app.showToast(res.msg)
+      if(res.status==200){
+        setTimeout(()=>{
+          wx.navigateBack({
+            delta: 1
+          }) 
+        },1000) 
+      }
     })
   },
   bindRegionChange(e) {

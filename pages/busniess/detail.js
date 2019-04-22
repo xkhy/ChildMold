@@ -34,7 +34,8 @@ Page({
     }).then(res=>{
       console.log(res)
       this.setData({
-        userInfo: res.data
+        userInfo: res.data,
+        isFollow: res.data.is_follow
       })
     })
   },
@@ -47,13 +48,15 @@ Page({
     }).then(res => {
       console.log(res)
       app.showToast(res.msg)
-      this.setData({
+      res.status==200&&this.setData({
         isFollow: res.data.is_followed
       })
     })
   },
   // 跳转编辑
-  eidt(){
-
-  },
+  toEdit(){
+    wx.navigateTo({
+      url: './edit/edit'
+    })
+  }
 })

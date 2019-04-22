@@ -1,35 +1,12 @@
 @import "../../../assets/scss/common.scss";
 .tabs {
-  display: flex;
   height: 88rpx;
   line-height: 88rpx;
+  padding-left: 40rpx;
   border-top: 4rpx solid #f7f7f7;
-  border-bottom: 6rpx solid #f7f7f7;
-  .tab {
-    position: relative;
-    flex: 1;
-    line-height: 88rpx;
-    font-size: 28rpx;
-    text-align: center;
-    color: #999;
-  }
-  .tab-active {
-    color: $color-theme;
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -5rpx;
-      left: 50%;
-      margin-left: -38rpx;
-      width: 76rpx;
-      height: 6rpx;
-      background-color: $color-theme;
-    }
-  }
-}
-.container .tabs {
-  height: 88rpx;
-  line-height: 88rpx;
+  border-bottom: 4rpx solid #f7f7f7;
+  font-size: 28rpx;
+  color: #444;
 }
 .model-group {
   padding: 27rpx 0 0 22rpx;
@@ -69,61 +46,3 @@
   }
 }
 
-.card {
-  height: 220rpx;
-  .vip-icon {
-    width: 40rpx;
-    height: 35rpx;
-    margin-right: 10rpx;
-  }
-  .shop-icon {
-    width: 38rpx;
-    height: 36rpx;
-    margin-right: 10rpx;
-  }
-  .card-content {
-    height: 220rpx;
-    padding: 20rpx 31rpx;
-    display: flex;
-    align-items: center;
-    border-bottom: 3rpx solid #f7f7f7;
-    .card-img {
-      width: 180rpx;
-      height: 180rpx;
-      margin-right: 50rpx;
-      image {
-        width: 180rpx;
-        height: 180rpx;
-      }
-    }
-    .card-info {
-      height: 100%;
-      font-size: 26rpx;
-      color: #444;
-      .card-title {
-        display: flex;
-        line-height: 60rpx;
-        text {
-        @include textoverflow(1);
-        }
-      }
-      .cell {
-        line-height: 2.2;
-        // display: flex;
-        align-items: center;
-        width: 400rpx;
-        height: 100rpx;
-        @include textoverflow(2);
-      }
-      .follow {
-        height: 50rpx;
-        line-height: 50rpx;
-        background: $color-theme;
-        border-radius: 10rpx;
-        color: #fff;
-        font-size: 28rpx;
-        margin: 0;
-      }
-    }
-  }
-}

@@ -100,10 +100,17 @@ page {
 
 .add {
   position: fixed;
-  left: 75rpx;
-  bottom: 87rpx;
+  left: 0rpx;
+  bottom: 0rpx;
+  width: 100%;
+  height: 140rpx;
+  background-color: #fff;
+}
+
+.add-btn {
   width: 600rpx;
   height: 80rpx;
+  margin-top: 30rpx;
   line-height: 80rpx;
   font-size: 32rpx;
   font-weight: 500;

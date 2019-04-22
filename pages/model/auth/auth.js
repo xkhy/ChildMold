@@ -179,7 +179,7 @@ Page({
       app.showToast(res.msg)
       setTimeout(()=>{
         wx.navigateBack({
-          delta: 1
+          delta: 2
         })
       },1000)
     })

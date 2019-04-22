@@ -85,7 +85,12 @@ Page({
       token: app.token
     }).then(res=>{
       console.log(res)
-      app.user=res.data;
+      if(res.status==200){
+        app.user=res.data;
+        wx.switchTab({
+          url: '/pages/index/index'
+        })
+      }
     })
   },
   setUerInfo(encryptedData,iv){
@@ -96,9 +101,7 @@ Page({
     }).then(res=>{
       console.log(res)
       if (res.status==200) {
-        // wx.redirectTo({
-        //   url: '/pages/index/phone/phone'
-        // })
+        this.getMe();
       } else {
         app.showToast('登录失败,请重新登录') 
         wx.login({

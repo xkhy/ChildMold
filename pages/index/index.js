@@ -3,9 +3,15 @@ Page({
   data: {
     bannner: [],
     models:[],
-    type: "1"
+    type: "1",
+    hasMore:true
   },
   onLoad() {
+    if(!app.isLogin ){
+      wx.navigateTo({
+        url: '/pages/login/login'
+      })
+    }
     this.getBanner();
     this.getModel();
   },
@@ -31,7 +37,7 @@ Page({
     }
   },
   getModel(pageNo=1) {
-    app.get("index_product", {  // TODO 分页
+    app.get("index_product", {
       page:pageNo,
       order: this.data.type,
       token:app.token
@@ -39,12 +45,16 @@ Page({
       console.log(res);
       console.log(res.data);
       if(res.status==200){
+        if(res.data.length!=0){
           this.setData({
-          models: res.data,
-          page: pageNo, // 当前的页号
-          totalPage: res.totalPage,
-          models: res.data.length == 0 ? res.data : this.data.models.concat(res.data),
-        });
+            page:pageNo,
+            models: this.data.models.concat(res.data)
+          });
+        }else{
+          this.setData({
+            hasMore:false
+          })
+        }
       }else{
         app.showToast(res.msg)
       }     
@@ -52,7 +62,10 @@ Page({
   },
   changeType(e){
     this.setData({
-      type: e.currentTarget.dataset.type
+      type: e.currentTarget.dataset.type,
+      models:[],
+      page:1,
+      hasMore:true
     })
     this.getModel();
   },
@@ -67,13 +80,11 @@ Page({
       url: `/pages/model/detail?id=${e.currentTarget.dataset.id}`
     });
   },
-  onReachBottom: function () {
-    if (this.data.page < this.data.totalPage) {
+  onReachBottom() {
+    if(this.data.hasMore){
       this.getModel(this.data.page + 1)
-    } else {
-      app.showToast('已经到底了')
     }
-  },
+  }
   // toVote(e){
   //   wx.navigateTo({
   //     url: `/pages/vote/vote?id=${e.currentTarget.dataset.id}`

@@ -17,7 +17,14 @@ Page({
     image_url:''
   },
   onLoad(options) {
-    this.getDemand(options.id);
+    if(options.id){
+      this.getDemand(options.id);
+    }else{
+      // 渲染需求单位
+      this.setData({
+        name: app.user.name
+      })
+    }
   },
   getDemand(id){
     app.get('demand_edit',{
@@ -95,6 +102,11 @@ Page({
     }).then(res=>{
       console.log(res)
       app.showToast(res.msg)
+      res.status==200&&setTimeout(() => {
+        wx.navigateBack({
+          delta: 1
+        })
+       }, 1000);
     })
   },
 

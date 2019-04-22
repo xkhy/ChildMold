@@ -71,7 +71,7 @@ Page({
     }).then(res=>{
       console.log(res)
       app.showToast(res.msg)
-      this.setData({
+      res.status==200&&this.setData({
         isFollow: res.data.is_followed
       })
     })

@@ -1,26 +1,34 @@
 const app = getApp();
 Page({
   data: {
-    demandList: {},
+    demandList: [],
     startX: 0, //开始坐标
-    startY: 0
+    startY: 0,
+    hasMore:true
   },
   onLoad: function(options) {
     this.getMyDemand();
   },
-  getMyDemand() {
+  getMyDemand(pageNo=1) {
     app.get("my_demand", {
-        page: 1, // TODO 分页
+        page: pageNo,
         token: app.token
       }).then(res => {
         console.log(res);
         let demandList = res.data;
-        demandList.forEach(e => {
-          e.isTouchMove = false; // 默认隐藏删除
-        });
-        this.setData({
-          demandList: demandList
-        });
+        if(demandList.length!=0){
+          demandList.forEach(e => {
+            e.isTouchMove = false; // 默认隐藏删除
+          });
+          this.setData({
+            page:pageNo,
+            demandList: this.data.demandList.concat(demandList)
+          });
+        }else{
+          this.setData({
+            hasMore:false
+          })
+        }
       });
   },
   deleteDemand(id) {
@@ -29,18 +37,17 @@ Page({
       token: app.token
       }).then(res => {
         console.log(res);
-        let demandList = res.data;
-        demandList.forEach(e => {
-          e.isTouchMove = false; // 默认隐藏删除
-        });
-        this.setData({
-          demandList: demandList
-        });
+        app.showToast(res.msg)
       });
   },
-  toDetail(e){
+  toEdit(e){
     wx.navigateTo({
-      url: `../detail?id=${e.currentTarget.dataset.id}`,
+      url: `../release/release?id=${e.currentTarget.dataset.id}`
+    })
+  },
+  toRelease(){
+    wx.navigateTo({
+      url: `../release/release`
     })  
   },
   //手指触摸动作开始 记录起点X坐标
@@ -51,7 +58,6 @@ Page({
         //只操作为true的
         v.isTouchMove = false;
     });
-
     this.setData({
       startX: e.changedTouches[0].clientX,
       startY: e.changedTouches[0].clientY,
@@ -111,11 +117,13 @@ Page({
   del(e){
     this.deleteDemand(e.currentTarget.dataset.id);
     this.data.demandList.splice(e.currentTarget.dataset.index, 1);
+    this.setData({
+      demandList: this.data.demandList
+    });
+  },
+  onReachBottom() {
+    if(this.data.hasMore){
+      this.getMyDemand(this.data.page + 1)
+    }
   }
-  // del(e) {
-  //   this.data.demandList.splice(e.currentTarget.dataset.index, 1);
-  //   this.setData({
-  //     demandList: this.data.demandList
-  //   });
-  // }
 });

@@ -82,12 +82,18 @@ page {
     color: #999;
     font-size: 24rpx;
 }
-.add {
+.add{
   position: fixed;
-  left: 75rpx;
-  bottom: 87rpx;
+  left: 0rpx;
+  bottom: 0rpx;
+  width: 100%;
+  height: 140rpx;
+  background-color: #fff;
+}
+.add-btn {
   width: 600rpx;
   height: 80rpx;
+  margin-top: 30rpx;
   line-height: 80rpx;
   font-size: 32rpx;
   font-weight: 500;
@@ -95,3 +101,17 @@ page {
   background: $color-theme;
   border-radius: 10rpx;
 }
+
+// .add {
+//   position: fixed;
+//   left: 75rpx;
+//   bottom: 87rpx;
+//   width: 600rpx;
+//   height: 80rpx;
+//   line-height: 80rpx;
+//   font-size: 32rpx;
+//   font-weight: 500;
+//   color: #fff;
+//   background: $color-theme;
+//   border-radius: 10rpx;
+// }

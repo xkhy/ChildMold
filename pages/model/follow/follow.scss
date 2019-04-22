@@ -102,9 +102,11 @@
       color: #444;
       .card-title {
         display: flex;
-        line-height: 60rpx;
+        align-items: center;
         text {
-        @include textoverflow(1);
+          width: 320rpx;
+          flex: 1;
+          @include textoverflow(1);
         }
       }
       .cell {

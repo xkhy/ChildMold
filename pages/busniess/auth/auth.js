@@ -38,8 +38,6 @@ Page({
   //调用验证函数
   formSubmit(e) {
     let params=e.detail.value
-    // console.log(e.detail.value)
-    // const params = e.detail.value
     if (!params.name) {
       app.showToast("请输入姓名")
       return false;
@@ -86,6 +84,11 @@ Page({
     }).then(res=>{
       console.log(res)
       app.showToast(res.msg)
+      setTimeout(()=>{
+        wx.navigateBack({
+          delta: 2
+        })
+      },1000)
     })
   },
   getLocation() {

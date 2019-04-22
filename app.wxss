@@ -34,3 +34,10 @@ button::after{
   border:none;
   list-style: none;
   }
+
+  .no-data{
+    font-size: 24rpx;
+    color: #999;
+    text-align: center;
+  }
+  

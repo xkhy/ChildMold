@@ -6,19 +6,17 @@
             </swiper-item>
           </block>
         </swiper>
-        <!-- <i-tabs  i-class="tabs" current="{{ current }}" bindchange="handleChange">
-          <i-tab key="tab1" title="作品集"></i-tab>
-          <i-tab key="tab2" title="童模详情"></i-tab>
-        </i-tabs> -->
         <view class="tab">商家详情</view>
-        <view>
+        <view style="padding-bottom:35rpx">
             <view class="cell-group">
             <view class="cell">
               <view class="model-row">
                   <text>商家名称：{{userInfo.name}}</text>
-                  <image class="vip" src="/assets/icon/vip.png"></image>
-                  <button wx:if="{{!isFollow}}" class="follow" bindtap="follow">关注</button>
-                  <button wx:else class="follow" bindtap="follow">已关注</button>
+                  <image wx:if="{{userInfo.is_approve}}" class="vip" src="/assets/icon/vip.png"></image>
+                  <view wx:if="{{!userInfo.can_edit}}">
+                    <button wx:if="{{!isFollow}}" class="follow" bindtap="follow">关注</button>
+                    <button wx:else class="follow" bindtap="follow">已关注</button>
+                  </view>
              </view>
               <view class="model-row">
                   <text>商家地址：{{userInfo.province}}{{userInfo.city}}{{userInfo.area}}{{userInfo.address}}</text>
@@ -32,8 +30,7 @@
            </view>
           </view>
         </view>
-        <view class="edit">
-           <button class="edit-btn" bindtap="edit">编辑</button>
+        <view wx:if="{{userInfo.can_edit}}" class="edit">
+           <button class="edit-btn" bindtap="toEdit">编辑</button>
         </view>
-        
       </view>

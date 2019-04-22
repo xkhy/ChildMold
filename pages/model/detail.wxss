@@ -99,7 +99,7 @@ swiper image {
 }
 
 .model-group {
-  padding: 26rpx 0 0 22rpx;
+  padding: 26rpx 0 10rpx 22rpx;
   width: 100%;
   display: flex;
   flex-wrap: wrap;

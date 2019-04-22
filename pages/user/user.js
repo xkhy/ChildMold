@@ -20,6 +20,16 @@ Page({
       url: `/pages/${type}/follow/follow`,
     })
   },
+  goAuth(){
+    let status=this.data.user.status 
+    if(status==0){
+      wx.navigateTo({
+        url: './auth/auth'
+      })
+    }else if(status==1){
+      app.showToast('请等待审核')
+    }
+  },
   contact(){
     wx.showModal({
       title: '拨打客服电话:',

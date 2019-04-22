@@ -113,7 +113,7 @@ image {
 }
 
 .container .card .card-content .card-info .cell {
-  line-height: 2.2;
+  padding: 8rpx 0;
   display: flex;
   align-items: center;
 }

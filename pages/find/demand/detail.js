@@ -20,5 +20,10 @@ Page({
         demandInfo:res.data
       })
     })
+  },
+  toUserDetail(){
+    wx.navigateTo({
+      url: `/pages/busniess/detail?id=${this.data.demandInfo.user_id}`
+    })
   }
 })

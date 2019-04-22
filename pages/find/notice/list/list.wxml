@@ -26,5 +26,7 @@
     <view class="del" catchtap="del" data-id="{{ item.id }}" data-index="{{ index }}">删除</view>
   </view>
   <view class="no-data" wx:if="{{noticeList.length==0}}">当前没有任何需求，点击下方按钮新增发布</view>
-  <button class="add" bindtap="toRelease">新增发布</button>
+  <view class="add">
+    <button class="add-btn" bindtap="toRelease">新增发布</button>
+  </view>
 </view>

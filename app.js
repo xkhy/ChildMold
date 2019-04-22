@@ -4,6 +4,7 @@ App({
   base_url: 'http://model.tongzgc.com/',
   token:'',
   user:{},
+  isLogin:true,
   onLaunch() {
     // 登录
     wx.login({
@@ -46,10 +47,8 @@ App({
               }
             })
           }else{
-            console.log('未授权')
-            wx.navigateTo({
-              url: '/pages/login/login'
-            })
+            console.log('未授权,应该去登录页')
+            this.isLogin=false;
           }
         }
       })
@@ -73,7 +72,6 @@ App({
               console.log(res)
               if (res.status==200) {
                 this.token = res.data.token;
-
                 this.setuUerInfo(encryptedData,iv);
                 this.getMe();
               }else{

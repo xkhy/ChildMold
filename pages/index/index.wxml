@@ -12,7 +12,7 @@
   <view class="tab {{type==3?'tab-active':''}}" bindtap="changeType" data-type="3">新人</view>
 </view>
 <view class="model-group">
-    <view class="model-single"  wx:for="{{models}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="toModel">
+    <view class="model-single" wx:for="{{models}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="toModel">
       <image class="model-image" src="{{item.cover}}"></image>
       <view class="model-info">
         <text class="model-name">{{item.name}}</text>
@@ -23,4 +23,5 @@
       </view>
     </view>
 </view>
+<view wx:if="{{!hasMore}}" class="no-data">暂无更多数据</view>
 </view>

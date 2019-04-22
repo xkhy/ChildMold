@@ -1,5 +1,5 @@
 <view class="container">
-         <image src="{{demandInfo.image}}" class="demand-img"/>
+         <image src="{{demandInfo.image}}" class="demand-img" bindtap="toUserDetail"/>
         <view>
             <view class="cell-group">
             <view class="cell">

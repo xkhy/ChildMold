@@ -29,13 +29,15 @@ Page({
       token:app.token
     }).then(res=>{
       console.log(res)
-      let product= res.data.imgs
-      product.forEach(e=>{
-        e.url= res.data.img_domain+e.name
-      })
-      this.setData({
-        imgs:product
-      })
+      if(res.data.length!=0){
+        let product= res.data.imgs
+        product.forEach(e=>{
+          e.url= res.data.img_domain+e.name
+        })
+        this.setData({
+          imgs:product
+        })
+      }
     })
   },
   uploadImg(){
@@ -47,15 +49,11 @@ Page({
       success(res) {
         const tempFilePaths = res.tempFilePaths
         console.log(tempFilePaths)
-        let temp=that.data.tempImgs.concat(tempFilePaths)
-        that.setData({
-          tempImgs :temp
-        })
-        let tempImgs=[];
-        if(that.data.imgs.length>=that.data.maxCount){
-          app.showToast("最多可上传9张")
-          return
-        }
+        // let temp=that.data.tempImgs.concat(tempFilePaths)
+        // that.setData({
+        //   tempImgs :temp
+        // })
+        // let tempImgs=[];
         tempFilePaths.forEach(element => {
           wx.uploadFile({
             url: app.base_url+'upload_img',
@@ -122,6 +120,9 @@ Page({
   },
   // 长按触发操作面板
   showActionSheet(e){
+    if(this.data.type==1){
+      return 
+    }
     let index = e.currentTarget.dataset.index
     console.log(index)
     let imgs=this.data.imgs

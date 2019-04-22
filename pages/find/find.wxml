@@ -9,7 +9,7 @@
       <view class="tab-type {{type==3?'tab-type-active':''}}" bindtap="changeType" data-type="3">附近</view>
     </view>
   <view class="release">
-    <view class="card" wx:if="{{findList.length>0}}" wx:for="{{findList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="toDetail">
+    <view class="card" wx:for="{{findList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="toDetail">
         <view wx:if="{{find==1}}" class="card-title">
           <image wx:if="{{item.is_approve}}" class="vip-icon" src="/assets/icon/find_vip.png"></image>
           <image wx:else class="shop-icon" src="/assets/icon/find_shop.png"></image>
@@ -44,5 +44,6 @@
           </view>
       </view>
       </view>
+      <view wx:if="{{!hasMore}}" class="no-data">暂无更多数据</view>
     </view>
    </view>

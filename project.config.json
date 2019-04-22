@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 17,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -54,9 +54,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "发布页",
-					"pathName": "pages/release/release",
+					"id": 2,
+					"name": "登录",
+					"pathName": "pages/login/login",
 					"query": "",
 					"scene": null
 				},

@@ -126,10 +126,12 @@ image {
 
 .card .card-content .card-info .card-title {
   display: flex;
-  line-height: 60rpx;
+  align-items: center;
 }
 
 .card .card-content .card-info .card-title text {
+  width: 320rpx;
+  flex: 1;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;

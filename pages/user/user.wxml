@@ -4,7 +4,7 @@
   <text>{{user.name}}</text>
 </view>
 <view class="cell-group">
-  <view wx:if="{{user.type!=0}}">
+  <view wx:if="{{user.status==2}}">
       <view class="cell" bindtap="toDetail">
           <image src="/assets/icon/data.png"></image>
           <text>我的资料</text>
@@ -36,15 +36,14 @@
           <view class="right-arrow"></view>
         </navigator>
   </view>
- 
-  <view class="cell {{user.type!=0?'margin':''}}" bindtap="contact" hover-class="none">
+  <view class="cell {{user.status==2?'margin':''}}" bindtap="contact" hover-class="none">
     <image src="/assets/icon/customer_service.png"></image>
     <text>联系客服</text>
     <view class="right-arrow"></view>
   </view>
-  <navigator wx:if="{{!user.verify}}" class="cell" hover-class="none" url="./auth/auth">
+  <view wx:if="{{user.status!=2}}" class="cell" bindtap="goAuth">
     <image src="/assets/icon/auth.png"></image>
     <text>一键认证</text>
     <view class="right-arrow"></view>
-  </navigator>
+  </view>
 </view>

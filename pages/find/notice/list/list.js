@@ -1,26 +1,41 @@
 const app = getApp();
 Page({
   data: {
-    noticeList: {},
+    noticeList: [],
     startX: 0, //开始坐标
-    startY: 0
+    startY: 0,
+    hasMore:true
   },
   onShow: function() {
+    this.setData({
+      noticeList: [],
+      hasMore:true
+    })
     this.getMyNotice();
   },
-  getMyNotice() {
+  // changeData(){
+  //   this.getMyNotice()
+  // },
+  getMyNotice(pageNo=1) {
     app.get("my_notice", {
-        page: 1, // TODO 分页
+        page: pageNo,
         token: app.token
       }).then(res => {
         console.log(res);
         let noticeList = res.data;
-        noticeList.forEach(e => {
-          e.isTouchMove = false; // 默认隐藏删除
-        });
-        this.setData({
-          noticeList: noticeList
-        });
+        if(noticeList.length!=0){
+          noticeList.forEach(e => {
+            e.isTouchMove = false; // 默认隐藏删除
+          });
+          this.setData({
+            page:pageNo,
+            noticeList: this.data.noticeList.concat(noticeList)
+          });
+        }else{
+          this.setData({
+            hasMore: false
+          });
+        }
       });
   },
   deleteNotice(id) {
@@ -55,7 +70,6 @@ Page({
         //只操作为true的
         v.isTouchMove = false;
     });
-
     this.setData({
       startX: e.changedTouches[0].clientX,
       startY: e.changedTouches[0].clientY,
@@ -118,5 +132,10 @@ Page({
     this.setData({
       noticeList: this.data.noticeList
     });
+  },
+  onReachBottom() {
+    if(this.data.hasMore){
+      this.getMyNotice(this.data.page + 1)
+    }
   }
 });
