@@ -74,4 +74,5 @@
       </view>
     </view>
   </view>
+  <view wx:if="{{!hasMore}}" class="no-data">暂无更多数据</view>  
 </view>

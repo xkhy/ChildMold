@@ -6,17 +6,28 @@ Page({
     heightMax: "",
     gender: "",
     region: ["xx省", "xx市", "xx区"],
-    // customItem: "全部",
     showFilters: false,
-    modelList: []
+    modelList: [],
+    page:1,
+    hasMore:true
   },
   onLoad() {
     this.modelSearch();
   },
   search() {
+    this.setData({
+      modelList: [],
+      page:1,
+      hasMore:true
+    })
     this.modelSearch();
   },
   confirm() {
+    this.setData({
+      modelList: [],
+      page:1,
+      hasMore:true
+    })
     this.modelSearch();
   },
   reset() {
@@ -33,7 +44,7 @@ Page({
     let heightMin= this.data.heightMin?this.data.heightMin:0;
     let heightMax= this.data.heightMax?this.data.heightMax:0;
     app.get("child_search", {
-        page: 1,
+        page: this.data.page,
         keyword: this.data.keyword,
         gender: this.data.gender,
         height: heightMin+","+heightMax,
@@ -41,10 +52,21 @@ Page({
         token:app.token
       }).then(res => {
         console.log(res);
-        this.setData({
-          modelList: res.data,
-          showFilters: false
-        });
+        if(res.status==200){
+          if(res.data.length!=0){
+            this.setData({
+              modelList:  this.data.modelList.concat(res.data),
+              showFilters: false
+            })
+          }
+          else{
+            this.setData({
+              hasMore:false
+            })
+          }
+        }else{
+          app.showToast(res.msg)
+        }
       });
   },
   getHeightMin(e){
@@ -85,4 +107,12 @@ Page({
       url: `/pages/model/detail?id=${e.currentTarget.dataset.id}`
     });
   },
+  onReachBottom() {
+    if(this.data.hasMore){
+      this.setData({
+        page:this.data.page+1
+      })
+      this.modelSearch();
+    }
+  }
 });

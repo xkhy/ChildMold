@@ -36,6 +36,7 @@ button::after{
   }
 
   .no-data{
+    padding: 30rpx;
     font-size: 24rpx;
     color: #999;
     text-align: center;

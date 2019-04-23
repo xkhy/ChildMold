@@ -6,7 +6,11 @@ Page({
     startY: 0,
     hasMore:true
   },
-  onLoad: function(options) {
+  onShow: function(options) {
+    this.setData({
+      demandList: [],
+      hasMore:true
+    })
     this.getMyDemand();
   },
   getMyDemand(pageNo=1) {

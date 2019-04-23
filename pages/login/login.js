@@ -8,78 +8,65 @@ Page({
   },
 
   onLoad: function (options) {
-
+    this.getSetting();
   },
-  // 测试
-  logo() {
-    wx.login({ 
-      success: function (res) {
-        // console.log(res.code)
+      // 获取用户信息
+      getSetting(){
+        wx.getSetting({
+          success: res => {
+            if (res.authSetting['scope.userInfo']) {
+              // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+              wx.getUserInfo({
+                success: res => {
+                  console.log(res)
+                  this.login(res.encryptedData,res.iv);
+                  // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+                  // 所以此处加入 callback 以防止这种情况
+                  if (this.userInfoReadyCallback) {
+                    this.userInfoReadyCallback(res)
+                  }
+                }
+              })
+            }else{
+              app.showToast('未授权,请点击授权按钮')
+            }
+          }
+        })
       },
-    })
-  },
-  // 授权登录
-  // getSetting() {
-  //   let that = this
-  //   wx.getSetting({
-  //     success(res) {
-  //       if (res.authSetting['scope.userInfo']) {
-  //         // 用户已经授权过,不需要显示授权页面,所以不需要改变 hasUserInfo 的值
-  //         // 根据自己的需求有其他操作再补充
-  //         // 我这里实现的是在用户授权成功后，调用微信的 wx.login 接口，从而获取code
-  //         wx.showLoading({
-  //           title: '正在登录',
-  //           mask: true
-  //         })
-  //         wx.login({
-  //           success: function (res) {
-  //             // console.log(res.code)
-  //             app.get('login/userLogin.do', {
-  //               code: res.code
-  //             }).then(res => {
-  //               // console.log(res)
-  //               // wx.setStorageSync('session_key', res.session_key)
-  //               // wx.setStorageSync('wxUser', res.wxUser)
-  //               if (res.wxUser) {
-  //                 app.openid = res.openid
-  //                 app.thirdSessionId = res.thirdSessionId
-  //                 // wx.setStorageSync("sessionid", res.thirdSessionId)
-  //                 app.wxUser = res.wxUser
-  //                 if (that.data.loginType == 0) {
-  //                   wx.switchTab({
-  //                     url: '/pages/index/index',
-  //                     success() {
-  //                       wx.hideLoading()
-  //                       app.showToast('登录成功')
-  //                     }
-  //                   })
-  //                 }  else if (that.data.loginType == 3) {
-  //                   wx.redirectTo({
-  //                     url: '/pages/index/third/third'
-  //                   })
-  //                 }
-  //               } else {
-  //                 that.setData({
-  //                   hasUserInfo: false
-  //                 })
-  //               }
-  //             })
-  //           },
-  //           fail(err) {
-  //             wx.hideLoading()
-  //             app.showToast('登录失败,请重新登录')
-  //           }
-  //         })
-  //       } else {
-  //         // 用户没有授权
-  //         // 改变 hasUserInfo 的值，显示授权页面
-  //         that.setData({
-  //           hasUserInfo: false
-  //         });
-  //       }
-  //     }
-  //   });
-  // },
+    // 登录
+    login(encryptedData,iv){
+      wx.login({
+        success: res => {
+          if (res.code) {
+            console.log(res.code)
+            // 发起网络请求
+            app.post('getsession',{
+              js_code:res.code
+            }).then(res=>{
+              console.log(res)
+              app.token = res.data.token
+              this.setUerInfo(encryptedData,iv);
+            })
+          } else {
+            console.log('登录失败！' + res.errMsg)
+          }
+        }
+      })
+    },
+    setUerInfo(encryptedData,iv){
+      app.post('setuserinfo', {
+        token: app.token,
+        encrypt:encryptedData,
+        iv:iv
+      }).then(res=>{
+        console.log(res)
+        if (res.status==200) {
+          this.getMe();
+        } else {
+          this.getSetting();
+        }
+      })
+    },
   getMe(){
     app.get('me', {
       token: app.token
@@ -87,39 +74,22 @@ Page({
       console.log(res)
       if(res.status==200){
         app.user=res.data;
+        // wx.showLoading({
+        //   title: '正在登录',
+        //   mask: true
+        // });
         wx.switchTab({
-          url: '/pages/index/index'
-        })
-      }
-    })
-  },
-  setUerInfo(encryptedData,iv){
-    app.post('setuserinfo', {
-      token: app.token,
-      encrypt:encryptedData,
-      iv:iv
-    }).then(res=>{
-      console.log(res)
-      if (res.status==200) {
-        this.getMe();
-      } else {
-        app.showToast('登录失败,请重新登录') 
-        wx.login({
-          success: function (res) {
-            app.post('getsession', {
-              js_code: res.code
-            }).then(res => {
-              console.log(res)
-              if (res.status==200) {
-                app.token = res.data.token;
-                this.setUerInfo(encryptedData,iv);
-                this.getMe();
-              }else{
-                app.showToast('登录失败,请重新登录') 
-              }
-            })
+          url: '/pages/index/index',
+          success(){
+            wx.showLoading({
+              title: '正在登录',
+              mask: true
+            });
+            // app.showToast('登录成功')
           }
         })
+      }else{
+        app.showToast(res.msg)
       }
     })
   },
@@ -127,7 +97,7 @@ Page({
     if (e.detail.userInfo) {
       //用户按了允许授权按钮
       console.log(e.detail)
-      this.setUerInfo(e.detail.encryptedData,e.detail.iv);
+      this.login(e.detail.encryptedData,e.detail.iv);
     } else {
       //用户按了拒绝按钮
       wx.showModal({

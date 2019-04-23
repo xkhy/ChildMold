@@ -7,22 +7,38 @@ Page({
     hasMore:true
   },
   onLoad() {
-    if(!app.isLogin ){
-      wx.navigateTo({
-        url: '/pages/login/login'
-      })
-    }
-    this.getBanner();
-    this.getModel();
+    // else{
+    // if(app.token){
+    //   console.log('第一次回调',app.token)
+    //   this.setData({token:app.token})
+    // }else{
+    //   app.getSetting=()=>{
+    //     console.log('再次回调',app.token)
+    //     this.setData({token:app.token})
+    //   }
+    // }
+    // if(this.data.token){
+      this.getBanner();
+      this.getModel();
+    // }
+    // }
   },
   getBanner() {
     app.get("getad",{
       token:app.token
     }).then(res => {
       console.log(res);
-      this.setData({
-        bannner: res.data
-      });
+      if(res.status==200){
+        wx.hideLoading();
+        app.showToast('登录成功');
+        this.setData({
+          bannner: res.data
+        });
+      }else{
+        wx.navigateTo({
+          url: '/pages/login/login'
+        })
+      }
     });
   },
   toBannerDetail(e){
@@ -84,7 +100,85 @@ Page({
     if(this.data.hasMore){
       this.getModel(this.data.page + 1)
     }
-  }
+  },
+      // 获取用户信息
+      getSetting(){
+        wx.getSetting({
+          success: res => {
+            if (res.authSetting['scope.userInfo']) {
+              // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+              wx.getUserInfo({
+                success: res => {
+                  console.log(res)
+                  this.login(res.encryptedData,res.iv);
+                  // this.setuUerInfo(res.encryptedData,res.iv);
+                  // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+                  // 所以此处加入 callback 以防止这种情况
+                  if (this.userInfoReadyCallback) {
+                    this.userInfoReadyCallback(res)
+                  }
+                }
+              })
+            }else{
+              console.log('未授权,应该去登录页')
+              wx.navigateTo({
+                url: '/pages/login/login'
+              })
+            }
+          }
+        })
+    },
+    // 登录
+    login(encryptedData,iv){
+      wx.login({
+        success: res => {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          if (res.code) {
+            console.log(res.code)
+            // 发起网络请求
+            app.post('getsession',{
+              js_code:res.code
+            }).then(res=>{
+              console.log(res)
+              app.token = res.data.token
+              this.setUerInfo(encryptedData,iv);
+            })
+          } else {
+            console.log('登录失败！' + res.errMsg)
+          }
+        }
+      })
+    },
+    setUerInfo(encryptedData,iv){
+      app.post('setuserinfo', {
+        token: app.token,
+        encrypt:encryptedData,
+        iv:iv
+      }).then(res=>{
+        console.log(res)
+        if (res.status==200) {
+          this.getMe();
+        }else {
+          this.login(encryptedData,iv);
+        }
+      })
+    },
+    getMe(){
+      app.get('me', {
+        token: app.token
+      }).then(res=>{
+        console.log(res)
+        if(res.status==200){
+          app.user=res.data;
+          this.getBanner();
+          this.getModel();
+        }else if(res.status==300){
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+        }
+      })
+    },
   // toVote(e){
   //   wx.navigateTo({
   //     url: `/pages/vote/vote?id=${e.currentTarget.dataset.id}`
