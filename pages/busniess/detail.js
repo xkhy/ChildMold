@@ -12,6 +12,8 @@ Page({
   onLoad(options){
     this.setData({id:options.id})
     this.getBanner();
+  },
+  onShow(){
     this.getUserInfo();
   },
   getBanner(){

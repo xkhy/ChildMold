@@ -4,7 +4,7 @@ Page({
   data: {
     //判断小程序的API，回调，参数，组件等是否在当前版本可用。
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    hasUserInfo: false,
+    authSetting: true
   },
 
   onLoad: function (options) {
@@ -15,6 +15,7 @@ Page({
         wx.getSetting({
           success: res => {
             if (res.authSetting['scope.userInfo']) {
+              console.log('可以')
               // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
               wx.getUserInfo({
                 success: res => {
@@ -28,7 +29,7 @@ Page({
                 }
               })
             }else{
-              app.showToast('未授权,请点击授权按钮')
+              this.setData({ authSetting:false })
             }
           }
         })
@@ -74,10 +75,6 @@ Page({
       console.log(res)
       if(res.status==200){
         app.user=res.data;
-        // wx.showLoading({
-        //   title: '正在登录',
-        //   mask: true
-        // });
         wx.switchTab({
           url: '/pages/index/index',
           success(){

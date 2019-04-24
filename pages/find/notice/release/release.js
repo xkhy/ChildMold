@@ -182,6 +182,9 @@ Page({
               url: app.base_url+'upload_img',
               filePath: tempFilePaths,
               name: 'image',
+              formData:{
+                token:app.token,
+              },
               header: {
                 "Content-Type": "multipart/form-data"
               },

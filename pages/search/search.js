@@ -7,6 +7,7 @@ Page({
     gender: "",
     region: ["xx省", "xx市", "xx区"],
     showFilters: false,
+    animationData:{},
     modelList: [],
     page:1,
     hasMore:true

@@ -22,10 +22,12 @@ image {
 }
 
 .container .tabs-find .tab-find:first-child {
+  border-right: 0;
   border-radius: 8rpx 0 0 8rpx;
 }
 
 .container .tabs-find .tab-find:last-child {
+  border-left: 0;
   border-radius: 0 8rpx 8rpx 0;
 }
 

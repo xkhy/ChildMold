@@ -1,9 +1,16 @@
-<button
-  wx:if="{{canIUse}}"
-  open-type="getUserInfo"
-  bindgetuserinfo="bindGetUserInfo"
-  class="login"
->
-  授权登录
-</button>
-<view wx:else>请升级微信版本</view>
+<view class="container">
+  <image class="logo" src="/assets/icon/chirdmodel.png"></image>
+  <text class="title">童模大道小程序</text>
+  <text wx:if="{{ authSetting }}" class="">welcome~</text>
+  <bolck wx:else>
+    <button
+      wx:if="{{ canIUse }}"
+      open-type="getUserInfo"
+      bindgetuserinfo="bindGetUserInfo"
+      class="login"
+    >
+      授权登录
+    </button>
+    <view wx:else>请升级微信版本</view>
+  </bolck>
+</view>
