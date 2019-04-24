@@ -1,13 +1,13 @@
+let utils=require("../../../utils/util.js");
 const app=getApp();
 Page({
   data: {
     name: '',
     gender: ['请选择您的性别', '男', '女'],
     nation:['请选择您的国籍','中籍', '外籍', '混血'],
-    birthday: '2012-09-01',
+    birthday: utils.getDateStr(null,0),
     phone: '',
     organize:[{id:0,name:'请选择机构'}],
-    // organize: '',
     region: ['浙江省', '湖州市', '吴兴区'],
     address: '',
     height: '',
@@ -51,7 +51,7 @@ Page({
         name:user.name?user.name:'',
         genderIndex:user.gender?user.gender:0,
         natIndex:user.nation?user.nation:0,
-        birthday:user.birthday?user.birthday:'',
+        birthday:user.birthday?user.birthday:utils.getDateStr(null,0),
         phone:user.phone?user.phone:'',
         orgIndex:user.organize_id?user.organize_id:0,
         region:user.province?[user.province,user.city,user.area]:['浙江省', '湖州市', '吴兴区'],

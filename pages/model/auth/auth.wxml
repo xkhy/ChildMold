@@ -20,9 +20,9 @@
       </picker>
     </view>
     <view class="item">
-      <picker mode="date" value="{{birthday}}"  name="birthday" start="2000-01-01" end="2019-01-01" bindchange="bindBirthdayChange">
+      <picker mode="date" value="{{birthday}}"  name="birthday" start="2000-01-01" end="2099-01-01" bindchange="bindBirthdayChange">
         <view>
-          <label for="birthday">生日:</label> <text>{{birthday}}</text>
+          <label for="birthday">生日：</label> <text>{{birthday}}</text>
         </view>
       </picker>
     </view>
@@ -121,7 +121,7 @@
       <radio-group>
         <view wx:for="{{agreeItems}}" wx:key="{{index}}">
           <radio value="{{item.name}}" checked="{{item.checked}}" bindtap = "toggleAgree" color="4A90E2"/>
-          已阅读并{{item.value}}xxx协议
+          已阅读并{{item.value}}协议
         </view>
       </radio-group>
     </view>

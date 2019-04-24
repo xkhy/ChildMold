@@ -42,7 +42,7 @@
       <radio-group>
         <view wx:for="{{agreeItems}}" wx:key="{{index}}">
           <radio value="{{item.name}}" checked="{{item.checked}}" bindtap = "toggleAgree" color="4A90E2"/>
-          已阅读并{{item.value}}xxx协议
+          已阅读并{{item.value}}协议
         </view>
       </radio-group>
     </view>

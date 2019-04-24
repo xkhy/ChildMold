@@ -8,6 +8,9 @@ Page({
       user:app.user
     })
   },
+  onShow(){
+    this.getMe();
+  },
   getMe(){
     app.get('me', {
       token: app.token
