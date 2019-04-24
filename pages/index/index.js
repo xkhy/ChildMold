@@ -101,9 +101,13 @@ Page({
       this.getModel(this.data.page + 1)
     }
   },
-  // toVote(e){
-  //   wx.navigateTo({
-  //     url: `/pages/vote/vote?id=${e.currentTarget.dataset.id}`
-  //   });
-  // }
+  onShareAppMessage(res){
+    return {
+      title: '',
+      path: '/pages/login/login',
+      success: function (res) { 
+      that.shareClick();
+      }
+    }
+  }
 });

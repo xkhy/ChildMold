@@ -16,10 +16,10 @@
     "pages/busniess/detail",
     "pages/busniess/edit/edit",
     "pages/busniess/auth/auth",
+    "pages/busniess/follow/follow",
     "pages/user/user",
     "pages/user/auth/auth",
     "pages/user/photo/photo",
-    "pages/vote/vote",
     "pages/index/article/article",
     "pages/login/login"
   ],

@@ -15,6 +15,9 @@ Page({
   onLoad() {
     this.modelSearch();
   },
+  onHide(){
+    this.reset();
+  },
   search() {
     this.setData({
       modelList: [],
@@ -33,7 +36,6 @@ Page({
   },
   reset() {
     this.setData({
-      keyword: "",
       heightMin: "",
       heightMax: "",
       gender: "",
@@ -76,7 +78,7 @@ Page({
     });
   },
   getHeightMax(e){
-    console.log(e.detail.va)
+    console.log(e.detail.value)
     this.setData({
       heightMax: e.detail.value
     });
@@ -115,5 +117,8 @@ Page({
       })
       this.modelSearch();
     }
+  },
+  onPullDownRefresh() {
+    this.modelSearch();
   }
 });

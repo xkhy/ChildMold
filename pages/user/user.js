@@ -8,6 +8,19 @@ Page({
       user:app.user
     })
   },
+  getMe(){
+    app.get('me', {
+      token: app.token
+    }).then(res=>{
+      console.log(res)
+      app.user=res.data;
+      this.setData({
+        user:app.user
+      })
+      wx.hideNavigationBarLoading()
+      wx.stopPullDownRefresh()
+    })
+  },
   toDetail(){
     let type = this.data.user.type==1?"busniess":"model"
     wx.navigateTo({
@@ -45,5 +58,9 @@ Page({
         }
       }
     })
+  },
+  onPullDownRefresh() {
+    wx.showNavigationBarLoading();
+    this.getMe();
   }
 })

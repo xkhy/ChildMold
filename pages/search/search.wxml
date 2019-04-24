@@ -25,17 +25,19 @@
     <view class="filters">
       <view class="filter-name">身高</view>
       <input
-        type="digit"
+        type="number"
         class="tag tag-height"
         value="{{ heightMin }}"
         bindinput="getHeightMin"
+        maxlength="3"
       />
       <view class="line"></view>
       <input
-        type="digit"
+        type="number"
         class="tag tag-height"
         value="{{ heightMax }}"
         bindinput="getHeightMax"
+        maxlength="3"
       />
     </view>
     <view class="filters">

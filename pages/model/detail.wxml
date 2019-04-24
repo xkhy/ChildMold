@@ -16,7 +16,7 @@
         <view class="cell">
           <view class="model-row">
               <text>姓名：{{userInfo.name}}</text>
-              <view wx:if="{{!userInfo.can_edit}}">
+              <view wx:if="{{!userInfo.can_edit}}" style="margin-left:20rpx;">
                 <button wx:if="{{!isFollow}}" class="follow" bindtap="follow">关注</button>
                 <button wx:else class="follow" bindtap="follow">已关注</button>
               </view>

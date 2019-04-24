@@ -1,6 +1,4 @@
-<view class="bg">
-  <!-- <image src="https://i.loli.net/2017/08/21/599a521472424.jpg"></image> -->
-  <image src="{{user.avatar}}"></image>
+<view class="bg"><image src="{{user.avatar}}"></image>
   <text>{{user.name}}</text>
 </view>
 <view class="cell-group">

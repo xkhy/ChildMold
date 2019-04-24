@@ -161,22 +161,27 @@ Page({
     })
   },  
   save(){
-    let saveImgs=this.data.imgs
-    saveImgs.forEach(e=>{
-      e=JSON.stringify(e)
+    // 检测是否上传完了
+    let  hasUpLoad =  this.data.imgs.every(e=>{
+      return e.hasOwnProperty('name')
     })
-    console.log(saveImgs)
-    app.post("save_product",{
-      json:JSON.stringify(this.data.imgs),
-      token:app.token
-    }).then(res=>{
-      console.log(res)
-      app.showToast(res.msg)
-      setTimeout(()=>{
-        wx.navigateBack({
-          delta: 1
-        })
-      },1000)
-    })
+    console.log(hasUpLoad)
+    if(hasUpLoad){
+      console.log(this.data.imgs)
+      app.post("save_product",{
+        json:JSON.stringify(this.data.imgs),
+        token:app.token
+      }).then(res=>{
+        console.log(res)
+        app.showToast(res.msg)
+        setTimeout(()=>{
+          wx.navigateBack({
+            delta: 1
+          })
+        },1000)
+      })
+    }else{
+      app.showToast('请等待图片上传')
+    }
   }
 })

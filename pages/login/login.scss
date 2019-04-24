@@ -1,7 +1,7 @@
+@import "../../assets/scss/common.scss";
 page {
   height: 100%;
-  // background-image: url("http://powj76fay.bkt.clouddn.com/a7682396de0c37b00b46a0fe373e095d.png");
-  background-color: orange;
+  background-image: url("http://pic.tongzgc.com/a7682396de0c37b00b46a0fe373e095d.png");
   background-size: 100% 100%;
   position: relative;
 }
@@ -11,10 +11,21 @@ page {
   justify-content: center;
   align-items: center;
 }
+.logo-bg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 229rpx 0 102rpx 0;
+}
 .logo {
   width: 132rpx;
   height: 132rpx;
-  margin: 229rpx 0 102rpx 0;
+  background-color: #fff;
+  border-radius: 50%;
 }
 text{
   font-size: 36rpx;
@@ -26,6 +37,6 @@ text{
 }
 
 .login {
-  background-color: orange;
+  background-color: transparent;
   color: #fff;
 }
