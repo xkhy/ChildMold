@@ -39,6 +39,19 @@
     <text>联系客服</text>
     <view class="right-arrow"></view>
   </view>
+  <view class="cell" bindtap="showQrcode" hover-class="none">
+    <image class="customer_service_wx" src="/assets/icon/customer_service_wx.png"></image>
+    <text>客服微信</text>
+    <view class="right-arrow"></view>
+  </view>
+<view class="modal-box" hidden="{{qrcodeFlag}}">
+      <view class="modal-content">
+        <image src="{{user.qrcode}}"/>
+      </view>
+      <view>
+       <button class="knowBtn" bindtap="hideQrcode">我知道了</button>
+      </view>
+</view>
   <view wx:if="{{user.status!=2}}" class="cell" bindtap="goAuth">
     <image src="/assets/icon/auth.png"></image>
     <text>一键认证</text>

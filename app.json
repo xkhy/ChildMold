@@ -64,5 +64,6 @@
         "selectedIconPath": "assets/icon/my_selected.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

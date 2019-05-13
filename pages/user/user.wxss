@@ -43,6 +43,11 @@ page {
   height: 48rpx;
 }
 
+.cell-group .cell .customer_service_wx {
+  widows: 45rpx;
+  height: 33rpx;
+}
+
 .cell-group .cell text {
   flex: 1;
   margin-left: 22rpx;
@@ -56,4 +61,29 @@ page {
   border-top: 2px solid #999;
   border-right: 2px solid #999;
   transform: rotate(45deg);
+}
+
+.modal-box {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0rpx;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-content {
+  margin-top: 200rpx;
+  height: 500rpx;
+  border-radius: 10rpx;
+  text-align: center;
+}
+
+.modal-content image {
+  width: 500rpx;
+  height: 100%;
+}
+
+.knowBtn {
+  height: 100rpx;
+  width: 500rpx;
 }

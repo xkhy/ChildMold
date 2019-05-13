@@ -53,7 +53,7 @@
     </view>
     <view wx:if="{{type==2}}" class="model-group">
             <view class="model-single"  wx:for="{{userProduct}}" wx:key="{{item.id}}">
-            <image src="{{item.image}}"></image>
+            <image src="{{item.image}}" data-src="{{item.image}}" bindtap="previewImage"></image>
             </view>
     </view>
         <!-- 童模信息结束 -->

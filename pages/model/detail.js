@@ -1,9 +1,5 @@
 const app=getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     userBanners:[],
     userInfo:{},
@@ -55,6 +51,18 @@ Page({
       this.setData({
         userProduct: res.data.imgs?res.data.imgs:[]
       })
+    })
+  },
+  /*图片预览*/
+  previewImage(e) {
+    let preUlrs = []
+     this.data.userProduct.map(e=> {
+        preUlrs.push(e.image);
+      }
+    );
+    wx.previewImage({
+      current: e.currentTarget.dataset.src, // 当前显示图片的http链接
+      urls: preUlrs // 需要预览的图片http链接列表
     })
   },
   changeType(e){

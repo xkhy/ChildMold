@@ -1,7 +1,8 @@
 const app = getApp()
 Page({
   data: {
-    user:{}
+    user:{},
+    qrcodeFlag:true 
   },
   onLoad(){
     this.setData({
@@ -61,6 +62,13 @@ Page({
         }
       }
     })
+  },
+  showQrcode(){
+    this.setData({ qrcodeFlag: false })
+  },
+  hideQrcode(){
+    console.log("关闭")
+    this.setData({ qrcodeFlag: true })
   },
   onPullDownRefresh() {
     wx.showNavigationBarLoading();
