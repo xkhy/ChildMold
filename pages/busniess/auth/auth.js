@@ -136,6 +136,11 @@ Page({
       isAgree: items[0].name
     });
   },
+  toArgeement(){
+    wx.navigateTo({
+      url: '../../model/argeement/argeement'
+    })
+  },
     /*上传图片开始 */
     uploadBizlicense(){
       let that=this

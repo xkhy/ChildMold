@@ -49,18 +49,18 @@
         </view>
       </picker>
     </view>
-    <view class="item address">
+    <view class="item address no-require">
       <label>详细地址:</label>
       <textarea type="text" name="address" auto-height value="{{address}}" placeholder="请输入您的详细地址" 
       placeholder-class="xxx"/>
     </view>
     <view class="item height">
       <label>身高:</label>
-      <input type="number" name="height" value="{{height}}" placeholder="请输入您的身高" placeholder-class="xxx"/>
+      <input type="number" name="height" value="{{height}}" placeholder="如120cm" placeholder-class="xxx"/>
     </view>
     <view class="item">
       <label>体重:</label>
-      <input type="digit" name="weight" value="{{weight}}" placeholder="请输入您的体重" placeholder-class="xxx"/>
+      <input type="digit" name="weight" value="{{weight}}" placeholder="如20kg" placeholder-class="xxx"/>
     </view>
     <view class="item">
       <label>鞋码:</label>
@@ -76,7 +76,7 @@
       <textarea type="text" name="profile" auto-height value="{{profile}}" placeholder="请输入您的自我介绍" placeholder-class="xxx"/>
     </view>
     <view class="images">
-      <label for="">父母身份证照片</label>
+      <label for="">监护人身份证照片</label>
       <view class="photo" bindtap="uploadIdcardFront">
           <image wx:if="{{idcard_front_url}}" class='upload-image'src='{{idcard_front_url}}'></image>
           <view wx:else class="add-btn">
@@ -97,14 +97,14 @@
       </view>      
     </view>
     <view class="images">
-      <label for="">户口本（父母和童模）</label>
+      <label for="">户口本（监护人和童模）</label>
       <view class="photo" bindtap="uploadHouseParent">
         <image wx:if="{{house_parent_url}}" class='upload-image' src='{{house_parent_url}}'></image>
         <view wx:else class="add-btn">
           <view class="add">
             +
           </view>
-          <text>父母户口本页</text>
+          <text>监护人户口本页</text>
         </view>
       </view> 
      <view class="photo" bindtap="uploadHouseSelf">
@@ -121,7 +121,7 @@
       <radio-group>
         <view wx:for="{{agreeItems}}" wx:key="{{index}}">
           <radio value="{{item.name}}" checked="{{item.checked}}" bindtap = "toggleAgree" color="4A90E2"/>
-          已阅读并{{item.value}}协议
+          已阅读并{{item.value}}<text style="text-decoration:underline" bindtap="toArgeement">协议</text>
         </view>
       </radio-group>
     </view>

@@ -20,7 +20,7 @@ Page({
               wx.getUserInfo({
                 success: res => {
                   console.log(res)
-                  this.login(res.encryptedData,res.iv);
+                  this.login(res.encryptedData,res.iv,res.rawData);
                   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
                   // 所以此处加入 callback 以防止这种情况
                   if (this.userInfoReadyCallback) {
@@ -35,7 +35,7 @@ Page({
         })
       },
     // 登录
-    login(encryptedData,iv){
+    login(encryptedData,iv,raw){
       wx.login({
         success: res => {
           if (res.code) {
@@ -46,7 +46,7 @@ Page({
             }).then(res=>{
               console.log(res)
               app.token = res.data.token
-              this.setUerInfo(encryptedData,iv);
+              this.setUerInfo(encryptedData,iv,raw);
             })
           } else {
             console.log('登录失败！' + res.errMsg)
@@ -54,11 +54,12 @@ Page({
         }
       })
     },
-    setUerInfo(encryptedData,iv){
+    setUerInfo(encryptedData,iv,raw){
       app.post('setuserinfo', {
         token: app.token,
         encrypt:encryptedData,
-        iv:iv
+        iv:iv,
+        raw: raw
       }).then(res=>{
         console.log(res)
         if (res.status==200) {
@@ -94,7 +95,7 @@ Page({
     if (e.detail.userInfo) {
       //用户按了允许授权按钮
       console.log(e.detail)
-      this.login(e.detail.encryptedData,e.detail.iv);
+      this.login(e.detail.encryptedData,e.detail.iv,e.detail.rawData);
     } else {
       //用户按了拒绝按钮
       wx.showModal({

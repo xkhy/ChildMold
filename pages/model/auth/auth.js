@@ -20,11 +20,11 @@ Page({
     genderIndex: 0,
     natIndex: 0,
     orgIndex:0,
-    idcard_front:'', //父母身份证正面
+    idcard_front:'', //监护人身份证正面
     idcard_front_url:'',
-    idcard_back:'', //父母身份证反面
+    idcard_back:'', //监护人身份证反面
     idcard_back_url:'',
-    house_parent:'', //父母身户口本页
+    house_parent:'', //监护人身户口本页
     house_parent_url:'',
     house_self:'', //子女户口本页
     house_self_url:'',
@@ -99,17 +99,13 @@ Page({
       app.showToast("请输入手机号")
       return false;
     }
-    let phoneReg = /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/;
+    let phoneReg = /^[1][3,4,5,6,7,8,9][0-9]{9}$/;
     if (!phoneReg.test(params.phone)) {
       app.showToast("请输入正确的手机号")
       return false;
     }
     if (params.organize==0) {
       app.showToast("请选择机构")
-      return false;
-    }
-    if (!params.address) {
-      app.showToast("请输入详细地址")
       return false;
     }
     if (!params.height) {
@@ -217,6 +213,11 @@ Page({
       agreeItems: items,
       isAgree: items[0].name
     });
+  },
+  toArgeement(){
+    wx.navigateTo({
+      url: '../argeement/argeement'
+    })
   },
     /*上传图片开始 */
     uploadIdcardFront(){

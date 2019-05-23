@@ -1,7 +1,7 @@
 //app.js
 App({
     // base_url: 'http://192.168.0.107/',
-    base_url: 'http://model.tongzgc.com/',
+    base_url: 'https://model.tongzgc.com/',
     token:'',
     user:{},
     isLogin:true,

@@ -36,7 +36,7 @@
               </view>
             <view wx:else class="cell">
               <view class="row row-half">
-                  <view class="row-title">性别：<text class="cell-content">{{noticeInfo.name}}</text></view>
+                  <view class="row-title">姓名：<text class="cell-content">{{noticeInfo.name}}</text></view>
                   <view class="row-title">身高：<text class="cell-content">{{noticeInfo.height}}</text></view>
                </view>
               <view class="row row-half">

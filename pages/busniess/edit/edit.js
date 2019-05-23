@@ -31,7 +31,7 @@ Page({
       app.showToast("请输入手机号")
       return false;
     }
-    let phoneReg = /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/;
+    let phoneReg = /^[1][3,4,5,6,7,8,9][0-9]{9}$/;
     if (!phoneReg.test(params.phone)) {
       app.showToast("请输入正确的手机号")
       return false;

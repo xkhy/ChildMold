@@ -35,7 +35,7 @@ Page({
           bannner: res.data
         });
       }else{
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/login/login'
         })
       }
@@ -71,9 +71,10 @@ Page({
             hasMore:false
           })
         }
-      }else{
-        app.showToast(res.msg)
-      }     
+      }
+      // else{
+      //   app.showToast("请先登录")
+      // }     
     });
   },
   changeType(e){

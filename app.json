@@ -11,6 +11,7 @@
     "pages/find/notice/list/list",
     "pages/model/detail",
     "pages/model/auth/auth",
+    "pages/model/argeement/argeement",
     "pages/model/edit/edit",
     "pages/model/follow/follow",
     "pages/busniess/detail",
