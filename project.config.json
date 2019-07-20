@@ -1,0 +1,170 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.2",
+	"appid": "wx7a8984973c01f273",
+	"projectname": "childmold",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "发现",
+					"pathName": "pages/find/find",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布页",
+					"pathName": "pages/release/release",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "认证",
+					"pathName": "pages/user/auth/auth",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "童模详情",
+					"pathName": "pages/model/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家详情",
+					"pathName": "pages/busniess/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "需求详情",
+					"pathName": "pages/find/detail/detail",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "通告详情",
+					"pathName": "pages/find/notice/detail",
+					"query": "id=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的作品",
+					"pathName": "pages/user/photo/photo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "我的关注",
+					"pathName": "pages/user/follow/follow",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "通告发布",
+					"pathName": "pages/find/notice/release/release",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "童模认证",
+					"pathName": "pages/model/auth/auth",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家认证",
+					"pathName": "pages/busniess/auth/auth",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "需求发布",
+					"pathName": "pages/find/demand/release/release",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "编辑资料",
+					"pathName": "pages/model/edit/edit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "文章",
+					"pathName": "pages/index/article/article",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}
